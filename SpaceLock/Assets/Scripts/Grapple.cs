@@ -148,7 +148,7 @@ public class Grapple : MonoBehaviour {
         }
     }
 
-    void UpdateGrappleCountText()
+    public void UpdateGrappleCountText()
     {
         if (grappleCountText != null)
         {

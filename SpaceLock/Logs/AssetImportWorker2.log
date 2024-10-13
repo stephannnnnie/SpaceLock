@@ -2658,3 +2658,443 @@ Start importing Assets/Prefabs/PowerUp.prefab using Guid(e678ecd8c5cdc4b519a45fe
  -> (artifact id: '9481f65b939636668101a8e4a7727d2c') in 0.000569 seconds
 Number of updated asset objects reloaded before import = 0
 Number of asset objects unloaded after import = 0
+========================================================================
+Received Prepare
+Caller must complete domain reload
+Begin MonoManager ReloadAssembly
+Thread 0x16d613000 may have been prematurely finalized
+Symbol file data-0x14e480c00 doesn't match image /Users/yenchihchen/Desktop/csci526-fall24-friday-main-gamejammers/SpaceLock/Library/ScriptAssemblies/Unity.EditorCoroutines.Editor.dll
+Symbol file LoadedFromMemory is not a mono symbol file
+Symbol file data-0x1389e8000 doesn't match image /Users/yenchihchen/Desktop/csci526-fall24-friday-main-gamejammers/SpaceLock/Library/ScriptAssemblies/Unity.Performance.Profile-Analyzer.Editor.dll
+Symbol file LoadedFromMemory is not a mono symbol file
+Symbol file data-0x158008000 doesn't match image /Users/yenchihchen/Desktop/csci526-fall24-friday-main-gamejammers/SpaceLock/Library/ScriptAssemblies/UnityEngine.TestRunner.dll
+Symbol file LoadedFromMemory is not a mono symbol file
+Symbol file data-0x3216ca800 doesn't match image /Users/yenchihchen/Desktop/csci526-fall24-friday-main-gamejammers/SpaceLock/Library/ScriptAssemblies/Unity.Settings.Editor.dll
+Symbol file LoadedFromMemory is not a mono symbol file
+Symbol file data-0x1302e8000 doesn't match image /Users/yenchihchen/Desktop/csci526-fall24-friday-main-gamejammers/SpaceLock/Library/ScriptAssemblies/Unity.Rider.Editor.dll
+Symbol file LoadedFromMemory is not a mono symbol file
+Symbol file data-0x138b80000 doesn't match image /Users/yenchihchen/Desktop/csci526-fall24-friday-main-gamejammers/SpaceLock/Library/ScriptAssemblies/UnityEditor.TestRunner.dll
+Symbol file LoadedFromMemory is not a mono symbol file
+- Loaded All Assemblies, in  0.389 seconds
+Native extension for OSXStandalone target not found
+Native extension for WebGL target not found
+[Package Manager] Server::EnsureServerProcessIsRunning -- launch failed, reason: Unity was launched with the -noUpm command-line argument
+[Package Manager] UpmClient::Send -- Unable to send message (not connected to UPM process).
+[Package Manager] Cannot connect to Unity Package Manager local server
+Mono: successfully reloaded assembly
+- Finished resetting the current domain, in  0.843 seconds
+Domain Reload Profiling: 1232ms
+	BeginReloadAssembly (120ms)
+		ExecutionOrderSort (0ms)
+		DisableScriptedObjects (4ms)
+		BackupInstance (0ms)
+		ReleaseScriptingObjects (0ms)
+		CreateAndSetChildDomain (39ms)
+	RebuildCommonClasses (32ms)
+	RebuildNativeTypeToScriptingClass (12ms)
+	initialDomainReloadingComplete (23ms)
+	LoadAllAssembliesAndSetupDomain (203ms)
+		LoadAssemblies (235ms)
+		RebuildTransferFunctionScriptingTraits (0ms)
+		AnalyzeDomain (18ms)
+			TypeCache.Refresh (11ms)
+				TypeCache.ScanAssembly (0ms)
+			ScanForSourceGeneratedMonoScriptInfo (0ms)
+			ResolveRequiredComponents (6ms)
+	FinalizeReload (843ms)
+		ReleaseScriptCaches (0ms)
+		RebuildScriptCaches (0ms)
+		SetupLoadedEditorAssemblies (342ms)
+			LogAssemblyErrors (0ms)
+			InitializePlatformSupportModulesInManaged (5ms)
+			SetLoadedEditorAssemblies (4ms)
+			RefreshPlugins (0ms)
+			BeforeProcessingInitializeOnLoad (43ms)
+			ProcessInitializeOnLoadAttributes (276ms)
+			ProcessInitializeOnLoadMethodAttributes (13ms)
+			AfterProcessingInitializeOnLoad (1ms)
+			EditorAssembliesLoaded (0ms)
+		ExecutionOrderSort2 (0ms)
+		AwakeInstancesAfterBackupRestoration (4ms)
+Refreshing native plugins compatible for Editor in 1.13 ms, found 2 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 3269 Unused Serialized files (Serialized files now loaded: 0)
+Unloading 14 unused Assets / (108.6 KB). Loaded Objects now: 4206.
+Memory consumption went from 230.2 MB to 230.1 MB.
+Total: 3.262916 ms (FindLiveObjects: 0.457500 ms CreateObjectMapping: 0.051417 ms MarkObjects: 2.665334 ms  DeleteObjects: 0.087291 ms)
+
+Prepare: number of updated asset objects reloaded= 0
+AssetImportParameters requested are different than current active one (requested -> active):
+  custom:container-demuxer-ogg: 62fdf1f143b41e24485cea50d1cbac27 -> 
+  custom:video-decoder-ogg-theora: a1e56fd34408186e4bbccfd4996cb3dc -> 
+  custom:CustomObjectIndexerAttribute: 9a22284fe3817be447336de3de66b15e -> 
+  custom:container-demuxer-webm: 4f35f7cbe854078d1ac9338744f61a02 -> 
+  custom:container-muxer-webm: aa71ff27fc2769a1b78a27578f13a17b -> 
+  custom:video-decoder-webm-vp8: 9c59270c3fd7afecdb556c50c9e8de78 -> 
+  custom:SearchIndexIgnoredProperties: e643bd26f0fe6173181afceb89e7c659 -> 
+  custom:AudioImporter_EditorPlatform: 3918e3fc78b5a79bad01e8451be0beb8 -> 
+  custom:framework-osx-AVFoundation: e770b220cccbd017edd2c1fefb359320 -> 
+  custom:video-encoder-webm-vp8: eb34c28f22e8b96e1ab97ce403110664 -> 
+  custom:audio-decoder-ogg-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+  custom:audio-encoder-webm-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+========================================================================
+Received Import Request.
+  Time since last request: 48159.302837 seconds.
+  path: Assets/Prefabs/Obstacle.prefab
+  artifactKey: Guid(787c43ea33db244df923fa10f6052a48) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/Obstacle.prefab using Guid(787c43ea33db244df923fa10f6052a48) Importer(815301076,1909f56bfc062723c751e8b465ee728b) [PhysX] Initialized MultithreadedTaskDispatcher with 8 workers.
+ -> (artifact id: 'bc74a9309e04fca3b984e94e76d8b433') in 0.002057 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 0
+========================================================================
+Received Import Request.
+  Time since last request: 0.000064 seconds.
+  path: Assets/Prefabs/PowerUp.prefab
+  artifactKey: Guid(e678ecd8c5cdc4b519a45fe0051e007a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/PowerUp.prefab using Guid(e678ecd8c5cdc4b519a45fe0051e007a) Importer(815301076,1909f56bfc062723c751e8b465ee728b) [PhysX] Initialized MultithreadedTaskDispatcher with 8 workers.
+ -> (artifact id: '9481f65b939636668101a8e4a7727d2c') in 0.000311 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 0
+========================================================================
+Received Prepare
+Caller must complete domain reload
+Begin MonoManager ReloadAssembly
+Thread 0x16d613000 may have been prematurely finalized
+Symbol file data-0x14de62400 doesn't match image /Users/yenchihchen/Desktop/csci526-fall24-friday-main-gamejammers/SpaceLock/Library/ScriptAssemblies/Unity.EditorCoroutines.Editor.dll
+Symbol file LoadedFromMemory is not a mono symbol file
+Symbol file data-0x160218000 doesn't match image /Users/yenchihchen/Desktop/csci526-fall24-friday-main-gamejammers/SpaceLock/Library/ScriptAssemblies/Unity.Performance.Profile-Analyzer.Editor.dll
+Symbol file LoadedFromMemory is not a mono symbol file
+Symbol file data-0x160380000 doesn't match image /Users/yenchihchen/Desktop/csci526-fall24-friday-main-gamejammers/SpaceLock/Library/ScriptAssemblies/UnityEngine.TestRunner.dll
+Symbol file LoadedFromMemory is not a mono symbol file
+Symbol file data-0x14de39e00 doesn't match image /Users/yenchihchen/Desktop/csci526-fall24-friday-main-gamejammers/SpaceLock/Library/ScriptAssemblies/Unity.Settings.Editor.dll
+Symbol file LoadedFromMemory is not a mono symbol file
+Symbol file data-0x138ab0000 doesn't match image /Users/yenchihchen/Desktop/csci526-fall24-friday-main-gamejammers/SpaceLock/Library/ScriptAssemblies/Unity.Rider.Editor.dll
+Symbol file LoadedFromMemory is not a mono symbol file
+Symbol file data-0x138d60000 doesn't match image /Users/yenchihchen/Desktop/csci526-fall24-friday-main-gamejammers/SpaceLock/Library/ScriptAssemblies/UnityEditor.TestRunner.dll
+Symbol file LoadedFromMemory is not a mono symbol file
+- Loaded All Assemblies, in  0.332 seconds
+Native extension for OSXStandalone target not found
+Native extension for WebGL target not found
+[Package Manager] Server::EnsureServerProcessIsRunning -- launch failed, reason: Unity was launched with the -noUpm command-line argument
+[Package Manager] UpmClient::Send -- Unable to send message (not connected to UPM process).
+[Package Manager] Cannot connect to Unity Package Manager local server
+Mono: successfully reloaded assembly
+- Finished resetting the current domain, in  0.772 seconds
+Domain Reload Profiling: 1105ms
+	BeginReloadAssembly (86ms)
+		ExecutionOrderSort (0ms)
+		DisableScriptedObjects (2ms)
+		BackupInstance (0ms)
+		ReleaseScriptingObjects (0ms)
+		CreateAndSetChildDomain (31ms)
+	RebuildCommonClasses (23ms)
+	RebuildNativeTypeToScriptingClass (8ms)
+	initialDomainReloadingComplete (15ms)
+	LoadAllAssembliesAndSetupDomain (200ms)
+		LoadAssemblies (208ms)
+		RebuildTransferFunctionScriptingTraits (0ms)
+		AnalyzeDomain (22ms)
+			TypeCache.Refresh (12ms)
+				TypeCache.ScanAssembly (0ms)
+			ScanForSourceGeneratedMonoScriptInfo (0ms)
+			ResolveRequiredComponents (8ms)
+	FinalizeReload (773ms)
+		ReleaseScriptCaches (0ms)
+		RebuildScriptCaches (0ms)
+		SetupLoadedEditorAssemblies (306ms)
+			LogAssemblyErrors (0ms)
+			InitializePlatformSupportModulesInManaged (4ms)
+			SetLoadedEditorAssemblies (3ms)
+			RefreshPlugins (0ms)
+			BeforeProcessingInitializeOnLoad (38ms)
+			ProcessInitializeOnLoadAttributes (247ms)
+			ProcessInitializeOnLoadMethodAttributes (12ms)
+			AfterProcessingInitializeOnLoad (1ms)
+			EditorAssembliesLoaded (0ms)
+		ExecutionOrderSort2 (0ms)
+		AwakeInstancesAfterBackupRestoration (2ms)
+Refreshing native plugins compatible for Editor in 0.83 ms, found 2 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 3269 Unused Serialized files (Serialized files now loaded: 0)
+Unloading 14 unused Assets / (108.7 KB). Loaded Objects now: 4221.
+Memory consumption went from 236.1 MB to 236.0 MB.
+Total: 3.051583 ms (FindLiveObjects: 0.166666 ms CreateObjectMapping: 0.046500 ms MarkObjects: 2.745792 ms  DeleteObjects: 0.091625 ms)
+
+Prepare: number of updated asset objects reloaded= 0
+AssetImportParameters requested are different than current active one (requested -> active):
+  custom:container-demuxer-ogg: 62fdf1f143b41e24485cea50d1cbac27 -> 
+  custom:video-decoder-ogg-theora: a1e56fd34408186e4bbccfd4996cb3dc -> 
+  custom:CustomObjectIndexerAttribute: 9a22284fe3817be447336de3de66b15e -> 
+  custom:container-demuxer-webm: 4f35f7cbe854078d1ac9338744f61a02 -> 
+  custom:container-muxer-webm: aa71ff27fc2769a1b78a27578f13a17b -> 
+  custom:video-decoder-webm-vp8: 9c59270c3fd7afecdb556c50c9e8de78 -> 
+  custom:SearchIndexIgnoredProperties: e643bd26f0fe6173181afceb89e7c659 -> 
+  custom:AudioImporter_EditorPlatform: 3918e3fc78b5a79bad01e8451be0beb8 -> 
+  custom:framework-osx-AVFoundation: e770b220cccbd017edd2c1fefb359320 -> 
+  custom:video-encoder-webm-vp8: eb34c28f22e8b96e1ab97ce403110664 -> 
+  custom:audio-decoder-ogg-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+  custom:audio-encoder-webm-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+========================================================================
+Received Prepare
+Caller must complete domain reload
+Begin MonoManager ReloadAssembly
+Thread 0x16d613000 may have been prematurely finalized
+Symbol file data-0x14ece9a00 doesn't match image /Users/yenchihchen/Desktop/csci526-fall24-friday-main-gamejammers/SpaceLock/Library/ScriptAssemblies/Unity.EditorCoroutines.Editor.dll
+Symbol file LoadedFromMemory is not a mono symbol file
+Symbol file data-0x340520000 doesn't match image /Users/yenchihchen/Desktop/csci526-fall24-friday-main-gamejammers/SpaceLock/Library/ScriptAssemblies/Unity.Performance.Profile-Analyzer.Editor.dll
+Symbol file LoadedFromMemory is not a mono symbol file
+Symbol file data-0x340678000 doesn't match image /Users/yenchihchen/Desktop/csci526-fall24-friday-main-gamejammers/SpaceLock/Library/ScriptAssemblies/UnityEngine.TestRunner.dll
+Symbol file LoadedFromMemory is not a mono symbol file
+Symbol file data-0x14ec6c800 doesn't match image /Users/yenchihchen/Desktop/csci526-fall24-friday-main-gamejammers/SpaceLock/Library/ScriptAssemblies/Unity.Settings.Editor.dll
+Symbol file LoadedFromMemory is not a mono symbol file
+Symbol file data-0x340b68000 doesn't match image /Users/yenchihchen/Desktop/csci526-fall24-friday-main-gamejammers/SpaceLock/Library/ScriptAssemblies/Unity.Rider.Editor.dll
+Symbol file LoadedFromMemory is not a mono symbol file
+Symbol file data-0x340c38000 doesn't match image /Users/yenchihchen/Desktop/csci526-fall24-friday-main-gamejammers/SpaceLock/Library/ScriptAssemblies/UnityEditor.TestRunner.dll
+Symbol file LoadedFromMemory is not a mono symbol file
+- Loaded All Assemblies, in  0.298 seconds
+Native extension for OSXStandalone target not found
+Native extension for WebGL target not found
+[Package Manager] Server::EnsureServerProcessIsRunning -- launch failed, reason: Unity was launched with the -noUpm command-line argument
+[Package Manager] UpmClient::Send -- Unable to send message (not connected to UPM process).
+[Package Manager] Cannot connect to Unity Package Manager local server
+Mono: successfully reloaded assembly
+- Finished resetting the current domain, in  0.703 seconds
+Domain Reload Profiling: 1001ms
+	BeginReloadAssembly (84ms)
+		ExecutionOrderSort (0ms)
+		DisableScriptedObjects (2ms)
+		BackupInstance (0ms)
+		ReleaseScriptingObjects (0ms)
+		CreateAndSetChildDomain (28ms)
+	RebuildCommonClasses (24ms)
+	RebuildNativeTypeToScriptingClass (8ms)
+	initialDomainReloadingComplete (14ms)
+	LoadAllAssembliesAndSetupDomain (169ms)
+		LoadAssemblies (188ms)
+		RebuildTransferFunctionScriptingTraits (0ms)
+		AnalyzeDomain (13ms)
+			TypeCache.Refresh (7ms)
+				TypeCache.ScanAssembly (0ms)
+			ScanForSourceGeneratedMonoScriptInfo (0ms)
+			ResolveRequiredComponents (5ms)
+	FinalizeReload (703ms)
+		ReleaseScriptCaches (0ms)
+		RebuildScriptCaches (0ms)
+		SetupLoadedEditorAssemblies (299ms)
+			LogAssemblyErrors (0ms)
+			InitializePlatformSupportModulesInManaged (4ms)
+			SetLoadedEditorAssemblies (3ms)
+			RefreshPlugins (0ms)
+			BeforeProcessingInitializeOnLoad (38ms)
+			ProcessInitializeOnLoadAttributes (241ms)
+			ProcessInitializeOnLoadMethodAttributes (11ms)
+			AfterProcessingInitializeOnLoad (1ms)
+			EditorAssembliesLoaded (0ms)
+		ExecutionOrderSort2 (0ms)
+		AwakeInstancesAfterBackupRestoration (3ms)
+Refreshing native plugins compatible for Editor in 0.87 ms, found 2 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 3269 Unused Serialized files (Serialized files now loaded: 0)
+Unloading 14 unused Assets / (108.7 KB). Loaded Objects now: 4236.
+Memory consumption went from 241.8 MB to 241.7 MB.
+Total: 2.617750 ms (FindLiveObjects: 0.141500 ms CreateObjectMapping: 0.044125 ms MarkObjects: 2.384625 ms  DeleteObjects: 0.047000 ms)
+
+Prepare: number of updated asset objects reloaded= 0
+AssetImportParameters requested are different than current active one (requested -> active):
+  custom:container-demuxer-ogg: 62fdf1f143b41e24485cea50d1cbac27 -> 
+  custom:video-decoder-ogg-theora: a1e56fd34408186e4bbccfd4996cb3dc -> 
+  custom:CustomObjectIndexerAttribute: 9a22284fe3817be447336de3de66b15e -> 
+  custom:container-demuxer-webm: 4f35f7cbe854078d1ac9338744f61a02 -> 
+  custom:container-muxer-webm: aa71ff27fc2769a1b78a27578f13a17b -> 
+  custom:video-decoder-webm-vp8: 9c59270c3fd7afecdb556c50c9e8de78 -> 
+  custom:SearchIndexIgnoredProperties: e643bd26f0fe6173181afceb89e7c659 -> 
+  custom:AudioImporter_EditorPlatform: 3918e3fc78b5a79bad01e8451be0beb8 -> 
+  custom:framework-osx-AVFoundation: e770b220cccbd017edd2c1fefb359320 -> 
+  custom:video-encoder-webm-vp8: eb34c28f22e8b96e1ab97ce403110664 -> 
+  custom:audio-decoder-ogg-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+  custom:audio-encoder-webm-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+========================================================================
+Received Import Request.
+  Time since last request: 209.910690 seconds.
+  path: Assets/Prefabs/Obstacle.prefab
+  artifactKey: Guid(787c43ea33db244df923fa10f6052a48) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/Obstacle.prefab using Guid(787c43ea33db244df923fa10f6052a48) Importer(815301076,1909f56bfc062723c751e8b465ee728b) [PhysX] Initialized MultithreadedTaskDispatcher with 8 workers.
+ -> (artifact id: 'bc74a9309e04fca3b984e94e76d8b433') in 0.020365 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 0
+========================================================================
+Received Import Request.
+  Time since last request: 4.468127 seconds.
+  path: Assets/TextMesh Pro/Resources/TMP Settings.asset
+  artifactKey: Guid(3f5b5dff67a942289a9defa416b206f3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/TextMesh Pro/Resources/TMP Settings.asset using Guid(3f5b5dff67a942289a9defa416b206f3) Importer(815301076,1909f56bfc062723c751e8b465ee728b) [PhysX] Initialized MultithreadedTaskDispatcher with 8 workers.
+ -> (artifact id: '67dad185b586f63e47ea3042fdf1c68b') in 0.045632 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 15
+========================================================================
+Received Prepare
+Caller must complete domain reload
+Begin MonoManager ReloadAssembly
+Thread 0x16d613000 may have been prematurely finalized
+Symbol file data-0x14dac9a00 doesn't match image /Users/yenchihchen/Desktop/csci526-fall24-friday-main-gamejammers/SpaceLock/Library/ScriptAssemblies/Unity.EditorCoroutines.Editor.dll
+Symbol file LoadedFromMemory is not a mono symbol file
+Symbol file data-0x158020000 doesn't match image /Users/yenchihchen/Desktop/csci526-fall24-friday-main-gamejammers/SpaceLock/Library/ScriptAssemblies/Unity.Performance.Profile-Analyzer.Editor.dll
+Symbol file LoadedFromMemory is not a mono symbol file
+Symbol file data-0x318020000 doesn't match image /Users/yenchihchen/Desktop/csci526-fall24-friday-main-gamejammers/SpaceLock/Library/ScriptAssemblies/UnityEngine.TestRunner.dll
+Symbol file LoadedFromMemory is not a mono symbol file
+Symbol file data-0x14cd53200 doesn't match image /Users/yenchihchen/Desktop/csci526-fall24-friday-main-gamejammers/SpaceLock/Library/ScriptAssemblies/Unity.Settings.Editor.dll
+Symbol file LoadedFromMemory is not a mono symbol file
+Symbol file data-0x141b00000 doesn't match image /Users/yenchihchen/Desktop/csci526-fall24-friday-main-gamejammers/SpaceLock/Library/ScriptAssemblies/Unity.Rider.Editor.dll
+Symbol file LoadedFromMemory is not a mono symbol file
+Symbol file data-0x141bd0000 doesn't match image /Users/yenchihchen/Desktop/csci526-fall24-friday-main-gamejammers/SpaceLock/Library/ScriptAssemblies/UnityEditor.TestRunner.dll
+Symbol file LoadedFromMemory is not a mono symbol file
+- Loaded All Assemblies, in  0.342 seconds
+Native extension for OSXStandalone target not found
+Native extension for WebGL target not found
+[Package Manager] Server::EnsureServerProcessIsRunning -- launch failed, reason: Unity was launched with the -noUpm command-line argument
+[Package Manager] UpmClient::Send -- Unable to send message (not connected to UPM process).
+[Package Manager] Cannot connect to Unity Package Manager local server
+Mono: successfully reloaded assembly
+- Finished resetting the current domain, in  0.787 seconds
+Domain Reload Profiling: 1129ms
+	BeginReloadAssembly (100ms)
+		ExecutionOrderSort (0ms)
+		DisableScriptedObjects (3ms)
+		BackupInstance (0ms)
+		ReleaseScriptingObjects (0ms)
+		CreateAndSetChildDomain (36ms)
+	RebuildCommonClasses (24ms)
+	RebuildNativeTypeToScriptingClass (9ms)
+	initialDomainReloadingComplete (14ms)
+	LoadAllAssembliesAndSetupDomain (195ms)
+		LoadAssemblies (189ms)
+		RebuildTransferFunctionScriptingTraits (0ms)
+		AnalyzeDomain (42ms)
+			TypeCache.Refresh (18ms)
+				TypeCache.ScanAssembly (1ms)
+			ScanForSourceGeneratedMonoScriptInfo (16ms)
+			ResolveRequiredComponents (6ms)
+	FinalizeReload (787ms)
+		ReleaseScriptCaches (0ms)
+		RebuildScriptCaches (0ms)
+		SetupLoadedEditorAssemblies (308ms)
+			LogAssemblyErrors (0ms)
+			InitializePlatformSupportModulesInManaged (5ms)
+			SetLoadedEditorAssemblies (3ms)
+			RefreshPlugins (0ms)
+			BeforeProcessingInitializeOnLoad (39ms)
+			ProcessInitializeOnLoadAttributes (249ms)
+			ProcessInitializeOnLoadMethodAttributes (12ms)
+			AfterProcessingInitializeOnLoad (1ms)
+			EditorAssembliesLoaded (0ms)
+		ExecutionOrderSort2 (0ms)
+		AwakeInstancesAfterBackupRestoration (3ms)
+Refreshing native plugins compatible for Editor in 0.65 ms, found 2 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 3269 Unused Serialized files (Serialized files now loaded: 0)
+Unloading 14 unused Assets / (108.7 KB). Loaded Objects now: 4251.
+Memory consumption went from 247.7 MB to 247.6 MB.
+Total: 2.648625 ms (FindLiveObjects: 0.342625 ms CreateObjectMapping: 0.044792 ms MarkObjects: 2.222750 ms  DeleteObjects: 0.037708 ms)
+
+Prepare: number of updated asset objects reloaded= 0
+AssetImportParameters requested are different than current active one (requested -> active):
+  custom:container-demuxer-ogg: 62fdf1f143b41e24485cea50d1cbac27 -> 
+  custom:video-decoder-ogg-theora: a1e56fd34408186e4bbccfd4996cb3dc -> 
+  custom:CustomObjectIndexerAttribute: 9a22284fe3817be447336de3de66b15e -> 
+  custom:container-demuxer-webm: 4f35f7cbe854078d1ac9338744f61a02 -> 
+  custom:container-muxer-webm: aa71ff27fc2769a1b78a27578f13a17b -> 
+  custom:video-decoder-webm-vp8: 9c59270c3fd7afecdb556c50c9e8de78 -> 
+  custom:SearchIndexIgnoredProperties: e643bd26f0fe6173181afceb89e7c659 -> 
+  custom:AudioImporter_EditorPlatform: 3918e3fc78b5a79bad01e8451be0beb8 -> 
+  custom:framework-osx-AVFoundation: e770b220cccbd017edd2c1fefb359320 -> 
+  custom:video-encoder-webm-vp8: eb34c28f22e8b96e1ab97ce403110664 -> 
+  custom:audio-decoder-ogg-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+  custom:audio-encoder-webm-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+========================================================================
+Received Prepare
+Caller must complete domain reload
+Begin MonoManager ReloadAssembly
+Thread 0x16d613000 may have been prematurely finalized
+Symbol file data-0x14eb0a400 doesn't match image /Users/yenchihchen/Desktop/csci526-fall24-friday-main-gamejammers/SpaceLock/Library/ScriptAssemblies/Unity.EditorCoroutines.Editor.dll
+Symbol file LoadedFromMemory is not a mono symbol file
+Symbol file data-0x1394a8000 doesn't match image /Users/yenchihchen/Desktop/csci526-fall24-friday-main-gamejammers/SpaceLock/Library/ScriptAssemblies/Unity.Performance.Profile-Analyzer.Editor.dll
+Symbol file LoadedFromMemory is not a mono symbol file
+Symbol file data-0x139600000 doesn't match image /Users/yenchihchen/Desktop/csci526-fall24-friday-main-gamejammers/SpaceLock/Library/ScriptAssemblies/UnityEngine.TestRunner.dll
+Symbol file LoadedFromMemory is not a mono symbol file
+Symbol file data-0x14e9cdc00 doesn't match image /Users/yenchihchen/Desktop/csci526-fall24-friday-main-gamejammers/SpaceLock/Library/ScriptAssemblies/Unity.Settings.Editor.dll
+Symbol file LoadedFromMemory is not a mono symbol file
+Symbol file data-0x139af0000 doesn't match image /Users/yenchihchen/Desktop/csci526-fall24-friday-main-gamejammers/SpaceLock/Library/ScriptAssemblies/Unity.Rider.Editor.dll
+Symbol file LoadedFromMemory is not a mono symbol file
+Symbol file data-0x139bc0000 doesn't match image /Users/yenchihchen/Desktop/csci526-fall24-friday-main-gamejammers/SpaceLock/Library/ScriptAssemblies/UnityEditor.TestRunner.dll
+Symbol file LoadedFromMemory is not a mono symbol file
+- Loaded All Assemblies, in  0.238 seconds
+Native extension for OSXStandalone target not found
+Native extension for WebGL target not found
+[Package Manager] Server::EnsureServerProcessIsRunning -- launch failed, reason: Unity was launched with the -noUpm command-line argument
+[Package Manager] UpmClient::Send -- Unable to send message (not connected to UPM process).
+[Package Manager] Cannot connect to Unity Package Manager local server
+Mono: successfully reloaded assembly
+- Finished resetting the current domain, in  0.515 seconds
+Domain Reload Profiling: 753ms
+	BeginReloadAssembly (80ms)
+		ExecutionOrderSort (0ms)
+		DisableScriptedObjects (2ms)
+		BackupInstance (0ms)
+		ReleaseScriptingObjects (0ms)
+		CreateAndSetChildDomain (27ms)
+	RebuildCommonClasses (24ms)
+	RebuildNativeTypeToScriptingClass (8ms)
+	initialDomainReloadingComplete (13ms)
+	LoadAllAssembliesAndSetupDomain (113ms)
+		LoadAssemblies (130ms)
+		RebuildTransferFunctionScriptingTraits (0ms)
+		AnalyzeDomain (12ms)
+			TypeCache.Refresh (7ms)
+				TypeCache.ScanAssembly (0ms)
+			ScanForSourceGeneratedMonoScriptInfo (0ms)
+			ResolveRequiredComponents (5ms)
+	FinalizeReload (515ms)
+		ReleaseScriptCaches (0ms)
+		RebuildScriptCaches (0ms)
+		SetupLoadedEditorAssemblies (327ms)
+			LogAssemblyErrors (0ms)
+			InitializePlatformSupportModulesInManaged (4ms)
+			SetLoadedEditorAssemblies (3ms)
+			RefreshPlugins (0ms)
+			BeforeProcessingInitializeOnLoad (42ms)
+			ProcessInitializeOnLoadAttributes (265ms)
+			ProcessInitializeOnLoadMethodAttributes (12ms)
+			AfterProcessingInitializeOnLoad (1ms)
+			EditorAssembliesLoaded (0ms)
+		ExecutionOrderSort2 (0ms)
+		AwakeInstancesAfterBackupRestoration (3ms)
+Refreshing native plugins compatible for Editor in 0.76 ms, found 2 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 3269 Unused Serialized files (Serialized files now loaded: 0)
+Unloading 14 unused Assets / (108.6 KB). Loaded Objects now: 4266.
+Memory consumption went from 253.5 MB to 253.4 MB.
+Total: 2.882792 ms (FindLiveObjects: 0.174208 ms CreateObjectMapping: 0.047333 ms MarkObjects: 2.597500 ms  DeleteObjects: 0.062667 ms)
+
+Prepare: number of updated asset objects reloaded= 0
+AssetImportParameters requested are different than current active one (requested -> active):
+  custom:container-demuxer-ogg: 62fdf1f143b41e24485cea50d1cbac27 -> 
+  custom:video-decoder-ogg-theora: a1e56fd34408186e4bbccfd4996cb3dc -> 
+  custom:CustomObjectIndexerAttribute: 9a22284fe3817be447336de3de66b15e -> 
+  custom:container-demuxer-webm: 4f35f7cbe854078d1ac9338744f61a02 -> 
+  custom:container-muxer-webm: aa71ff27fc2769a1b78a27578f13a17b -> 
+  custom:video-decoder-webm-vp8: 9c59270c3fd7afecdb556c50c9e8de78 -> 
+  custom:SearchIndexIgnoredProperties: e643bd26f0fe6173181afceb89e7c659 -> 
+  custom:AudioImporter_EditorPlatform: 3918e3fc78b5a79bad01e8451be0beb8 -> 
+  custom:framework-osx-AVFoundation: e770b220cccbd017edd2c1fefb359320 -> 
+  custom:video-encoder-webm-vp8: eb34c28f22e8b96e1ab97ce403110664 -> 
+  custom:audio-decoder-ogg-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+  custom:audio-encoder-webm-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+========================================================================
+Received Import Request.
+  Time since last request: 1361.380460 seconds.
+  path: Assets/Scripts/PowerUp.cs
+  artifactKey: Guid(b5ac61bae34204c2a968faf997a0244d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Scripts/PowerUp.cs using Guid(b5ac61bae34204c2a968faf997a0244d) Importer(815301076,1909f56bfc062723c751e8b465ee728b) [PhysX] Initialized MultithreadedTaskDispatcher with 8 workers.
+ -> (artifact id: '408bed45a2c76c71dde257c161da2d84') in 0.001437 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 0

@@ -52,6 +52,7 @@ public class PowerUp : MonoBehaviour
         {
             case PowerUpType.ExtraGrapple:
                 grappleScript.remainingGrapples += 10;
+                grappleScript.UpdateGrappleCountText(); // Update the UI text
                 Debug.Log("Increased grapples by 10. New total: " + grappleScript.remainingGrapples);
                 break;
 
