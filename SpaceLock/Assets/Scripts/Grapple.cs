@@ -15,7 +15,7 @@ public class Grapple : MonoBehaviour {
     private Vector3 initialPosition;
     private float elapsedTime;
     public int maxGrapples = 5;
-    private int remainingGrapples;
+    public int remainingGrapples;
     public TextMeshProUGUI grappleCountText;
     public Image gameOverImage;
     public Image gameWinImage;

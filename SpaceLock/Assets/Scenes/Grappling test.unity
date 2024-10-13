@@ -1015,6 +1015,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxGrappleDistance: 30
   maxGrapples: 100
+  remainingGrapples: 0
   grappleCountText: {fileID: 351643617}
   gameOverImage: {fileID: 2043320384}
   gameWinImage: {fileID: 558443130}
@@ -1354,6 +1355,8 @@ MonoBehaviour:
   - {fileID: 2266585411967085508, guid: 787c43ea33db244df923fa10f6052a48, type: 3}
   - {fileID: 2266585411967085508, guid: 787c43ea33db244df923fa10f6052a48, type: 3}
   - {fileID: 2266585411967085508, guid: 787c43ea33db244df923fa10f6052a48, type: 3}
+  powerUpPrefab: {fileID: 4562818433435053289, guid: e678ecd8c5cdc4b519a45fe0051e007a, type: 3}
+  powerUpSpawnChance: 0.2
 --- !u!4 &1256363977
 Transform:
   m_ObjectHideFlags: 0
