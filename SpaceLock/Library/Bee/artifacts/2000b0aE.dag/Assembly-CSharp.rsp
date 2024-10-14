@@ -343,6 +343,7 @@
 "Assets/Scripts/Grapple.cs"
 "Assets/Scripts/GrappleWall.cs"
 "Assets/Scripts/ObstacleSpeed.cs"
+"Assets/Scripts/PowerUp.cs"
 "Assets/Scripts/RandomObstacleSpawner.cs"
 -langversion:9.0
 /deterministic
