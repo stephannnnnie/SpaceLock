@@ -25,9 +25,7 @@ public class GameOverDetection : MonoBehaviour {
         //gameOverImage.enabled = false;
         // restartButton.onClick.AddListener(RestartGame);
     }
-
-    void Update() {
-    }
+    
 
     void OnTriggerEnter(Collider other)
     {
