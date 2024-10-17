@@ -155,7 +155,7 @@ public class Grapple : MonoBehaviour {
 
         if (GrappleCount != null)
         {
-            GrappleCount.text = "Grapples Remaining: " + remainingGrapples;
+            GrappleCount.text = "Grapples Remaining: " + remainingGrapples + "\nGrapple Distance: " + maxGrappleDistance;
         }
     }
 
