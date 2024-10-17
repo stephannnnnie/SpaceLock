@@ -71,5 +71,7 @@ crashlytics-build.properties
 /[Aa]ssets/[Ss]treamingAssets/aa.meta
 /[Aa]ssets/[Ss]treamingAssets/aa/*
 
-# Ignore all log files in the Logs folder
-SpaceLock/Logs/*.log
+# Ignore all files in the Logs, Library, and Temp folders
+SpaceLock/Logs/
+SpaceLock/Library/
+SpaceLock/Temp/

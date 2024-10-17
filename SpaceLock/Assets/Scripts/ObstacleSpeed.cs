@@ -2,12 +2,12 @@ using UnityEngine;
 
 public class ObstacleSpeed : MonoBehaviour
 {
-    private float minSpeed = 1f;
+    private float minSpeed = 1.5f;
     private float speed;
     private GameObject player;
     public Material farObstacle;
     public Material nearObstacle;
-    public float thresholdDistance = 30f;
+    private Grapple gp;
 
     void Start()
     {
@@ -17,7 +17,7 @@ public class ObstacleSpeed : MonoBehaviour
           Debug.LogError("Player1 tag not found! Make sure your player object has the correct tag.");
           return;
       }
-
+      gp = player.GetComponent<Grapple>();
       Vector3 scale = transform.localScale;
 
       float scaleFactor = (scale.x + scale.y + scale.z) / 3f;
@@ -31,7 +31,7 @@ public class ObstacleSpeed : MonoBehaviour
 
       float distance = Vector3.Distance(player.transform.position, transform.position);
 
-      if (distance < thresholdDistance) {
+      if (distance < gp.maxGrappleDistance) {
           GetComponent<Renderer>().material = nearObstacle;
       } else {
           GetComponent<Renderer>().material = farObstacle;

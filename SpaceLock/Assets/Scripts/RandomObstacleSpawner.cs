@@ -3,13 +3,15 @@ using System.Collections.Generic;
 
 public class RandomObstacleSpawner : MonoBehaviour
 {
-    public GameObject[] obstaclePrefabs;
+
+    public GameObject obstaclePrefab; // Single obstacle prefab
+    public int numberOfObstacles = 20; // Number of obstacles to spawn
     private readonly float startDelay = 0f;
     private readonly float spawnInterval = 0.5f;
-    private readonly int poolSize = 20;
     private List<GameObject> obstaclePool;
-    private readonly float despawnX = 60f;
+    public GameObject drespawn;
     public GameObject powerUpPrefab; // Prefab for power-up
+    public float xDistance;
     [Range(0f, 1f)]
     public float powerUpSpawnChance = 0.2f; // 20% chance to spawn with power-up
 
@@ -17,10 +19,9 @@ public class RandomObstacleSpawner : MonoBehaviour
     {
         obstaclePool = new List<GameObject>();
 
-        for (int i = 0; i < poolSize; i++)
+        for (int i = 0; i < numberOfObstacles; i++)
         {
-            int obstacleIndex = Random.Range(0, obstaclePrefabs.Length);
-            GameObject obstacle = Instantiate(obstaclePrefabs[obstacleIndex]);
+            GameObject obstacle = Instantiate(obstaclePrefab);
             obstacle.SetActive(false);
             obstaclePool.Add(obstacle);
         }
@@ -28,20 +29,21 @@ public class RandomObstacleSpawner : MonoBehaviour
         InvokeRepeating(nameof(SpawnObstacles), startDelay, spawnInterval);
     }
 
-    void SpawnObstacles() {
+    void SpawnObstacles()
+    {
         GameObject obstacle = GetPooledObstacle();
         if (obstacle != null)
         {
-            float randomZ = Random.Range(-32f, 18f);
-            float x = -60f;
-            float randomY = Random.Range(2f, 25f);
+            float randomZ = Random.Range(-48f, 44f);
+            float x = xDistance;
+            float randomY = Random.Range(2f, 48f);
 
             Vector3 spawnPosition = new Vector3(x, randomY, randomZ);
             obstacle.transform.position = spawnPosition;
-            obstacle.transform.rotation = obstaclePrefabs[0].transform.rotation;
+            obstacle.transform.rotation = obstaclePrefab.transform.rotation;
             obstacle.SetActive(true);
 
-            float randomScale = Random.Range(4f, 10f);
+            float randomScale = Random.Range(5f, 12f);
             obstacle.transform.localScale = new Vector3(randomScale, randomScale, randomScale);
 
             float mass = randomScale * 10f;
@@ -59,7 +61,8 @@ public class RandomObstacleSpawner : MonoBehaviour
         }
     }
 
-    GameObject GetPooledObstacle() {
+    GameObject GetPooledObstacle()
+    {
         foreach (var obstacle in obstaclePool)
         {
             if (!obstacle.activeInHierarchy)
@@ -71,17 +74,19 @@ public class RandomObstacleSpawner : MonoBehaviour
         return null;
     }
 
-    void Update() {
+    void Update()
+    {
         foreach (var obstacle in obstaclePool)
         {
-            if (obstacle.activeInHierarchy && obstacle.transform.position.x > despawnX)
+            if (obstacle.activeInHierarchy && obstacle.transform.position.x > drespawn.transform.position.x)
             {
                 RecycleObstacle(obstacle);
             }
         }
     }
 
-    void RecycleObstacle(GameObject obstacle) {
+    void RecycleObstacle(GameObject obstacle)
+    {
         obstacle.SetActive(false);
 
         // Destroy any PowerUp component child attached to this obstacle
