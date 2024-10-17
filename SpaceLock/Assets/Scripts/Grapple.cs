@@ -7,6 +7,7 @@ public class Grapple : MonoBehaviour {
 
 
     public float maxGrappleDistance = 30f;
+    public GameObject Shootposi;
     private Transform grappledObject;
     private bool isGrappling = false;
     private LineRenderer lineRenderer;
@@ -16,10 +17,10 @@ public class Grapple : MonoBehaviour {
     private float elapsedTime;
     public int maxGrapples = 5;
     public int remainingGrapples;
-    public TextMeshProUGUI grappleCountText;
-    public Image gameOverImage;
-    public Image gameWinImage;
-    public GameObject finalWall;
+    public Canvas cv;
+    private TextMeshProUGUI GrappleCount;
+
+    //public GameObject finalWall;
     private bool hasWon = false;
 
     void Start()
@@ -32,14 +33,16 @@ public class Grapple : MonoBehaviour {
         lineRenderer.enabled = false;
 
         remainingGrapples = maxGrapples;
-        gameOverImage.enabled = false;
-        gameWinImage.enabled = false;
-        Cursor.visible = false;
+       
+        GrappleCount = cv.GrapplesNumber.GetComponent<TextMeshProUGUI>() ;
         UpdateGrappleCountText();
     }
 
     void Update()
     {
+        Cursor.visible = false;
+        Cursor.lockState = CursorLockMode.Locked;
+
         if (Input.GetButtonDown("Fire1") && remainingGrapples > 0)
         {
             TryGrapple();
@@ -50,7 +53,7 @@ public class Grapple : MonoBehaviour {
             elapsedTime += Time.deltaTime;
 
             transform.position = Vector3.MoveTowards(initialPosition, grappledObject.position, grappleSpeed * elapsedTime);
-            lineRenderer.SetPosition(0, transform.position);
+            lineRenderer.SetPosition(0, Shootposi.transform.position);
             lineRenderer.SetPosition(1, grappledObject.position);
 
             if (elapsedTime >= grappleTime || Vector3.Distance(transform.position, grappledObject.position) < 0.1f)
@@ -67,8 +70,7 @@ public class Grapple : MonoBehaviour {
 
         if (remainingGrapples == 0 && !hasWon)
         {
-            gameOverImage.enabled = true;
-            grappleCountText.enabled = false;
+            cv.PlayerLose();
             Invoke("RestartGame", 2f);
         }
     }
@@ -134,7 +136,7 @@ public class Grapple : MonoBehaviour {
             transform.SetParent(collision.transform);
         }
 
-        if (collision.gameObject == finalWall)
+        if (collision.gameObject.tag == "FinalWall")
         {
             WinGame();
         }
@@ -150,9 +152,10 @@ public class Grapple : MonoBehaviour {
 
     public void UpdateGrappleCountText()
     {
-        if (grappleCountText != null)
+
+        if (GrappleCount != null)
         {
-            grappleCountText.text = "Grapples Remaining: " + remainingGrapples;
+            GrappleCount.text = "Grapples Remaining: " + remainingGrapples;
         }
     }
 
@@ -163,8 +166,6 @@ public class Grapple : MonoBehaviour {
 
     void WinGame()
     {
-        hasWon = true;
-        gameWinImage.enabled = true;
-        grappleCountText.enabled = false;
+        cv.PlayerWon();
     }
 }

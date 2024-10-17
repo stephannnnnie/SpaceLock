@@ -121,7 +121,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   farObstacle: {fileID: 2100000, guid: ea106ef629bedc04d8acde84de232353, type: 2}
   nearObstacle: {fileID: 2100000, guid: 3cf9e915ef7554190b7669537095105b, type: 2}
-  thresholdDistance: 30
 --- !u!54 &2696434661228918078
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -145,7 +144,7 @@ Rigidbody:
   m_ImplicitCom: 1
   m_ImplicitTensor: 1
   m_UseGravity: 0
-  m_IsKinematic: 0
+  m_IsKinematic: 1
   m_Interpolate: 0
-  m_Constraints: 124
+  m_Constraints: 126
   m_CollisionDetection: 0
