@@ -74,6 +74,4 @@ crashlytics-build.properties
 # Ignore all files in the Logs, Library, and Temp folders
 SpaceLock/Logs/
 SpaceLock/Library/
-/SpaceLock/Temp
 SpaceLock/Temp
-SpaceLock/Temp/FSTimeGet-4f72011c54fa14a07a13db5e85a94da7
