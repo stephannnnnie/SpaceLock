@@ -40,8 +40,8 @@ public class Grapple : MonoBehaviour {
 
     void Update()
     {
-        Cursor.visible = false;
-        Cursor.lockState = CursorLockMode.Locked;
+        // Cursor.visible = false;
+        // Cursor.lockState = CursorLockMode.Locked;
 
         if (Input.GetButtonDown("Fire1") && remainingGrapples > 0)
         {
