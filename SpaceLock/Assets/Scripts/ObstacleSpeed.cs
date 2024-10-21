@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class ObstacleSpeed : MonoBehaviour
 {
-    private float minSpeed = 1.5f;
+    public float minSpeed = 1.5f;
     private float speed;
     private GameObject player;
     public Material farObstacle;
