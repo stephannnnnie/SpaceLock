@@ -9,6 +9,7 @@ public class Canvas : MonoBehaviour
     public GameObject lose;
     public GameObject croshair;
     public GameObject GrapplesNumber;
+    public GameObject tutorial;
 
 
     // Start is called before the first frame update
@@ -18,12 +19,19 @@ public class Canvas : MonoBehaviour
         lose.SetActive(false);
         croshair.SetActive(true);
         GrapplesNumber.SetActive(true);
+        StartCoroutine(ClearTutorial());
     }
 
     // Update is called once per frame
     void Update()
     {
         
+    }
+
+    IEnumerator ClearTutorial(){
+        tutorial.SetActive(true);
+        yield return new WaitForSeconds(20);
+        tutorial.SetActive(false);
     }
 
     public void PlayerWon() { 
