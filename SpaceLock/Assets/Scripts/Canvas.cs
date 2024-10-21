@@ -19,20 +19,24 @@ public class Canvas : MonoBehaviour
         lose.SetActive(false);
         croshair.SetActive(true);
         GrapplesNumber.SetActive(true);
-        StartCoroutine(ClearTutorial());
+        // StartCoroutine(ClearTutorial());
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+        if (Input.anyKey) {
+            tutorial.SetActive(false);
+        }
     }
 
+    /*
     IEnumerator ClearTutorial(){
         tutorial.SetActive(true);
         yield return new WaitForSeconds(20);
         tutorial.SetActive(false);
     }
+    */
 
     public void PlayerWon() { 
         
