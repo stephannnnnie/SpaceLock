@@ -61,5 +61,7 @@ public class PowerUp : MonoBehaviour
                 Debug.Log("Increased grapple distance by 10. New distance: " + grappleScript.maxGrappleDistance);
                 break;
         }
+        // Update UI to reflect changes after power-up
+        grappleScript.UpdateGrappleCountText();
     }
 }
