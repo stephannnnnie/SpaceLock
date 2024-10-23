@@ -6,18 +6,14 @@ using TMPro;
 public class GaemOverDetection1 : MonoBehaviour {
     public GameObject player;
     public Canvas cv;
+    private bool gameEnded = false;  // Flag to track if the game has ended
 
-
-    private void Start()
-    {
-        //player = GameObject.FindGameObjectWithTag("Player");
-    }
     void Update()
     {
-        if (this.transform.position.x - player.transform.position.x   < 0.5f )
+        if (!gameEnded && this.transform.position.x - player.transform.position.x < 0.5f)
         {
-           
             Debug.Log("Player's position.x is greater than 60.");
+            gameEnded = true;  // Mark the game as ended
             cv.PlayerLose();
             Invoke("RestartGame", 2f);
         }
