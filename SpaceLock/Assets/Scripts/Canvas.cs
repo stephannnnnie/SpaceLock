@@ -18,7 +18,7 @@ public class Canvas : MonoBehaviour
         won.SetActive(false);
         lose.SetActive(false);
         croshair.SetActive(true);
-        GrapplesNumber.SetActive(true);
+        GrapplesNumber.SetActive(false);
         // StartCoroutine(ClearTutorial());
     }
 
@@ -27,6 +27,9 @@ public class Canvas : MonoBehaviour
     {
         if (Input.anyKey) {
             tutorial.SetActive(false);
+            GrapplesNumber.SetActive(true);
+            Cursor.lockState = CursorLockMode.Locked;
+            Cursor.visible = false;
         }
     }
 
