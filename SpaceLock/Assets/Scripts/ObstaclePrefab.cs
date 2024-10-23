@@ -4,47 +4,52 @@ using UnityEngine;
 
 public class ObstaclePrefab : MonoBehaviour
 {
-    private float minSpeed = 1.5f;
+    public float minSpeed = 1.5f;
     private float speed;
     public bool collideWall;
     public string direction;
     private Vector3 dir;
+    public Material farObstacle;
+    public Material nearObstacle;
+    private GameObject player;
+    private Grapple gp;
 
     void Start()
     {
-
+        player = GameObject.FindWithTag("Player");
         Vector3 scale = transform.localScale;
-
         float scaleFactor = (scale.x + scale.y + scale.z) / 3f;
-
         speed = minSpeed * scaleFactor;
-
         collideWall = false;
-
-        if (direction == "up")
+        gp = player.GetComponent<Grapple>();
+        if (direction == "right")
         {
-            dir = Vector3.up;
-        }
-        else if (direction == "down")
-        {
-            dir = Vector3.down;
-        }
-        else if (direction == "right")
-        {
-            dir = Vector3.right;
+            dir = Vector3.back; // This is equivalent to new Vector3(0, 0, -1)
         }
         else if (direction == "left")
         {
-            dir = Vector3.left;
-        } else
+            dir = Vector3.forward; // This is equivalent to new Vector3(0, 0, 1)
+        }
+        else
         {
-            Debug.Log("Wrong Direction");
+            Debug.LogError("Wrong Direction. Use 'right' or 'left'.");
         }
     }
 
     void Update()
     {
         transform.Translate(speed * Time.deltaTime * dir);
+
+        float distance = Vector3.Distance(player.transform.position, transform.position);
+
+        if (distance < gp.maxGrappleDistance)
+        {
+            GetComponent<Renderer>().material = nearObstacle;
+        }
+        else
+        {
+            GetComponent<Renderer>().material = farObstacle;
+        }
     }
 
     private void OnTriggerEnter(Collider other)
