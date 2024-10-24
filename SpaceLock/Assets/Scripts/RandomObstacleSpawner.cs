@@ -26,9 +26,46 @@ public class RandomObstacleSpawner : MonoBehaviour
             obstaclePool.Add(obstacle);
         }
 
+        for (int i = 0; i < 60; i++)
+        {
+            SpawnOriginalObstacles();
+        }
+        
         InvokeRepeating(nameof(SpawnObstacles), startDelay, spawnInterval);
     }
 
+    void SpawnOriginalObstacles()
+    {
+        GameObject obstacle = GetPooledObstacle();
+        if (obstacle != null)
+        {
+            float randomZ = Random.Range(-48f, 44f);
+            float x = Random.Range(-160f,200f);
+            float randomY = Random.Range(2f, 48f);
+
+            Vector3 spawnPosition = new Vector3(x, randomY, randomZ);
+            obstacle.transform.position = spawnPosition;
+            obstacle.transform.rotation = obstaclePrefab.transform.rotation;
+            obstacle.SetActive(true);
+
+            float randomScale = Random.Range(4f, 8f);
+            obstacle.transform.localScale = new Vector3(randomScale, randomScale, randomScale);
+
+            float mass = randomScale * 10f;
+
+            if (obstacle.TryGetComponent<Rigidbody>(out var rb))
+            {
+                rb.mass = mass;
+            }
+
+            // Spawn power-up on top of the obstacle based on probability
+            if (Random.value < powerUpSpawnChance)
+            {
+                SpawnPowerUpAboveObstacle(obstacle);
+            }
+        }
+    }
+    
     void SpawnObstacles()
     {
         GameObject obstacle = GetPooledObstacle();
