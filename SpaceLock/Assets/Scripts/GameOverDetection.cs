@@ -34,7 +34,7 @@ public class GameOverDetection : MonoBehaviour {
             Debug.Log("Trigger detected between player and wall.");
             cv.PlayerWon();
             // restartButton.gameObject.SetActive(true);
-            Invoke("RestartGame", 2f);
+            // Invoke("RestartGame", 2f);
         }
     }
 

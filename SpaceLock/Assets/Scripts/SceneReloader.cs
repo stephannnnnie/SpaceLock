@@ -10,4 +10,9 @@ public class SceneReloader : MonoBehaviour
         Debug.Log("restart clicked");
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
+
+    public void LoadLevel2()
+    {
+        SceneManager.LoadScene("Level 2");
+    }
 }

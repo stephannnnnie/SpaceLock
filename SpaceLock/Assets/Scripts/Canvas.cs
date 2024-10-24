@@ -10,6 +10,7 @@ public class Canvas : MonoBehaviour
     public GameObject croshair;
     public GameObject GrapplesNumber;
     public GameObject tutorial;
+    private bool tutorialVisible;
 
 
     // Start is called before the first frame update
@@ -19,18 +20,20 @@ public class Canvas : MonoBehaviour
         lose.SetActive(false);
         croshair.SetActive(true);
         GrapplesNumber.SetActive(false);
+        tutorialVisible = true;
         // StartCoroutine(ClearTutorial());
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Space)) {
+        if (tutorialVisible && Input.anyKey) {
             tutorial.SetActive(false);
             GrapplesNumber.SetActive(true);
             Cursor.visible = false;
             Cursor.lockState = CursorLockMode.Locked;
             Debug.Log("set cursor invisible");
+            tutorialVisible = false;
         }
     }
 
@@ -42,9 +45,11 @@ public class Canvas : MonoBehaviour
     }
     */
 
-    public void PlayerWon() { 
-        
-        Reset();
+    public void PlayerWon() {
+
+        // Reset();
+        Cursor.lockState = CursorLockMode.None;
+        Cursor.visible = true;
         won.SetActive(true);
     }
 
