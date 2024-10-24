@@ -25,6 +25,7 @@ public class GaemOverDetection1 : MonoBehaviour {
         }
     }
 
+/**
     // Coroutine to handle game restart after a delay
     IEnumerator RestartGameAfterDelay(float delay)
     {
@@ -33,4 +34,5 @@ public class GaemOverDetection1 : MonoBehaviour {
         Time.timeScale = 1f;  // Reset time scale to normal
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);  // Reload the scene
     }
+    */
 }
