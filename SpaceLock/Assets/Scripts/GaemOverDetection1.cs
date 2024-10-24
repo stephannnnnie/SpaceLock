@@ -20,8 +20,8 @@ public class GaemOverDetection1 : MonoBehaviour {
         {
             Debug.Log("Player's position.x is greater than 60.");
             cv.PlayerLose();
-            StartCoroutine(RestartGameAfterDelay(2f));  // Restart after 2 seconds
-            Time.timeScale = 0f;  // Pauses the game to prevent further input
+            //StartCoroutine(RestartGameAfterDelay(2f));  // Restart after 2 seconds
+            //Time.timeScale = 0f;  // Pauses the game to prevent further input
         }
     }
 

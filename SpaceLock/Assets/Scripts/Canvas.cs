@@ -25,11 +25,12 @@ public class Canvas : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.anyKey) {
+        if (Input.GetKeyDown(KeyCode.Space)) {
             tutorial.SetActive(false);
             GrapplesNumber.SetActive(true);
-            Cursor.lockState = CursorLockMode.Locked;
             Cursor.visible = false;
+            Cursor.lockState = CursorLockMode.Locked;
+            Debug.Log("set cursor invisible");
         }
     }
 
@@ -48,7 +49,9 @@ public class Canvas : MonoBehaviour
     }
 
     public void PlayerLose() {
-        Reset();
+        // Reset();
+        Cursor.lockState = CursorLockMode.None;
+        Cursor.visible = true;
         lose.SetActive(true);
     }
 
