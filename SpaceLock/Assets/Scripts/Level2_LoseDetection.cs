@@ -10,7 +10,7 @@ public class Level2_LoseDetection : MonoBehaviour
     public Canvas cv;
 
     // Wall z positions
-    private float wall1Z = 93.4f;
+    private float wall1Z = 82.4f;
     private float wall2Z = -97.5f;
 
     // Define the distance threshold for losing near a wall
