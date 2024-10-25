@@ -3046,6 +3046,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   player: {fileID: 1036112726}
   cv: {fileID: 0}
+  winWall: {fileID: 0}
 --- !u!54 &1780233531
 Rigidbody:
   m_ObjectHideFlags: 0
