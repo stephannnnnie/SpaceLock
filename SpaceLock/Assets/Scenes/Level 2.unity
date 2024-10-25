@@ -1682,7 +1682,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxGrappleDistance: 50
   Shootposi: {fileID: 142095684}
-  maxGrapples: 30
+  maxGrapples: 15
   remainingGrapples: 0
   cv: {fileID: 1473424276}
   wiggleFrequency: 9
