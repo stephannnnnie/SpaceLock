@@ -41,8 +41,6 @@ public class PowerUp : MonoBehaviour
         if (grappleScript != null)
         {
             ApplyPowerUp(grappleScript);
-            // Track power-up acquisition by calling AnalyticsManager
-            AnalyticsManager.Instance.TrackPowerUpAcquired(); // Call method to track the power-up
         }
 
         Destroy(gameObject); // Destroy the PowerUp after activation
