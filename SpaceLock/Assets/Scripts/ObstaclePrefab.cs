@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class ObstaclePrefab : MonoBehaviour
@@ -57,6 +58,29 @@ public class ObstaclePrefab : MonoBehaviour
         if (other.CompareTag("wall"))
         {
             collideWall = true;
+        }
+        
+    }
+
+    private void OnCollisionEnter(Collision collision)
+    {
+        if (collision.gameObject.CompareTag("Obstacle"))
+        {
+            Debug.Log("Obstacles collision detected");
+            float distance_2 = Vector3.Distance(player.transform.position, transform.position);
+            float distance_1 = Vector3.Distance(player.transform.position, collision.gameObject.transform.position);
+
+            if (transform.localScale.x > collision.gameObject.transform.localScale.x)
+            {
+                if (distance_1 > 2.0f)
+                {
+                    collision.gameObject.GetComponent<ObstaclePrefab>().collideWall = true;
+                }
+            }
+            else if (distance_2 > 2.0f)
+            {
+                collideWall = true;
+            }
         }
     }
 }
