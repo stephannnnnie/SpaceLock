@@ -2258,6 +2258,8 @@ MonoBehaviour:
   maxGrapples: 30
   remainingGrapples: 0
   cv: {fileID: 1331510067542576105}
+  wiggleFrequency: 8
+  wiggleMagnitude: 0.5
 --- !u!120 &1036112733
 LineRenderer:
   serializedVersion: 2
