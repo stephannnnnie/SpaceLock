@@ -23,6 +23,9 @@ public class Grapple : MonoBehaviour {
     //public GameObject finalWall;
     private bool hasWon = false;
 
+    public float wiggleFrequency =9f;
+    public float wiggleMagnitude = 0.5f;
+
     void Start()
     {
         lineRenderer = GetComponent<LineRenderer>();
@@ -53,8 +56,9 @@ public class Grapple : MonoBehaviour {
             elapsedTime += Time.deltaTime;
 
             transform.position = Vector3.MoveTowards(initialPosition, grappledObject.position, grappleSpeed * elapsedTime);
-            lineRenderer.SetPosition(0, Shootposi.transform.position);
-            lineRenderer.SetPosition(1, grappledObject.position);
+            // lineRenderer.SetPosition(0, Shootposi.transform.position);
+            // lineRenderer.SetPosition(1, grappledObject.position);
+            UpdateLineRendererWithWiggle();
 
             if (elapsedTime >= grappleTime || Vector3.Distance(transform.position, grappledObject.position) < 0.1f)
             {
@@ -73,6 +77,29 @@ public class Grapple : MonoBehaviour {
         {
             cv.PlayerLose();
             Invoke("RestartGame", 2f);
+        }
+    }
+
+    void UpdateLineRendererWithWiggle()
+    {
+        if (lineRenderer != null && grappledObject != null)
+        {
+            lineRenderer.positionCount = 50;
+            Vector3 startPoint = Shootposi.transform.position;
+            Vector3 endPoint = grappledObject.position;
+
+            lineRenderer.SetPosition(0, startPoint);
+
+            for (int i = 1; i < lineRenderer.positionCount; i++)
+            {
+                float t = (float)i / (lineRenderer.positionCount - 1);
+                Vector3 basePosition = Vector3.Lerp(startPoint, endPoint, t);
+
+                float wiggleOffset = Mathf.Sin(t * wiggleFrequency + elapsedTime * wiggleFrequency) * wiggleMagnitude * Mathf.Pow((1 - t), 2);
+                Vector3 offset = Vector3.Cross((endPoint - startPoint).normalized, Vector3.up) * wiggleOffset;
+
+                lineRenderer.SetPosition(i, basePosition + offset);
+            }
         }
     }
 
