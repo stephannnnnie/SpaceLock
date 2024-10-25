@@ -84,18 +84,17 @@ public class Grapple : MonoBehaviour {
     {
         if (lineRenderer != null && grappledObject != null)
         {
-            lineRenderer.positionCount = 50; // Increase for smoother curve
+            lineRenderer.positionCount = 50;
             Vector3 startPoint = Shootposi.transform.position;
             Vector3 endPoint = grappledObject.position;
 
-            lineRenderer.SetPosition(0, startPoint); // Ensure the first position is always at the shoot position
+            lineRenderer.SetPosition(0, startPoint);
 
             for (int i = 1; i < lineRenderer.positionCount; i++)
             {
                 float t = (float)i / (lineRenderer.positionCount - 1);
                 Vector3 basePosition = Vector3.Lerp(startPoint, endPoint, t);
 
-                // Adding wiggling effect using sine wave for natural movement
                 float wiggleOffset = Mathf.Sin(t * wiggleFrequency + elapsedTime * wiggleFrequency) * wiggleMagnitude * Mathf.Pow((1 - t), 2);
                 Vector3 offset = Vector3.Cross((endPoint - startPoint).normalized, Vector3.up) * wiggleOffset;
 
