@@ -18,6 +18,7 @@ public class Canvas : MonoBehaviour
     private float StartTime;
     private float CompletionTime;
     private int Powerupss;
+    private bool islose;
 
 
     // Start is called before the first frame update
@@ -30,6 +31,7 @@ public class Canvas : MonoBehaviour
         tutorialVisible = true;
         // StartCoroutine(ClearTutorial());
         noofGrapples = 0;
+        islose = true;
         
     }
 
@@ -78,10 +80,15 @@ public class Canvas : MonoBehaviour
     public void PlayerLose() {
         
         Reset();
+        
         Cursor.lockState = CursorLockMode.None;
         Cursor.visible = true;
         se.Send(CompletionTime, noofGrapples, SceneManager.GetActiveScene().name, "Lose", Powerupss);
         lose.SetActive(true);
+        if (islose) {
+            
+            islose = false;
+        }
     }
 
 
