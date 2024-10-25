@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.PlayerLoop;
+using UnityEngine.SceneManagement;
 
 public class Canvas : MonoBehaviour
 {
@@ -16,6 +17,7 @@ public class Canvas : MonoBehaviour
     public SendToGoogle se;
     private float StartTime;
     private float CompletionTime;
+    private int Powerupss;
 
 
     // Start is called before the first frame update
@@ -58,20 +60,27 @@ public class Canvas : MonoBehaviour
         noofGrapples++;
     }
 
+    public void updatePowerup() {
+        Powerupss++;
+    }
+
     public void PlayerWon() {
 
-        // Reset();
+        Reset();
         Cursor.lockState = CursorLockMode.None;
         Cursor.visible = true;
         won.SetActive(true);
-        se.Send(CompletionTime ,noofGrapples);
+        se.Send(CompletionTime ,noofGrapples ,SceneManager.GetActiveScene().name, "WON" , Powerupss );
         Debug.Log(CompletionTime);
+
     }
 
     public void PlayerLose() {
-        // Reset();
+        
+        Reset();
         Cursor.lockState = CursorLockMode.None;
         Cursor.visible = true;
+        se.Send(CompletionTime, noofGrapples, SceneManager.GetActiveScene().name, "Lose", Powerupss);
         lose.SetActive(true);
     }
 

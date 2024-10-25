@@ -62,6 +62,7 @@ public class PowerUp : MonoBehaviour
                 break;
         }
         // Update UI to reflect changes after power-up
+        player.GetComponent<Grapple>().cv.updatePowerup();
         grappleScript.UpdateGrappleCountText();
     }
 }
