@@ -61,6 +61,7 @@ public class Grapple : MonoBehaviour {
                 isGrappling = false;
                 lineRenderer.enabled = false;
                 transform.SetParent(grappledObject);
+                cv.updateGrappless();
             }
         }
         else

@@ -62,7 +62,7 @@ public class ObstaclePrefab : MonoBehaviour
         
     }
 
-    private void OnCollisionEnter(Collision collision)
+/*    private void OnCollisionEnter(Collision collision)
     {
         if (collision.gameObject.CompareTag("Obstacle"))
         {
@@ -82,5 +82,5 @@ public class ObstaclePrefab : MonoBehaviour
                 collideWall = true;
             }
         }
-    }
+    }*/
 }
