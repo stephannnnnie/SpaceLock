@@ -757,11 +757,11 @@ PlayerSettings:
   apiCompatibilityLevel: 6
   activeInputHandler: 0
   windowsGamepadBackendHint: 0
-  cloudProjectId: 245364a2-837c-4365-b892-e7f4db220c94
+  cloudProjectId: ff030c02-b622-411c-98bf-e25c049430b2
   framebufferDepthMemorylessMode: 0
   qualitySettingsNames: []
   projectName: SpaceLock
-  organizationId: csci526_f24_gamejammers
+  organizationId: dhruv5
   cloudEnabled: 0
   legacyClampBlendShapeWeights: 0
   hmiLoadingImage: {fileID: 0}

@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.PlayerLoop;
 
 public class Canvas : MonoBehaviour
 {
@@ -11,6 +12,10 @@ public class Canvas : MonoBehaviour
     public GameObject GrapplesNumber;
     public GameObject tutorial;
     private bool tutorialVisible;
+    public int noofGrapples = 0;
+    public SendToGoogle se;
+    private float StartTime;
+    private float CompletionTime;
 
 
     // Start is called before the first frame update
@@ -22,6 +27,8 @@ public class Canvas : MonoBehaviour
         GrapplesNumber.SetActive(false);
         tutorialVisible = true;
         // StartCoroutine(ClearTutorial());
+        noofGrapples = 0;
+        
     }
 
     // Update is called once per frame
@@ -34,7 +41,9 @@ public class Canvas : MonoBehaviour
             Cursor.lockState = CursorLockMode.Locked;
             Debug.Log("set cursor invisible");
             tutorialVisible = false;
+            StartTime = Time.time;
         }
+        CompletionTime =  Time.time - StartTime;
     }
 
     /*
@@ -45,12 +54,18 @@ public class Canvas : MonoBehaviour
     }
     */
 
+    public void updateGrappless() { 
+        noofGrapples++;
+    }
+
     public void PlayerWon() {
 
         // Reset();
         Cursor.lockState = CursorLockMode.None;
         Cursor.visible = true;
         won.SetActive(true);
+        se.Send(CompletionTime ,noofGrapples);
+        Debug.Log(CompletionTime);
     }
 
     public void PlayerLose() {
@@ -68,5 +83,5 @@ public class Canvas : MonoBehaviour
         croshair.SetActive(false);
         GrapplesNumber.SetActive(false);
     }
-
+    
 }
