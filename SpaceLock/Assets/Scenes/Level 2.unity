@@ -1610,7 +1610,7 @@ MeshRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1036112726}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
@@ -1685,6 +1685,8 @@ MonoBehaviour:
   maxGrapples: 30
   remainingGrapples: 0
   cv: {fileID: 1473424276}
+  wiggleFrequency: 9
+  wiggleMagnitude: 0.5
 --- !u!120 &1036112733
 LineRenderer:
   serializedVersion: 2
