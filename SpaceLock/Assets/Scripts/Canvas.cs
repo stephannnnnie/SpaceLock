@@ -32,6 +32,7 @@ public class Canvas : MonoBehaviour
         // StartCoroutine(ClearTutorial());
         noofGrapples = 0;
         islose = true;
+        Debug.LogWarning(islose);
         
     }
 
@@ -73,7 +74,7 @@ public class Canvas : MonoBehaviour
         Cursor.visible = true;
         won.SetActive(true);
         se.Send(CompletionTime ,noofGrapples ,SceneManager.GetActiveScene().name, "WON" , Powerupss );
-        Debug.Log(CompletionTime);
+        
 
     }
 
@@ -83,11 +84,13 @@ public class Canvas : MonoBehaviour
         
         Cursor.lockState = CursorLockMode.None;
         Cursor.visible = true;
-        se.Send(CompletionTime, noofGrapples, SceneManager.GetActiveScene().name, "Lose", Powerupss);
+        
         lose.SetActive(true);
         if (islose) {
-            
+
+            se.Send(CompletionTime, noofGrapples, SceneManager.GetActiveScene().name, "Lose", Powerupss);
             islose = false;
+            Debug.LogWarning(islose);
         }
     }
 
