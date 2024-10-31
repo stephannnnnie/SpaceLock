@@ -12,7 +12,7 @@ public class Canvas : MonoBehaviour
     public GameObject croshair;
     public GameObject GrapplesNumber;
     public GameObject tutorial;
-    private bool tutorialVisible;
+    //private bool tutorialVisible;
     public int noofGrapples = 0;
     public SendToGoogle se;
     private float StartTime;
@@ -28,7 +28,7 @@ public class Canvas : MonoBehaviour
         lose.SetActive(false);
         croshair.SetActive(true);
         GrapplesNumber.SetActive(false);
-        tutorialVisible = true;
+        //tutorialVisible = true;
         // StartCoroutine(ClearTutorial());
         noofGrapples = 0;
         islose = true;
