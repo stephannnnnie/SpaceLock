@@ -38,6 +38,7 @@ public class PowerUp : MonoBehaviour
     {
         // Get the Grapple component from the player
         var grappleScript = player.GetComponent<Grapple>();
+        Debug.Log("BYE BYE POWER UP ");
         if (grappleScript != null)
         {
             ApplyPowerUp(grappleScript);

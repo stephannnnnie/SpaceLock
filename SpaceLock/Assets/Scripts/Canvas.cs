@@ -32,22 +32,25 @@ public class Canvas : MonoBehaviour
         // StartCoroutine(ClearTutorial());
         noofGrapples = 0;
         islose = true;
-        Debug.LogWarning(islose);
+
+        Cursor.visible = false;
+        Cursor.lockState = CursorLockMode.Locked;
         
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (tutorialVisible && Input.anyKey) {
-            tutorial.SetActive(false);
-            GrapplesNumber.SetActive(true);
-            Cursor.visible = false;
-            Cursor.lockState = CursorLockMode.Locked;
-            Debug.Log("set cursor invisible");
-            tutorialVisible = false;
-            StartTime = Time.time;
-        }
+        // if (tutorialVisible && Input.anyKey) {
+        //     tutorial.SetActive(false);
+        //     GrapplesNumber.SetActive(true);
+        //     Cursor.visible = false;
+        //     Cursor.lockState = CursorLockMode.Locked;
+        //     Debug.Log("set cursor invisible");
+        //     tutorialVisible = false;
+        //     StartTime = Time.time;
+        // }
+        StartTime = Time.time;
         CompletionTime =  Time.time - StartTime;
     }
 
@@ -74,7 +77,7 @@ public class Canvas : MonoBehaviour
         Cursor.visible = true;
         won.SetActive(true);
         se.Send(CompletionTime ,noofGrapples ,SceneManager.GetActiveScene().name, "WON" , Powerupss );
-        
+        Debug.Log(CompletionTime);
 
     }
 
@@ -84,13 +87,11 @@ public class Canvas : MonoBehaviour
         
         Cursor.lockState = CursorLockMode.None;
         Cursor.visible = true;
-        
+        se.Send(CompletionTime, noofGrapples, SceneManager.GetActiveScene().name, "Lose", Powerupss);
         lose.SetActive(true);
         if (islose) {
-
-            se.Send(CompletionTime, noofGrapples, SceneManager.GetActiveScene().name, "Lose", Powerupss);
+            
             islose = false;
-            Debug.LogWarning(islose);
         }
     }
 
