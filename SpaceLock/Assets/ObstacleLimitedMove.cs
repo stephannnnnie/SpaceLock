@@ -33,10 +33,8 @@ public class ObstacleLimitedMove : MonoBehaviour
     void Update()
     {
       // transform.Translate(speed * Time.deltaTime * Vector3.right);
-      // tried making the block move back and forth but not working as intended had to comment out
-      float time = Mathf.PingPong(Time.deltaTime * speed, 1);
-      // transform.Translate(-69.1F, 8.2F, Vector3.Lerp(pointA, pointB, time));
-
+      transform.position = Vector3.Lerp(pointA, pointB, Mathf.PingPong(Time.time/2.5f, 1));
+      
       float distance = Vector3.Distance(player.transform.position, transform.position);
 
       if (distance < gp.maxGrappleDistance) {

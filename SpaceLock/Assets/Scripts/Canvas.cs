@@ -11,8 +11,6 @@ public class Canvas : MonoBehaviour
     public GameObject lose;
     public GameObject croshair;
     public GameObject GrapplesNumber;
-    public GameObject tutorial;
-    //private bool tutorialVisible;
     public int noofGrapples = 0;
     public SendToGoogle se;
     private float StartTime;
@@ -27,15 +25,12 @@ public class Canvas : MonoBehaviour
         won.SetActive(false);
         lose.SetActive(false);
         croshair.SetActive(true);
-        GrapplesNumber.SetActive(false);
-        //tutorialVisible = true;
-        // StartCoroutine(ClearTutorial());
+        GrapplesNumber.SetActive(true);
         noofGrapples = 0;
         islose = true;
 
         Cursor.visible = false;
         Cursor.lockState = CursorLockMode.Locked;
-        
     }
 
     // Update is called once per frame
@@ -47,20 +42,11 @@ public class Canvas : MonoBehaviour
         //     Cursor.visible = false;
         //     Cursor.lockState = CursorLockMode.Locked;
         //     Debug.Log("set cursor invisible");
-        //     tutorialVisible = false;
         //     StartTime = Time.time;
         // }
         StartTime = Time.time;
         CompletionTime =  Time.time - StartTime;
     }
-
-    /*
-    IEnumerator ClearTutorial(){
-        tutorial.SetActive(true);
-        yield return new WaitForSeconds(20);
-        tutorial.SetActive(false);
-    }
-    */
 
     public void updateGrappless() { 
         noofGrapples++;
