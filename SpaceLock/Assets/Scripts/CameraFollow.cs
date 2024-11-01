@@ -4,7 +4,7 @@ public class CameraFollow : MonoBehaviour
 {
     public GameObject player;
     public Vector3 offset = new Vector3(0, 5, -10);
-    public float rotationSpeed = 2.5f;
+    public float rotationSpeed = 1f;
 
     private float yaw = -90f; // Initialize to -90 degrees
     private float pitch = 0f;
@@ -33,7 +33,7 @@ public class CameraFollow : MonoBehaviour
         pitch -= rotationSpeed * Input.GetAxis("Mouse Y");
 
         // Clamp pitch to prevent camera flipping
-        pitch = Mathf.Clamp(pitch, -45f, 45f);
+        pitch = Mathf.Clamp(pitch, -65f, 65f);
 
         // Calculate new rotation
         Quaternion rotation = Quaternion.Euler(pitch, yaw, 0);

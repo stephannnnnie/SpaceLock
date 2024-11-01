@@ -38,6 +38,7 @@ public class PowerUp : MonoBehaviour
     {
         // Get the Grapple component from the player
         var grappleScript = player.GetComponent<Grapple>();
+        Debug.Log("BYE BYE POWER UP ");
         if (grappleScript != null)
         {
             ApplyPowerUp(grappleScript);
@@ -62,6 +63,7 @@ public class PowerUp : MonoBehaviour
                 break;
         }
         // Update UI to reflect changes after power-up
+        player.GetComponent<Grapple>().cv.updatePowerup();
         grappleScript.UpdateGrappleCountText();
     }
 }
