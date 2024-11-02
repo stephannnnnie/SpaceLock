@@ -17,6 +17,11 @@ public class PowerUp : MonoBehaviour
         {
             Debug.LogError("Player with tag 'Player' not found. Make sure the player object is tagged correctly.");
         }
+
+        if (powerUpType == PowerUpType.IncreaseGrappleDistance)
+        {
+            ChangeColor();
+        }
     }
 
     void Update()
@@ -65,5 +70,30 @@ public class PowerUp : MonoBehaviour
         // Update UI to reflect changes after power-up
         player.GetComponent<Grapple>().cv.updatePowerup();
         grappleScript.UpdateGrappleCountText();
+    }
+
+    void ChangeColor()
+    {
+        // Get the MeshRenderer component of the current GameObject
+        MeshRenderer meshRenderer = GetComponent<MeshRenderer>();
+
+        if (meshRenderer != null)
+        {
+            // Parse the color from a hex string
+            Color newColor;
+            if (ColorUtility.TryParseHtmlString("#00EDFF", out newColor))
+            {
+                // Change the color of the material
+                meshRenderer.material.color = newColor;
+            }
+            else
+            {
+                Debug.LogWarning("Failed to parse color.");
+            }
+        }
+        else
+        {
+            Debug.LogWarning("MeshRenderer component not found.");
+        }
     }
 }
