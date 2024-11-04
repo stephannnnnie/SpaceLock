@@ -2,6 +2,8 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
+using System.Collections;
+using Unity.VisualScripting;
 
 public class Grapple : MonoBehaviour {
 
@@ -108,7 +110,7 @@ public class Grapple : MonoBehaviour {
         Ray ray = new Ray(Camera.main.transform.position, Camera.main.transform.forward);
         RaycastHit hit;
 
-        if (Physics.Raycast(ray, out hit, maxGrappleDistance))
+        if (Physics.Raycast(ray, out hit))
         {
             if (hit.collider != null && hit.collider.gameObject != gameObject && hit.collider.CompareTag("Obstacle"))
             {
@@ -133,6 +135,8 @@ public class Grapple : MonoBehaviour {
                 }
                 else
                 {
+                    Debug.Log("entered most inner else");
+                    RedCircleWarning();
                     Debug.Log("Object is too far to grapple.");
                 }
             }
@@ -143,6 +147,8 @@ public class Grapple : MonoBehaviour {
         }
         else
         {
+            Debug.Log("entered most outer else");
+            //RedCircleWarning();
             Debug.Log("No object hit within grapple distance.");
         }
     }
@@ -184,6 +190,22 @@ public class Grapple : MonoBehaviour {
         if (GrappleCount != null)
         {
             GrappleCount.text = "Grapples Remaining: " + remainingGrapples + "\nGrapple Distance: " + maxGrappleDistance;
+        }
+    }
+
+    void RedCircleWarning()
+    {
+        Debug.Log("called red circle warning");
+        Transform circleTransform = transform.Find("GrappleDistanceCircle");
+
+        if (circleTransform != null)
+        {
+            circleTransform.GetComponent<LineRenderer>().enabled = true;
+            circleTransform.gameObject.GetComponent<GrappleRangeCircle>().ShowRedCircle(maxGrappleDistance, 0.5f);
+        }
+        else
+        {
+            Debug.LogError("GrappleDistanceCircle child not found under the player.");
         }
     }
 
