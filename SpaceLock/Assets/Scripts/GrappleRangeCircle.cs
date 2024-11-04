@@ -87,6 +87,24 @@ public class GrappleRangeCircle : MonoBehaviour
 
     private IEnumerator StartExpand(float currentRadius, float targetRadius, float duration)
     {
+        // Set the color to #56B23F (green)
+        if (lineRenderer != null)
+        {
+            DrawCircle(currentRadius);
+
+            Color greenColor;
+            if (ColorUtility.TryParseHtmlString("#56B23F", out greenColor))
+            {
+                lineRenderer.startColor = greenColor;
+                lineRenderer.endColor = greenColor;
+                SetTransparency(0.7f);
+            }
+            else
+            {
+                Debug.LogError("Failed to parse the color #B23F42.");
+            }
+        }
+
         // Wait for 0.5 seconds before starting the expansion
         yield return new WaitForSeconds(0.5f);
 
@@ -110,6 +128,60 @@ public class GrappleRangeCircle : MonoBehaviour
         // Disable the GameObject after the delay
         Debug.Log("Disabling GrappleDistanceCircle");
         lineRenderer.enabled = false;
+    }
+
+    public void ShowRedCircle(float currentRadius, float duration)
+    {
+        if (lineRenderer != null)
+        {
+            StartCoroutine(RedCircleCoroutine(currentRadius, duration));
+        }
+        else
+        {
+            Debug.LogError("LineRenderer is not initialized.");
+        }
+    }
+
+    private IEnumerator RedCircleCoroutine(float currentRadius, float duration)
+    {
+        // Set the color to #B23F42 (red)
+        if (lineRenderer != null)
+        {
+            DrawCircle(currentRadius);
+
+            Color redColor;
+            if (ColorUtility.TryParseHtmlString("#B23F42", out redColor))
+            {
+                lineRenderer.startColor = redColor;
+                lineRenderer.endColor = redColor;
+                SetTransparency(0.7f);
+            }
+            else
+            {
+                Debug.LogError("Failed to parse the color #B23F42.");
+            }
+        }
+
+        yield return new WaitForSeconds(duration);
+
+        // Disable the GameObject after the delay
+        Debug.Log("Disabling RedCircle");
+        lineRenderer.enabled = false;
+    }
+
+    private void SetTransparency(float newAlpha)
+    {
+        // Get the current start and end colors
+        Color startColor = lineRenderer.startColor;
+        Color endColor = lineRenderer.endColor;
+
+        // Apply the alpha value to the colors
+        startColor.a = newAlpha;
+        endColor.a = newAlpha;
+
+        // Set the new colors back to the LineRenderer
+        lineRenderer.startColor = startColor;
+        lineRenderer.endColor = endColor;
     }
 
     void DrawCircle(float radius)
