@@ -1,4 +1,5 @@
 using UnityEngine;
+using System.Collections;
 
 public class GrappleRangeCircle : MonoBehaviour
 {
@@ -14,6 +15,11 @@ public class GrappleRangeCircle : MonoBehaviour
     void Start()
     {
         lineRenderer = GetComponent<LineRenderer>();
+        if (lineRenderer == null)
+        {
+            Debug.LogError("LineRenderer component not found. Ensure the GameObject has a LineRenderer attached.");
+            return;
+        }
 
         // Find the player using the "Player" tag
         GameObject player = GameObject.FindGameObjectWithTag("Player");
@@ -21,6 +27,12 @@ public class GrappleRangeCircle : MonoBehaviour
         {
             playerTransform = player.transform;
             playerGrapple = player.GetComponent<Grapple>();
+
+            if (playerGrapple == null)
+            {
+                Debug.LogError("Grapple script not found on the player.");
+                return;
+            }
 
             // Calculate the initial offset between the circle and the player
             initialOffset = transform.position - playerTransform.position;
@@ -40,6 +52,7 @@ public class GrappleRangeCircle : MonoBehaviour
         //lineRenderer.endColor = circleColor;
 
         DrawCircle(playerGrapple.maxGrappleDistance);
+        lineRenderer.enabled = false;
     }
 
     
@@ -50,17 +63,63 @@ public class GrappleRangeCircle : MonoBehaviour
         {
             transform.position = playerTransform.position + initialOffset;
 
+            /*
             // Update the circle size based on the current max grapple distance
             if (playerGrapple != null)
             {
                 DrawCircle(playerGrapple.maxGrappleDistance);
             }
+            */
         }
     }
 
+    public void AnimateCircleExpansion(float currentRadius, float newRadius, float duration)
+    {
+        if (lineRenderer != null)
+        {
+            StartCoroutine(StartExpand(currentRadius, newRadius, duration));
+        }
+        else
+        {
+            Debug.LogError("LineRenderer is not initialized.");
+        }
+    }
+
+    private IEnumerator StartExpand(float currentRadius, float targetRadius, float duration)
+    {
+        // Wait for 0.5 seconds before starting the expansion
+        yield return new WaitForSeconds(0.5f);
+
+        //float currentRadius = playerGrapple.maxGrappleDistance;
+        float elapsedTime = 0f;
+
+        while (elapsedTime < duration)
+        {
+            float radius = Mathf.Lerp(currentRadius, targetRadius, elapsedTime / duration);
+            DrawCircle(radius);
+            elapsedTime += Time.deltaTime;
+            yield return null;  // Wait for the next frame
+        }
+
+        // Ensure the final radius is set
+        DrawCircle(targetRadius);
+
+        // Wait for an additional 0.5 seconds after the animation completes
+        yield return new WaitForSeconds(1.0f);
+
+        // Disable the GameObject after the delay
+        Debug.Log("Disabling GrappleDistanceCircle");
+        lineRenderer.enabled = false;
+    }
 
     void DrawCircle(float radius)
     {
+        if (lineRenderer == null)
+        {
+            Debug.LogError("LineRenderer is not initialized.");
+            return;
+        }
+
         float angleStep = 360f / segments;
         for (int i = 0; i <= segments; i++)
         {

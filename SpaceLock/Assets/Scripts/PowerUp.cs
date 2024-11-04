@@ -63,6 +63,7 @@ public class PowerUp : MonoBehaviour
                 break;
 
             case PowerUpType.IncreaseGrappleDistance:
+                ExpandCircle(grappleScript.maxGrappleDistance, grappleScript.maxGrappleDistance + 10f);
                 grappleScript.maxGrappleDistance += 10f; // Increase by 10 (adjustable)
                 Debug.Log("Increased grapple distance by 10. New distance: " + grappleScript.maxGrappleDistance);
                 break;
@@ -94,6 +95,21 @@ public class PowerUp : MonoBehaviour
         else
         {
             Debug.LogWarning("MeshRenderer component not found.");
+        }
+    }
+
+    public void ExpandCircle(float currentGrappleDistance, float newMaxGrappleDistance)
+    {
+        Transform circleTransform = player.transform.Find("GrappleDistanceCircle");
+
+        if (circleTransform != null)
+        {
+            circleTransform.GetComponent<LineRenderer>().enabled = true;
+            circleTransform.gameObject.GetComponent<GrappleRangeCircle>().AnimateCircleExpansion(currentGrappleDistance, newMaxGrappleDistance, 0.5f);
+        }
+        else
+        {
+            Debug.LogError("GrappleDistanceCircle child not found under the player.");
         }
     }
 }
