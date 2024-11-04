@@ -28,6 +28,8 @@ public class Grapple : MonoBehaviour {
     public float wiggleFrequency =9f;
     public float wiggleMagnitude = 0.5f;
 
+    private bool redShown;
+
     void Start()
     {
         lineRenderer = GetComponent<LineRenderer>();
@@ -41,6 +43,8 @@ public class Grapple : MonoBehaviour {
        
         GrappleCount = cv.GrapplesNumber.GetComponent<TextMeshProUGUI>() ;
         UpdateGrappleCountText();
+
+        redShown = false;
     }
 
     void Update()
@@ -51,6 +55,12 @@ public class Grapple : MonoBehaviour {
         if (Input.GetButtonDown("Fire1") && remainingGrapples > 0)
         {
             TryGrapple();
+        }
+
+        if (redShown && Input.GetButtonUp("Fire1"))
+        {
+            GetComponentInChildren<GrappleRangeCircle>().HideRedCircle();
+            redShown = false;
         }
 
         if (isGrappling && grappledObject != null)
@@ -201,7 +211,8 @@ public class Grapple : MonoBehaviour {
         if (circleTransform != null)
         {
             circleTransform.GetComponent<LineRenderer>().enabled = true;
-            circleTransform.gameObject.GetComponent<GrappleRangeCircle>().ShowRedCircle(maxGrappleDistance, 0.5f);
+            circleTransform.gameObject.GetComponent<GrappleRangeCircle>().ShowRedCircle(maxGrappleDistance);
+            redShown = true;
         }
         else
         {
