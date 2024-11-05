@@ -5,9 +5,12 @@ public class CameraFollow : MonoBehaviour
     public GameObject player;
     public Vector3 offset = new Vector3(0, 5, -10);
     public float rotationSpeed = 1f;
+    public float smoothSpeed = 0.125f;
+    public float rotationSmoothSpeed = 0.1f;
 
-    private float yaw = -90f; // Initialize to -90 degrees
+    private float yaw = -90f;
     private float pitch = 0f;
+    private Vector3 currentVelocity = Vector3.zero;
 
     void Start()
     {
@@ -17,10 +20,7 @@ public class CameraFollow : MonoBehaviour
             return;
         }
 
-        // Set initial position
         transform.position = player.transform.position + offset;
-        
-        // Set initial rotation
         transform.rotation = Quaternion.Euler(pitch, yaw, 0);
     }
 
@@ -31,22 +31,19 @@ public class CameraFollow : MonoBehaviour
         // Update rotation based on mouse input
         yaw += rotationSpeed * Input.GetAxis("Mouse X");
         pitch -= rotationSpeed * Input.GetAxis("Mouse Y");
-
-        // Clamp pitch to prevent camera flipping
         pitch = Mathf.Clamp(pitch, -65f, 65f);
 
-        // Calculate new rotation
-        Quaternion rotation = Quaternion.Euler(pitch, yaw, 0);
+        // Calculate target rotation
+        Quaternion targetRotation = Quaternion.Euler(pitch, yaw, 0);
 
-        Vector3 position = player.transform.position + offset;
-        // Calculate new position
-        //Vector3 negDistance = new Vector3(0.0f, 0.0f, -offset.magnitude);
-        //Vector3 position = rotation * negDistance + player.transform.position;
+        // Smoothly interpolate rotation
+        transform.rotation = Quaternion.Slerp(transform.rotation, targetRotation, rotationSmoothSpeed);
 
+        // Calculate target position
+        Vector3 targetPosition = player.transform.position + offset;
 
-        // Apply new position and rotation
-        transform.rotation = rotation;
-        transform.position = position;
+        // Smoothly move the camera towards the target position
+        transform.position = Vector3.SmoothDamp(transform.position, targetPosition, ref currentVelocity, smoothSpeed);
     }
 }
 

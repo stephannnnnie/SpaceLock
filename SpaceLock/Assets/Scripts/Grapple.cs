@@ -14,7 +14,7 @@ public class Grapple : MonoBehaviour {
     private bool isGrappling = false;
     private LineRenderer lineRenderer;
     private float grappleTime = 1.0f;
-    private float grappleSpeed;
+    [SerializeField] float grappleSpeed = 10f; // Adjust this value to control grappling speed
     private Vector3 initialPosition;
     private float elapsedTime;
     public int maxGrapples = 5;
@@ -22,11 +22,15 @@ public class Grapple : MonoBehaviour {
     public Canvas cv;
     private TextMeshProUGUI GrappleCount;
 
-    //public GameObject finalWall;
     private bool hasWon = false;
 
-    public float wiggleFrequency =9f;
+    public float wiggleFrequency = 9f;
     public float wiggleMagnitude = 0.5f;
+
+    private bool redShown;
+
+    private Vector3 grapplePoint;
+    private Vector3 grappleDirection;
 
     void Start()
     {
@@ -38,36 +42,43 @@ public class Grapple : MonoBehaviour {
         lineRenderer.enabled = false;
 
         remainingGrapples = maxGrapples;
-       
-        GrappleCount = cv.GrapplesNumber.GetComponent<TextMeshProUGUI>() ;
+
+        GrappleCount = cv.GrapplesNumber.GetComponent<TextMeshProUGUI>();
         UpdateGrappleCountText();
+
+        redShown = false;
     }
 
     void Update()
     {
-        // Cursor.visible = false;
-        // Cursor.lockState = CursorLockMode.Locked;
-
-        if (Input.GetButtonDown("Fire1") && remainingGrapples > 0)
+        if (Input.GetButtonDown("Fire1") && remainingGrapples > 0 && !lineRenderer.enabled)
         {
             TryGrapple();
+        }
+
+        if (redShown && Input.GetButtonUp("Fire1"))
+        {
+            GetComponentInChildren<GrappleRangeCircle>().HideRedCircle();
+            redShown = false;
         }
 
         if (isGrappling && grappledObject != null)
         {
             elapsedTime += Time.deltaTime;
 
-            transform.position = Vector3.MoveTowards(initialPosition, grappledObject.position, grappleSpeed * elapsedTime);
-            // lineRenderer.SetPosition(0, Shootposi.transform.position);
-            // lineRenderer.SetPosition(1, grappledObject.position);
+            // Update grapple point if the target is moving
+            grapplePoint = grappledObject.position;
+
+            // Move towards the updated grapple point
+            float step = grappleSpeed * Time.deltaTime;
+            transform.position = Vector3.MoveTowards(transform.position, grapplePoint, step);
+
             UpdateLineRendererWithWiggle();
 
-            if (elapsedTime >= grappleTime || Vector3.Distance(transform.position, grappledObject.position) < 0.1f)
+            // Check if we've reached the grapple point
+            if (Vector3.Distance(transform.position, grapplePoint) < 0.1f)
             {
-                isGrappling = false;
-                lineRenderer.enabled = false;
-                transform.SetParent(grappledObject);
-                cv.updateGrappless();
+                EndGrapple();
             }
         }
         else
@@ -88,7 +99,7 @@ public class Grapple : MonoBehaviour {
         {
             lineRenderer.positionCount = 50;
             Vector3 startPoint = Shootposi.transform.position;
-            Vector3 endPoint = grappledObject.position;
+            Vector3 endPoint = grapplePoint;
 
             lineRenderer.SetPosition(0, startPoint);
 
@@ -115,18 +126,16 @@ public class Grapple : MonoBehaviour {
             if (hit.collider != null && hit.collider.gameObject != gameObject && hit.collider.CompareTag("Obstacle"))
             {
                 float distanceToHit = Vector3.Distance(transform.position, hit.point);
-                Debug.Log("Distance to hit: " + distanceToHit);
 
                 if (distanceToHit <= maxGrappleDistance)
                 {
                     grappledObject = hit.collider.transform;
+                    grapplePoint = hit.point;
                     isGrappling = true;
                     lineRenderer.enabled = true;
 
                     initialPosition = transform.position;
                     elapsedTime = 0f;
-
-                    grappleSpeed = distanceToHit / grappleTime;
 
                     remainingGrapples--;
                     UpdateGrappleCountText();
@@ -135,7 +144,6 @@ public class Grapple : MonoBehaviour {
                 }
                 else
                 {
-                    Debug.Log("entered most inner else");
                     RedCircleWarning();
                     Debug.Log("Object is too far to grapple.");
                 }
@@ -147,19 +155,24 @@ public class Grapple : MonoBehaviour {
         }
         else
         {
-            Debug.Log("entered most outer else");
-            //RedCircleWarning();
             Debug.Log("No object hit within grapple distance.");
         }
     }
 
-    void FixedUpdate()
+    void EndGrapple()
     {
-        if (isGrappling && grappledObject != null)
-        {
-            transform.position = grappledObject.position;
-        }
+        isGrappling = false;
+        lineRenderer.enabled = false;
+        transform.SetParent(grappledObject);
+        cv.updateGrappless();
     }
+    /*   void FixedUpdate()
+       {
+           if (isGrappling && grappledObject != null)
+           {
+               transform.position = grappledObject.position;
+           }
+       }*/
 
     void OnCollisionEnter(Collision collision)
     {
@@ -201,7 +214,8 @@ public class Grapple : MonoBehaviour {
         if (circleTransform != null)
         {
             circleTransform.GetComponent<LineRenderer>().enabled = true;
-            circleTransform.gameObject.GetComponent<GrappleRangeCircle>().ShowRedCircle(maxGrappleDistance, 0.5f);
+            circleTransform.gameObject.GetComponent<GrappleRangeCircle>().ShowRedCircle(maxGrappleDistance);
+            redShown = true;
         }
         else
         {

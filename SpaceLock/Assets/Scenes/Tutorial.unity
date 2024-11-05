@@ -1748,6 +1748,8 @@ MonoBehaviour:
   player: {fileID: 1625438661}
   offset: {x: 0, y: 7, z: 0}
   rotationSpeed: 5
+  smoothSpeed: 0.125
+  rotationSmoothSpeed: 0.1
 --- !u!81 &1285982146
 AudioListener:
   m_ObjectHideFlags: 0
@@ -2476,6 +2478,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxGrappleDistance: 50
   Shootposi: {fileID: 1999792528}
+  grappleSpeed: 50
   maxGrapples: 15
   remainingGrapples: 0
   cv: {fileID: 1943972078}

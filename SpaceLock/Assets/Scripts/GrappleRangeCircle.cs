@@ -5,15 +5,22 @@ public class GrappleRangeCircle : MonoBehaviour
 {
     public int segments = 100;  // Number of segments for the circle
     public float radius = 5f;   // Initial radius of the circle
-    //public Color circleColor = new Color(0x56 / 255f, 0xB3 / 255f, 0x3F / 255f, 1.0f);
 
     private LineRenderer lineRenderer;
     private Transform playerTransform;  // Reference to the player's transform
     private Vector3 initialOffset;  // Initial offset between the camera and the circle
     private Grapple playerGrapple;  // Reference to the Grapple script
 
+    private string currentColor;
+    private Color greenColor;
+    private Color redColor;
+
+
     void Start()
     {
+        ColorUtility.TryParseHtmlString("#56B23F", out greenColor);
+        ColorUtility.TryParseHtmlString("#B23F42", out redColor);
+
         lineRenderer = GetComponent<LineRenderer>();
         if (lineRenderer == null)
         {
@@ -48,8 +55,6 @@ public class GrappleRangeCircle : MonoBehaviour
         lineRenderer.startWidth = 1.0f;
         lineRenderer.endWidth = 1.0f;
         lineRenderer.material = new Material(Shader.Find("Sprites/Default"));
-        //lineRenderer.startColor = circleColor;
-        //lineRenderer.endColor = circleColor;
 
         DrawCircle(playerGrapple.maxGrappleDistance);
         lineRenderer.enabled = false;
@@ -62,14 +67,6 @@ public class GrappleRangeCircle : MonoBehaviour
         if (playerTransform != null)
         {
             transform.position = playerTransform.position + initialOffset;
-
-            /*
-            // Update the circle size based on the current max grapple distance
-            if (playerGrapple != null)
-            {
-                DrawCircle(playerGrapple.maxGrappleDistance);
-            }
-            */
         }
     }
 
@@ -92,17 +89,11 @@ public class GrappleRangeCircle : MonoBehaviour
         {
             DrawCircle(currentRadius);
 
-            Color greenColor;
-            if (ColorUtility.TryParseHtmlString("#56B23F", out greenColor))
-            {
-                lineRenderer.startColor = greenColor;
-                lineRenderer.endColor = greenColor;
-                SetTransparency(0.7f);
-            }
-            else
-            {
-                Debug.LogError("Failed to parse the color #B23F42.");
-            }
+            lineRenderer.startColor = greenColor;
+            lineRenderer.endColor = greenColor;
+            SetTransparency(0.7f);
+
+            currentColor = "green";
         }
 
         // Wait for 0.5 seconds before starting the expansion
@@ -130,6 +121,29 @@ public class GrappleRangeCircle : MonoBehaviour
         lineRenderer.enabled = false;
     }
 
+    public void ShowRedCircle(float currentRadius)
+    {
+        if (lineRenderer != null)
+        {
+            DrawCircle(currentRadius);
+
+            lineRenderer.startColor = redColor;
+            lineRenderer.endColor = redColor;
+            SetTransparency(0.7f);
+
+            currentColor = "red";
+        }
+    }
+
+    public void HideRedCircle()
+    {
+        if (lineRenderer.enabled && currentColor == "red")
+        {
+            lineRenderer.enabled = false;
+        }
+    }
+
+    /*
     public void ShowRedCircle(float currentRadius, float duration)
     {
         if (lineRenderer != null)
@@ -168,6 +182,7 @@ public class GrappleRangeCircle : MonoBehaviour
         Debug.Log("Disabling RedCircle");
         lineRenderer.enabled = false;
     }
+    */
 
     private void SetTransparency(float newAlpha)
     {
