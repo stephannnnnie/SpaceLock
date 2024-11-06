@@ -88,7 +88,7 @@ public class Grapple : MonoBehaviour {
 
         if (remainingGrapples == 0 && !hasWon)
         {
-            cv.PlayerLose();
+            cv.PlayerLose(2);
             Invoke("RestartGame", 2f);
         }
     }

@@ -17,6 +17,8 @@ public class Canvas : MonoBehaviour
     private float CompletionTime;
     private int Powerupss;
     private bool islose;
+    [SerializeField] private GameObject wallCollision;
+    [SerializeField] private GameObject outofGrapples;
 
 
     // Start is called before the first frame update
@@ -24,6 +26,8 @@ public class Canvas : MonoBehaviour
     {
         won.SetActive(false);
         lose.SetActive(false);
+        wallCollision.SetActive(false);
+        outofGrapples.SetActive(false);
         croshair.SetActive(true);
         GrapplesNumber.SetActive(true);
         noofGrapples = 0;
@@ -67,7 +71,7 @@ public class Canvas : MonoBehaviour
 
     }
 
-    public void PlayerLose() {
+    public void PlayerLose(int reasonCode) {
         
         Reset();
         
@@ -75,6 +79,16 @@ public class Canvas : MonoBehaviour
         Cursor.visible = true;
         se.Send(CompletionTime, noofGrapples, SceneManager.GetActiveScene().name, "Lose", Powerupss);
         lose.SetActive(true);
+
+        if (reasonCode == 1)
+        {
+            wallCollision.SetActive(true);
+        }
+        else if (reasonCode == 2)
+        {
+            outofGrapples.SetActive(true);
+        }
+
         if (islose) {
             
             islose = false;
@@ -86,6 +100,10 @@ public class Canvas : MonoBehaviour
     {
         won.SetActive(false);
         lose.SetActive(false);
+
+        wallCollision.SetActive(false);
+        outofGrapples.SetActive(false);
+
         croshair.SetActive(false);
         GrapplesNumber.SetActive(false);
     }

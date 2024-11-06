@@ -15,7 +15,7 @@ public class GaemOverDetection1 : MonoBehaviour {
         if (this.transform.position.x - player.transform.position.x < 0.5f)
         {
             Debug.Log("Player's position.x is greater than 60.");
-            cv.PlayerLose();
+            cv.PlayerLose(1);
             DisableWinWallCollider(); 
             // Disable winWall's BoxCollider when the player loses
             //StartCoroutine(RestartGameAfterDelay(2f));  // Restart after 2 seconds

@@ -22,13 +22,13 @@ public class Level2_LoseDetection : MonoBehaviour
         if (Mathf.Abs(player.transform.position.z - wall1Z) < loseDistanceThreshold)
         {
             Debug.Log("Player is near Wall 1.");
-            cv.PlayerLose();
+            cv.PlayerLose(1);
         }
         // Check if player is near wall 2
         else if (Mathf.Abs(player.transform.position.z - wall2Z) < loseDistanceThreshold)
         {
             Debug.Log("Player is near Wall 2.");
-            cv.PlayerLose();
+            cv.PlayerLose(1);
         }
     }
 }
