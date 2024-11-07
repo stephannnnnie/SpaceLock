@@ -5,6 +5,7 @@ public class GrappleRangeCircle : MonoBehaviour
 {
     public int segments = 100;  // Number of segments for the circle
     public float radius = 5f;   // Initial radius of the circle
+    public bool isTutorial;
 
     private LineRenderer lineRenderer;
     private Transform playerTransform;  // Reference to the player's transform
@@ -18,6 +19,11 @@ public class GrappleRangeCircle : MonoBehaviour
 
     void Start()
     {
+        if (!isTutorial)
+        {
+            return;
+        }
+
         ColorUtility.TryParseHtmlString("#56B23F", out greenColor);
         ColorUtility.TryParseHtmlString("#B23F42", out redColor);
 
@@ -64,7 +70,7 @@ public class GrappleRangeCircle : MonoBehaviour
     void LateUpdate()
     {
         // Maintain the initial offset relative to the player's position
-        if (playerTransform != null)
+        if (isTutorial && playerTransform != null)
         {
             transform.position = playerTransform.position + initialOffset;
         }
@@ -72,13 +78,9 @@ public class GrappleRangeCircle : MonoBehaviour
 
     public void AnimateCircleExpansion(float currentRadius, float newRadius, float duration)
     {
-        if (lineRenderer != null)
+        if (isTutorial && lineRenderer != null)
         {
             StartCoroutine(StartExpand(currentRadius, newRadius, duration));
-        }
-        else
-        {
-            Debug.LogError("LineRenderer is not initialized.");
         }
     }
 
@@ -123,7 +125,7 @@ public class GrappleRangeCircle : MonoBehaviour
 
     public void ShowRedCircle(float currentRadius)
     {
-        if (lineRenderer != null)
+        if (isTutorial && lineRenderer != null)
         {
             DrawCircle(currentRadius);
 
@@ -137,7 +139,7 @@ public class GrappleRangeCircle : MonoBehaviour
 
     public void HideRedCircle()
     {
-        if (lineRenderer.enabled && currentColor == "red")
+        if (isTutorial && lineRenderer.enabled && currentColor == "red")
         {
             lineRenderer.enabled = false;
         }
