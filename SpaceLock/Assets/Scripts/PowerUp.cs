@@ -48,7 +48,7 @@ public class PowerUp : MonoBehaviour
         {
             ApplyPowerUp(grappleScript);
         }
-
+        
         Destroy(gameObject); // Destroy the PowerUp after activation
     }
 
