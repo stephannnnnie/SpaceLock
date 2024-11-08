@@ -23,6 +23,7 @@ public class Grapple : MonoBehaviour {
     private TextMeshProUGUI GrappleCount;
 
     private bool hasWon = false;
+    private bool firstGrappleCompleted = false;
 
     public float wiggleFrequency = 9f;
     public float wiggleMagnitude = 0.5f;
@@ -36,6 +37,7 @@ public class Grapple : MonoBehaviour {
     public Transform frontWall;
     public Transform backWall;
     public float maxProgressWidth = 95f;
+    //public ScreenFlickerController screenFlickerController;
 
     void Start()
     {
@@ -84,6 +86,11 @@ public class Grapple : MonoBehaviour {
             // Check if we've reached the grapple point
             if (Vector3.Distance(transform.position, grapplePoint) < 0.1f)
             {
+                if (!firstGrappleCompleted)
+                {
+                    //screenFlickerController.TriggerFirstGrapple();
+                    firstGrappleCompleted = true;
+                }
                 EndGrapple();
             }
         }
@@ -94,6 +101,7 @@ public class Grapple : MonoBehaviour {
 
         if (remainingGrapples == 0 && !hasWon)
         {
+            //screenFlickerController.StopFlickering();
             cv.PlayerLose(2);
             Invoke("RestartGame", 2f);
         }
