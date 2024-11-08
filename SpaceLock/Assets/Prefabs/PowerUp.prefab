@@ -119,4 +119,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   powerUpType: 0
+  GrapplesIncrese: 5
+  GrapplesDistance: 10
   ParticleEffect: {fileID: 6290110847480702970, guid: 2ca13b2b5b77b44a5a31034eb07e4eb4, type: 3}
