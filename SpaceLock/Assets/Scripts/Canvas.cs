@@ -19,6 +19,7 @@ public class Canvas : MonoBehaviour
     private bool islose;
     [SerializeField] private GameObject wallCollision;
     [SerializeField] private GameObject outofGrapples;
+    public GameObject progressBar;
 
 
     // Start is called before the first frame update
@@ -68,7 +69,6 @@ public class Canvas : MonoBehaviour
         won.SetActive(true);
         se.Send(CompletionTime ,noofGrapples ,SceneManager.GetActiveScene().name, "WON" , Powerupss );
         Debug.Log(CompletionTime);
-
     }
 
     public void PlayerLose(int reasonCode) {
@@ -106,6 +106,7 @@ public class Canvas : MonoBehaviour
 
         croshair.SetActive(false);
         GrapplesNumber.SetActive(false);
+        progressBar.SetActive(false);
     }
-    
+
 }

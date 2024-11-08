@@ -32,6 +32,11 @@ public class Grapple : MonoBehaviour {
     private Vector3 grapplePoint;
     private Vector3 grappleDirection;
 
+    public RectTransform progressBarFill;
+    public Transform frontWall;
+    public Transform backWall;
+    public float maxProgressWidth = 95f;
+
     void Start()
     {
         lineRenderer = GetComponent<LineRenderer>();
@@ -51,6 +56,7 @@ public class Grapple : MonoBehaviour {
 
     void Update()
     {
+        UpdateProgressBar();
         if (Input.GetButtonDown("Fire1") && remainingGrapples > 0 && !lineRenderer.enabled)
         {
             TryGrapple();
@@ -92,6 +98,16 @@ public class Grapple : MonoBehaviour {
             Invoke("RestartGame", 2f);
         }
     }
+
+    void UpdateProgressBar()
+    {
+        float progress = Mathf.InverseLerp(backWall.position.x, frontWall.position.x, transform.position.x);
+
+        progressBarFill.sizeDelta = new Vector2(maxProgressWidth * progress, progressBarFill.sizeDelta.y);
+
+        progressBarFill.GetComponent<Image>().color = Color.Lerp(Color.red, Color.green, progress);
+    }
+
 
     void UpdateLineRendererWithWiggle()
     {
