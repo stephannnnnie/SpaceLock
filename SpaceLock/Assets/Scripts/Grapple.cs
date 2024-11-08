@@ -37,7 +37,7 @@ public class Grapple : MonoBehaviour {
     public Transform frontWall;
     public Transform backWall;
     public float maxProgressWidth = 95f;
-    //public ScreenFlickerController screenFlickerController;
+    public ScreenFlickerController screenFlickerController;
 
     void Start()
     {
@@ -88,7 +88,7 @@ public class Grapple : MonoBehaviour {
             {
                 if (!firstGrappleCompleted)
                 {
-                    //screenFlickerController.TriggerFirstGrapple();
+                    screenFlickerController.TriggerFirstGrapple();
                     firstGrappleCompleted = true;
                 }
                 EndGrapple();
@@ -101,7 +101,7 @@ public class Grapple : MonoBehaviour {
 
         if (remainingGrapples == 0 && !hasWon)
         {
-            //screenFlickerController.StopFlickering();
+            screenFlickerController.StopFlickering();
             cv.PlayerLose(2);
             Invoke("RestartGame", 2f);
         }

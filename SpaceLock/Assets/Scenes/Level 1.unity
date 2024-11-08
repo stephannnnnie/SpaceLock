@@ -1252,7 +1252,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &766195463
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1758,6 +1758,7 @@ MonoBehaviour:
   frontWall: {fileID: 1114813131}
   backWall: {fileID: 1780233529}
   maxProgressWidth: 95
+  screenFlickerController: {fileID: 766195463}
 --- !u!120 &1036112733
 LineRenderer:
   serializedVersion: 2
@@ -2821,6 +2822,7 @@ MonoBehaviour:
   player: {fileID: 1036112726}
   cv: {fileID: 174287867}
   winWall: {fileID: 1114813127}
+  screenFlickerController: {fileID: 766195463}
 --- !u!54 &1780233531
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -3074,7 +3076,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &2126668584
 RectTransform:
   m_ObjectHideFlags: 0
