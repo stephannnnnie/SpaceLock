@@ -287,6 +287,10 @@ PrefabInstance:
       propertyPath: direction
       value: right
       objectReference: {fileID: 0}
+    - target: {fileID: 5680245899337756313, guid: d74953ee6827b4d63a652ae854a53971, type: 3}
+      propertyPath: particleEffectPrefab
+      value: 
+      objectReference: {fileID: 6290110847480702970, guid: 2ca13b2b5b77b44a5a31034eb07e4eb4, type: 3}
     - target: {fileID: 8102535400671628405, guid: d74953ee6827b4d63a652ae854a53971, type: 3}
       propertyPath: m_Name
       value: Spawner (3)
@@ -398,6 +402,10 @@ PrefabInstance:
       propertyPath: direction
       value: left
       objectReference: {fileID: 0}
+    - target: {fileID: 5680245899337756313, guid: d74953ee6827b4d63a652ae854a53971, type: 3}
+      propertyPath: particleEffectPrefab
+      value: 
+      objectReference: {fileID: 6290110847480702970, guid: 2ca13b2b5b77b44a5a31034eb07e4eb4, type: 3}
     - target: {fileID: 8102535400671628405, guid: d74953ee6827b4d63a652ae854a53971, type: 3}
       propertyPath: m_Name
       value: Spawner (10)
@@ -578,6 +586,10 @@ PrefabInstance:
       propertyPath: direction
       value: left
       objectReference: {fileID: 0}
+    - target: {fileID: 5680245899337756313, guid: d74953ee6827b4d63a652ae854a53971, type: 3}
+      propertyPath: particleEffectPrefab
+      value: 
+      objectReference: {fileID: 6290110847480702970, guid: 2ca13b2b5b77b44a5a31034eb07e4eb4, type: 3}
     - target: {fileID: 8102535400671628405, guid: d74953ee6827b4d63a652ae854a53971, type: 3}
       propertyPath: m_Name
       value: Spawner (2)
@@ -838,6 +850,10 @@ PrefabInstance:
       propertyPath: direction
       value: right
       objectReference: {fileID: 0}
+    - target: {fileID: 5680245899337756313, guid: d74953ee6827b4d63a652ae854a53971, type: 3}
+      propertyPath: particleEffectPrefab
+      value: 
+      objectReference: {fileID: 6290110847480702970, guid: 2ca13b2b5b77b44a5a31034eb07e4eb4, type: 3}
     - target: {fileID: 8102535400671628405, guid: d74953ee6827b4d63a652ae854a53971, type: 3}
       propertyPath: m_Name
       value: Spawner (4)
@@ -1062,6 +1078,10 @@ PrefabInstance:
       propertyPath: direction
       value: right
       objectReference: {fileID: 0}
+    - target: {fileID: 5680245899337756313, guid: d74953ee6827b4d63a652ae854a53971, type: 3}
+      propertyPath: particleEffectPrefab
+      value: 
+      objectReference: {fileID: 6290110847480702970, guid: 2ca13b2b5b77b44a5a31034eb07e4eb4, type: 3}
     - target: {fileID: 8102535400671628405, guid: d74953ee6827b4d63a652ae854a53971, type: 3}
       propertyPath: m_Name
       value: Spawner (7)
@@ -1136,6 +1156,10 @@ PrefabInstance:
       propertyPath: direction
       value: right
       objectReference: {fileID: 0}
+    - target: {fileID: 5680245899337756313, guid: d74953ee6827b4d63a652ae854a53971, type: 3}
+      propertyPath: particleEffectPrefab
+      value: 
+      objectReference: {fileID: 6290110847480702970, guid: 2ca13b2b5b77b44a5a31034eb07e4eb4, type: 3}
     - target: {fileID: 8102535400671628405, guid: d74953ee6827b4d63a652ae854a53971, type: 3}
       propertyPath: m_Name
       value: Spawner (9)
@@ -1210,6 +1234,10 @@ PrefabInstance:
       propertyPath: direction
       value: right
       objectReference: {fileID: 0}
+    - target: {fileID: 5680245899337756313, guid: d74953ee6827b4d63a652ae854a53971, type: 3}
+      propertyPath: particleEffectPrefab
+      value: 
+      objectReference: {fileID: 6290110847480702970, guid: 2ca13b2b5b77b44a5a31034eb07e4eb4, type: 3}
     - target: {fileID: 8102535400671628405, guid: d74953ee6827b4d63a652ae854a53971, type: 3}
       propertyPath: m_Name
       value: Spawner (10)
@@ -1279,6 +1307,10 @@ PrefabInstance:
       propertyPath: direction
       value: right
       objectReference: {fileID: 0}
+    - target: {fileID: 5680245899337756313, guid: d74953ee6827b4d63a652ae854a53971, type: 3}
+      propertyPath: particleEffectPrefab
+      value: 
+      objectReference: {fileID: 6290110847480702970, guid: 2ca13b2b5b77b44a5a31034eb07e4eb4, type: 3}
     - target: {fileID: 8102535400671628405, guid: d74953ee6827b4d63a652ae854a53971, type: 3}
       propertyPath: m_Name
       value: Spawner (11)
@@ -1442,6 +1474,10 @@ PrefabInstance:
       propertyPath: direction
       value: left
       objectReference: {fileID: 0}
+    - target: {fileID: 5680245899337756313, guid: d74953ee6827b4d63a652ae854a53971, type: 3}
+      propertyPath: particleEffectPrefab
+      value: 
+      objectReference: {fileID: 6290110847480702970, guid: 2ca13b2b5b77b44a5a31034eb07e4eb4, type: 3}
     - target: {fileID: 8102535400671628405, guid: d74953ee6827b4d63a652ae854a53971, type: 3}
       propertyPath: m_Name
       value: Spawner (11)
@@ -1777,6 +1813,10 @@ PrefabInstance:
       propertyPath: direction
       value: left
       objectReference: {fileID: 0}
+    - target: {fileID: 5680245899337756313, guid: d74953ee6827b4d63a652ae854a53971, type: 3}
+      propertyPath: particleEffectPrefab
+      value: 
+      objectReference: {fileID: 6290110847480702970, guid: 2ca13b2b5b77b44a5a31034eb07e4eb4, type: 3}
     - target: {fileID: 8102535400671628405, guid: d74953ee6827b4d63a652ae854a53971, type: 3}
       propertyPath: m_Name
       value: Spawner
@@ -2118,6 +2158,10 @@ PrefabInstance:
       propertyPath: direction
       value: right
       objectReference: {fileID: 0}
+    - target: {fileID: 5680245899337756313, guid: d74953ee6827b4d63a652ae854a53971, type: 3}
+      propertyPath: particleEffectPrefab
+      value: 
+      objectReference: {fileID: 6290110847480702970, guid: 2ca13b2b5b77b44a5a31034eb07e4eb4, type: 3}
     - target: {fileID: 8102535400671628405, guid: d74953ee6827b4d63a652ae854a53971, type: 3}
       propertyPath: m_Name
       value: Spawner (1)
@@ -2361,6 +2405,10 @@ PrefabInstance:
       propertyPath: direction
       value: right
       objectReference: {fileID: 0}
+    - target: {fileID: 5680245899337756313, guid: d74953ee6827b4d63a652ae854a53971, type: 3}
+      propertyPath: particleEffectPrefab
+      value: 
+      objectReference: {fileID: 6290110847480702970, guid: 2ca13b2b5b77b44a5a31034eb07e4eb4, type: 3}
     - target: {fileID: 8102535400671628405, guid: d74953ee6827b4d63a652ae854a53971, type: 3}
       propertyPath: m_Name
       value: Spawner (8)
@@ -2454,6 +2502,7 @@ MonoBehaviour:
   numberOfObstacles: 100
   drespawn: {fileID: 1780233525}
   powerUpPrefab: {fileID: 4562818433435053289, guid: e678ecd8c5cdc4b519a45fe0051e007a, type: 3}
+  particleEffectPrefab: {fileID: 0}
   xDistance: -160
   powerUpSpawnChance: 0.109
 --- !u!4 &1256363977
@@ -2536,6 +2585,10 @@ PrefabInstance:
       propertyPath: direction
       value: right
       objectReference: {fileID: 0}
+    - target: {fileID: 5680245899337756313, guid: d74953ee6827b4d63a652ae854a53971, type: 3}
+      propertyPath: particleEffectPrefab
+      value: 
+      objectReference: {fileID: 6290110847480702970, guid: 2ca13b2b5b77b44a5a31034eb07e4eb4, type: 3}
     - target: {fileID: 8102535400671628405, guid: d74953ee6827b4d63a652ae854a53971, type: 3}
       propertyPath: m_Name
       value: Spawner
@@ -2652,6 +2705,10 @@ PrefabInstance:
       propertyPath: direction
       value: left
       objectReference: {fileID: 0}
+    - target: {fileID: 5680245899337756313, guid: d74953ee6827b4d63a652ae854a53971, type: 3}
+      propertyPath: particleEffectPrefab
+      value: 
+      objectReference: {fileID: 6290110847480702970, guid: 2ca13b2b5b77b44a5a31034eb07e4eb4, type: 3}
     - target: {fileID: 8102535400671628405, guid: d74953ee6827b4d63a652ae854a53971, type: 3}
       propertyPath: m_Name
       value: Spawner (9)
@@ -2726,6 +2783,10 @@ PrefabInstance:
       propertyPath: direction
       value: right
       objectReference: {fileID: 0}
+    - target: {fileID: 5680245899337756313, guid: d74953ee6827b4d63a652ae854a53971, type: 3}
+      propertyPath: particleEffectPrefab
+      value: 
+      objectReference: {fileID: 6290110847480702970, guid: 2ca13b2b5b77b44a5a31034eb07e4eb4, type: 3}
     - target: {fileID: 8102535400671628405, guid: d74953ee6827b4d63a652ae854a53971, type: 3}
       propertyPath: m_Name
       value: Spawner (2)
@@ -2805,6 +2866,10 @@ PrefabInstance:
       propertyPath: direction
       value: left
       objectReference: {fileID: 0}
+    - target: {fileID: 5680245899337756313, guid: d74953ee6827b4d63a652ae854a53971, type: 3}
+      propertyPath: particleEffectPrefab
+      value: 
+      objectReference: {fileID: 6290110847480702970, guid: 2ca13b2b5b77b44a5a31034eb07e4eb4, type: 3}
     - target: {fileID: 8102535400671628405, guid: d74953ee6827b4d63a652ae854a53971, type: 3}
       propertyPath: m_Name
       value: Spawner (6)
@@ -2884,6 +2949,10 @@ PrefabInstance:
       propertyPath: direction
       value: left
       objectReference: {fileID: 0}
+    - target: {fileID: 5680245899337756313, guid: d74953ee6827b4d63a652ae854a53971, type: 3}
+      propertyPath: particleEffectPrefab
+      value: 
+      objectReference: {fileID: 6290110847480702970, guid: 2ca13b2b5b77b44a5a31034eb07e4eb4, type: 3}
     - target: {fileID: 8102535400671628405, guid: d74953ee6827b4d63a652ae854a53971, type: 3}
       propertyPath: m_Name
       value: Spawner (5)
@@ -2958,6 +3027,10 @@ PrefabInstance:
       propertyPath: direction
       value: right
       objectReference: {fileID: 0}
+    - target: {fileID: 5680245899337756313, guid: d74953ee6827b4d63a652ae854a53971, type: 3}
+      propertyPath: particleEffectPrefab
+      value: 
+      objectReference: {fileID: 6290110847480702970, guid: 2ca13b2b5b77b44a5a31034eb07e4eb4, type: 3}
     - target: {fileID: 8102535400671628405, guid: d74953ee6827b4d63a652ae854a53971, type: 3}
       propertyPath: m_Name
       value: Spawner (5)
@@ -3100,6 +3173,10 @@ PrefabInstance:
       propertyPath: direction
       value: left
       objectReference: {fileID: 0}
+    - target: {fileID: 5680245899337756313, guid: d74953ee6827b4d63a652ae854a53971, type: 3}
+      propertyPath: particleEffectPrefab
+      value: 
+      objectReference: {fileID: 6290110847480702970, guid: 2ca13b2b5b77b44a5a31034eb07e4eb4, type: 3}
     - target: {fileID: 8102535400671628405, guid: d74953ee6827b4d63a652ae854a53971, type: 3}
       propertyPath: m_Name
       value: Spawner (8)
@@ -3174,6 +3251,10 @@ PrefabInstance:
       propertyPath: direction
       value: right
       objectReference: {fileID: 0}
+    - target: {fileID: 5680245899337756313, guid: d74953ee6827b4d63a652ae854a53971, type: 3}
+      propertyPath: particleEffectPrefab
+      value: 
+      objectReference: {fileID: 6290110847480702970, guid: 2ca13b2b5b77b44a5a31034eb07e4eb4, type: 3}
     - target: {fileID: 8102535400671628405, guid: d74953ee6827b4d63a652ae854a53971, type: 3}
       propertyPath: m_Name
       value: Spawner (6)
@@ -3408,6 +3489,10 @@ PrefabInstance:
       propertyPath: direction
       value: left
       objectReference: {fileID: 0}
+    - target: {fileID: 5680245899337756313, guid: d74953ee6827b4d63a652ae854a53971, type: 3}
+      propertyPath: particleEffectPrefab
+      value: 
+      objectReference: {fileID: 6290110847480702970, guid: 2ca13b2b5b77b44a5a31034eb07e4eb4, type: 3}
     - target: {fileID: 8102535400671628405, guid: d74953ee6827b4d63a652ae854a53971, type: 3}
       propertyPath: m_Name
       value: Spawner (7)
@@ -3482,6 +3567,10 @@ PrefabInstance:
       propertyPath: direction
       value: left
       objectReference: {fileID: 0}
+    - target: {fileID: 5680245899337756313, guid: d74953ee6827b4d63a652ae854a53971, type: 3}
+      propertyPath: particleEffectPrefab
+      value: 
+      objectReference: {fileID: 6290110847480702970, guid: 2ca13b2b5b77b44a5a31034eb07e4eb4, type: 3}
     - target: {fileID: 8102535400671628405, guid: d74953ee6827b4d63a652ae854a53971, type: 3}
       propertyPath: m_Name
       value: Spawner (3)
@@ -3556,6 +3645,10 @@ PrefabInstance:
       propertyPath: direction
       value: left
       objectReference: {fileID: 0}
+    - target: {fileID: 5680245899337756313, guid: d74953ee6827b4d63a652ae854a53971, type: 3}
+      propertyPath: particleEffectPrefab
+      value: 
+      objectReference: {fileID: 6290110847480702970, guid: 2ca13b2b5b77b44a5a31034eb07e4eb4, type: 3}
     - target: {fileID: 8102535400671628405, guid: d74953ee6827b4d63a652ae854a53971, type: 3}
       propertyPath: m_Name
       value: Spawner (1)
@@ -3673,6 +3766,10 @@ PrefabInstance:
       propertyPath: direction
       value: left
       objectReference: {fileID: 0}
+    - target: {fileID: 5680245899337756313, guid: d74953ee6827b4d63a652ae854a53971, type: 3}
+      propertyPath: particleEffectPrefab
+      value: 
+      objectReference: {fileID: 6290110847480702970, guid: 2ca13b2b5b77b44a5a31034eb07e4eb4, type: 3}
     - target: {fileID: 8102535400671628405, guid: d74953ee6827b4d63a652ae854a53971, type: 3}
       propertyPath: m_Name
       value: Spawner (4)

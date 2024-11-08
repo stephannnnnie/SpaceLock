@@ -10,7 +10,8 @@ public class PowerUp : MonoBehaviour
     private GameObject player; // Internal reference to the player
     public int GrapplesIncrese;
     public int GrapplesDistance;
-    [SerializeField] GameObject ParticleEffect;
+    public ParticleSystem PowerUpEffect = null; // To trigger effect
+    private bool isActivated = false;
     void Start()
     {
         // Find the player GameObject by tag
@@ -28,7 +29,7 @@ public class PowerUp : MonoBehaviour
 
     void Update()
     {
-        if (player != null)
+        if (player != null && !isActivated)
         {
             // Calculate the distance between the player and the PowerUp
             float distanceToPlayer = Vector3.Distance(transform.position, player.transform.position);
@@ -43,16 +44,36 @@ public class PowerUp : MonoBehaviour
 
     void ActivatePowerUp()
     {
+        isActivated = true;
+        if (PowerUpEffect != null)
+        {
+            PowerUpEffect.Play();
+        }
+
         // Get the Grapple component from the player
         var grappleScript = player.GetComponent<Grapple>();
         Debug.Log("BYE BYE POWER UP ");
         if (grappleScript != null)
         {
             ApplyPowerUp(grappleScript);
-            Instantiate(ParticleEffect , transform.position, Quaternion.identity);
         }
-        
-        Destroy(gameObject); // Destroy the PowerUp after activation
+        //Destroy(gameObject); // Destroy the PowerUp after activation
+        StartCoroutine(DestroyAfterEffect());
+    }
+
+    IEnumerator DestroyAfterEffect()
+    {
+        if (PowerUpEffect != null)
+        {
+            // Wait until the particle system stops playing
+            while (PowerUpEffect.isPlaying)
+            {
+                yield return null;
+            }
+        }
+
+        Debug.Log("Destroying power-up object.");
+        Destroy(gameObject);
     }
 
     void ApplyPowerUp(Grapple grappleScript)
