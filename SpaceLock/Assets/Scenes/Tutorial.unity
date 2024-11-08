@@ -3316,6 +3316,10 @@ PrefabInstance:
       propertyPath: se
       value: 
       objectReference: {fileID: 496381903}
+    - target: {fileID: 1212793996177933107, guid: ee533a8db57642d459365ac7cef99ae5, type: 3}
+      propertyPath: progressBar
+      value: 
+      objectReference: {fileID: 2013276849}
     - target: {fileID: 4007092006021574437, guid: ee533a8db57642d459365ac7cef99ae5, type: 3}
       propertyPath: m_Pivot.x
       value: 0
