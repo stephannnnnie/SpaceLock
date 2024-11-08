@@ -23,6 +23,7 @@ public class Grapple : MonoBehaviour {
     private TextMeshProUGUI GrappleCount;
 
     private bool hasWon = false;
+    private bool firstGrappleCompleted = false;
 
     public float wiggleFrequency = 9f;
     public float wiggleMagnitude = 0.5f;
@@ -31,6 +32,12 @@ public class Grapple : MonoBehaviour {
 
     private Vector3 grapplePoint;
     private Vector3 grappleDirection;
+
+    public RectTransform progressBarFill;
+    public Transform frontWall;
+    public Transform backWall;
+    public float maxProgressWidth = 95f;
+    public ScreenFlickerController screenFlickerController;
 
     void Start()
     {
@@ -51,6 +58,7 @@ public class Grapple : MonoBehaviour {
 
     void Update()
     {
+        UpdateProgressBar();
         if (Input.GetButtonDown("Fire1") && remainingGrapples > 0 && !lineRenderer.enabled)
         {
             TryGrapple();
@@ -78,6 +86,11 @@ public class Grapple : MonoBehaviour {
             // Check if we've reached the grapple point
             if (Vector3.Distance(transform.position, grapplePoint) < 0.1f)
             {
+                if (!firstGrappleCompleted)
+                {
+                    screenFlickerController.TriggerFirstGrapple();
+                    firstGrappleCompleted = true;
+                }
                 EndGrapple();
             }
         }
@@ -88,10 +101,21 @@ public class Grapple : MonoBehaviour {
 
         if (remainingGrapples == 0 && !hasWon)
         {
+            screenFlickerController.StopFlickering();
             cv.PlayerLose(2);
             Invoke("RestartGame", 2f);
         }
     }
+
+    void UpdateProgressBar()
+    {
+        float progress = Mathf.InverseLerp(backWall.position.x, frontWall.position.x, transform.position.x);
+
+        progressBarFill.sizeDelta = new Vector2(maxProgressWidth * progress, progressBarFill.sizeDelta.y);
+
+        progressBarFill.GetComponent<Image>().color = Color.Lerp(Color.red, Color.green, progress);
+    }
+
 
     void UpdateLineRendererWithWiggle()
     {

@@ -8,7 +8,9 @@ public class PowerUp : MonoBehaviour
     public PowerUpType powerUpType;
     private float triggerRadius = 10f; // Distance within which the power-up is activated
     private GameObject player; // Internal reference to the player
-
+    public int GrapplesIncrese;
+    public int GrapplesDistance;
+    [SerializeField] GameObject ParticleEffect;
     void Start()
     {
         // Find the player GameObject by tag
@@ -47,6 +49,7 @@ public class PowerUp : MonoBehaviour
         if (grappleScript != null)
         {
             ApplyPowerUp(grappleScript);
+            Instantiate(ParticleEffect , transform.position, Quaternion.identity);
         }
         
         Destroy(gameObject); // Destroy the PowerUp after activation
@@ -57,7 +60,7 @@ public class PowerUp : MonoBehaviour
         switch (powerUpType)
         {
             case PowerUpType.ExtraGrapple:
-                grappleScript.remainingGrapples += 10;
+                grappleScript.remainingGrapples += GrapplesIncrese;
                 grappleScript.UpdateGrappleCountText(); // Update the UI text
                 Debug.Log("Increased grapples by 10. New total: " + grappleScript.remainingGrapples);
                 break;
