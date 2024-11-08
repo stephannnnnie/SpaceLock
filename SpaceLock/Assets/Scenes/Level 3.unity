@@ -2909,13 +2909,14 @@ GameObject:
   m_Component:
   - component: {fileID: 1256363977}
   - component: {fileID: 1256363976}
+  - component: {fileID: 1256363978}
   m_Layer: 0
   m_Name: RandomSpawner
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &1256363976
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2923,12 +2924,12 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1256363975}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 1a5eca41a06414b67a72a4974447c2bc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  obstaclePrefab: {fileID: 2266585411967085508, guid: 787c43ea33db244df923fa10f6052a48, type: 3}
+  obstaclePrefab: {fileID: 2266585411967085508, guid: 7eef38e4ca0f1401a9d0e6be53ed81f7, type: 3}
   numberOfObstacles: 100
   drespawn: {fileID: 1780233525}
   powerUpPrefab: {fileID: 4562818433435053289, guid: e678ecd8c5cdc4b519a45fe0051e007a, type: 3}
@@ -2943,12 +2944,28 @@ Transform:
   m_GameObject: {fileID: 1256363975}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 11.647622, y: 7.596483, z: -4.5977125}
+  m_LocalPosition: {x: -140.5, y: 7.596483, z: -4.5977125}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1256363978
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1256363975}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a6c61f9e1f284430897925d8be52ae9d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  obstaclePrefab: {fileID: 2266585411967085508, guid: 7eef38e4ca0f1401a9d0e6be53ed81f7, type: 3}
+  numberOfObstacles: 10
+  drespawn: {fileID: 1780233525}
+  xDistance: -152
 --- !u!4 &1290516946 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 2055839162869741449, guid: d74953ee6827b4d63a652ae854a53971, type: 3}
