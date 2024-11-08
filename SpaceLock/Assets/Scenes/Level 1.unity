@@ -1553,6 +1553,10 @@ MonoBehaviour:
   cv: {fileID: 174287867}
   wiggleFrequency: 8
   wiggleMagnitude: 0.5
+  progressBarFill: {fileID: 0}
+  frontWall: {fileID: 1114813131}
+  backWall: {fileID: 1780233529}
+  maxProgressWidth: 95
 --- !u!120 &1036112733
 LineRenderer:
   serializedVersion: 2
@@ -2446,7 +2450,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &1777053895
 MonoBehaviour:
   m_ObjectHideFlags: 0
