@@ -14,6 +14,7 @@ public class ObstacleSpawner : MonoBehaviour
     private readonly float spawnInterval = 2.0f;
     [SerializeField] private float powerUpSpawnChance = 0.2f; // 20% chance to spawn with power-up
     [SerializeField] private GameObject powerUpPrefab; // Prefab for power-up
+    [SerializeField] private GameObject particleEffectPrefab;
     [SerializeField] private string direction;
 
     // Start is called before the first frame update
@@ -117,11 +118,17 @@ public class ObstacleSpawner : MonoBehaviour
         GameObject powerUp = Instantiate(powerUpPrefab, powerUpPosition, Quaternion.identity);
         powerUp.transform.SetParent(obstacle.transform); // Attach to obstacle so it moves with it
 
+        // bc effect is kinda in front will have to move it back a bit
+        powerUpPosition.z -= 2.5f;
+        GameObject particleEffect = Instantiate(particleEffectPrefab, powerUpPosition, Quaternion.identity);
+        particleEffect.transform.SetParent(powerUp.transform);
+
         // Dynamically set the PowerUpType
         PowerUp powerUpScript = powerUp.GetComponent<PowerUp>();
         if (powerUpScript != null)
         {
             powerUpScript.powerUpType = (PowerUp.PowerUpType)Random.Range(0, 2); // Randomly select between ExtraGrapple and IncreaseGrappleDistance
+            powerUpScript.PowerUpEffect = particleEffect.GetComponent<ParticleSystem>();
         }
     }
 }
