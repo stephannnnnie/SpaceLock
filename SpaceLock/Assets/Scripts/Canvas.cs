@@ -36,6 +36,7 @@ public class Canvas : MonoBehaviour
 
         Cursor.visible = false;
         Cursor.lockState = CursorLockMode.Locked;
+        StartTime = Time.time;
     }
 
     // Update is called once per frame
@@ -49,7 +50,6 @@ public class Canvas : MonoBehaviour
         //     Debug.Log("set cursor invisible");
         //     StartTime = Time.time;
         // }
-        StartTime = Time.time;
         CompletionTime =  Time.time - StartTime;
     }
 
