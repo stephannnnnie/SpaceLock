@@ -277,6 +277,7 @@ MonoBehaviour:
   se: {fileID: 0}
   wallCollision: {fileID: 3097699804123938370}
   outofGrapples: {fileID: 1681552001852891164}
+  progressBar: {fileID: 0}
 --- !u!1 &1121705594652385066
 GameObject:
   m_ObjectHideFlags: 0
