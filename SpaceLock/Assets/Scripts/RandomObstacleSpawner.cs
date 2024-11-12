@@ -146,7 +146,7 @@ public class RandomObstacleSpawner : MonoBehaviour
         powerUp.transform.SetParent(obstacle.transform); // Attach to obstacle so it moves with it
 
         // bc effect is kinda in front will have to move it back a bit
-        powerUpPosition.x += 2.5f;
+        powerUpPosition.x += 3.0f;
         GameObject particleEffect = Instantiate(particleEffectPrefab, powerUpPosition, Quaternion.identity);
         particleEffect.transform.SetParent(powerUp.transform);
 

@@ -1715,6 +1715,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Power Particle
       objectReference: {fileID: 0}
+    - target: {fileID: 7113763913956050138, guid: 2ca13b2b5b77b44a5a31034eb07e4eb4, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 6a880ec85e6fc4ea9bf1997b1151c782, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

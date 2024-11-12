@@ -11,8 +11,10 @@ public class ObstacleLimitedMove : MonoBehaviour
     public Material farObstacle;
     public Material nearObstacle;
     private Grapple gp;
-    private Vector3 pointA = new Vector3(-69.1F, 8.2F, 32.4F);
-    private Vector3 pointB = new Vector3(-69.1F, 8.2F, -39.8F);
+    public Vector3 pointA;
+    //new Vector3(28.5F, 8.2F, 168.2F);
+    public Vector3 pointB;
+    //new Vector3(-34.7F, 8.2F, 168.2F);
 
     void Start()
     {
