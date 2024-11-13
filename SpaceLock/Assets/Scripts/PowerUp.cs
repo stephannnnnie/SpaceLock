@@ -12,6 +12,10 @@ public class PowerUp : MonoBehaviour
     public int GrapplesDistance;
     public ParticleSystem PowerUpEffect = null; // To trigger effect
     private bool isActivated = false;
+    private FloatingTextAnimation numGrapplePowerUpText;
+    private FloatingTextAnimation distancePowerUpText;
+
+
     void Start()
     {
         // Find the player GameObject by tag
@@ -25,6 +29,19 @@ public class PowerUp : MonoBehaviour
         {
             ChangeColor();
         }
+
+        // Find the Text objects by tag
+        GameObject numTextObj = GameObject.FindWithTag("NumGrappleText");
+        GameObject distanceTextObj = GameObject.FindWithTag("DistanceText");
+
+        // Get the FloatingTextAnimation component from each text object
+        if (numTextObj != null)
+            numGrapplePowerUpText = numTextObj.GetComponent<FloatingTextAnimation>();
+            Debug.Log("NumGrappleText assigned successfully.");
+
+        if (distanceTextObj != null)
+            distancePowerUpText = distanceTextObj.GetComponent<FloatingTextAnimation>();
+            Debug.Log("DistanceText assigned successfully.");
     }
 
     void Update()
@@ -82,12 +99,22 @@ public class PowerUp : MonoBehaviour
         {
             case PowerUpType.ExtraGrapple:
                 grappleScript.remainingGrapples += GrapplesIncrese;
+                // Trigger the "+10 Grapples" floating text animation
+                if (numGrapplePowerUpText != null)
+                {
+                    numGrapplePowerUpText.PlayFloatingText("+5");
+                }
                 grappleScript.UpdateGrappleCountText(); // Update the UI text
                 Debug.Log("Increased grapples by 10. New total: " + grappleScript.remainingGrapples);
                 break;
 
             case PowerUpType.IncreaseGrappleDistance:
                 ExpandCircle(grappleScript.maxGrappleDistance, grappleScript.maxGrappleDistance + 10f);
+                // Trigger the "+10 Distance" floating text animation
+                if (distancePowerUpText != null)
+                {
+                    distancePowerUpText.PlayFloatingText("+10");
+                }
                 grappleScript.maxGrappleDistance += 10f; // Increase by 10 (adjustable)
                 Debug.Log("Increased grapple distance by 10. New distance: " + grappleScript.maxGrappleDistance);
                 break;
