@@ -34,7 +34,7 @@ public class CameraFollow : MonoBehaviour
         pitch -= rotationSpeed * Input.GetAxis("Mouse Y") * mouseSensitivity;
 
         // Clamp pitch to prevent camera flipping
-        pitch = Mathf.Clamp(pitch, -45f, 45f);
+        pitch = Mathf.Clamp(pitch, -60f, 60f);
 
         // Calculate new rotation
         Quaternion rotation = Quaternion.Euler(pitch, yaw, 0);
