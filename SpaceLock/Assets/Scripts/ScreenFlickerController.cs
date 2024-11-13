@@ -49,6 +49,7 @@ public class ScreenFlickerController : MonoBehaviour
 
     public void StopFlickering()
     {
+        
         flickeringEnabled = false;
         brightnessOverlay.color = new Color(originalColor.r, originalColor.g, originalColor.b, 0);
     }

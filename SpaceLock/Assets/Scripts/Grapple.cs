@@ -49,19 +49,29 @@ public class Grapple : MonoBehaviour {
         lineRenderer.enabled = false;
 
         remainingGrapples = maxGrapples;
-
-        GrappleCount = cv.GrapplesNumber.GetComponent<TextMeshProUGUI>();
         UpdateGrappleCountText();
 
         redShown = false;
+
+        cv.UpdateGrappleNumber(remainingGrapples, maxGrappleDistance);
     }
 
     void Update()
     {
-        UpdateProgressBar();
-        if (Input.GetButtonDown("Fire1") && remainingGrapples > 0 && !lineRenderer.enabled)
+        if (progressBarFill != null) { UpdateProgressBar(); }
+        
+        if (Input.GetButtonDown("Fire1") && remainingGrapples >= 0 && !lineRenderer.enabled)
         {
-            TryGrapple();
+            
+            if (remainingGrapples == 0 && !hasWon)
+            {
+                if (screenFlickerController != null) { screenFlickerController.StopFlickering(); }
+                cv.PlayerLose(2);
+                Invoke("RestartGame", 2f);
+            }
+            else {
+                TryGrapple();
+            }
         }
 
         if (redShown && Input.GetButtonUp("Fire1"))
@@ -86,7 +96,7 @@ public class Grapple : MonoBehaviour {
             // Check if we've reached the grapple point
             if (Vector3.Distance(transform.position, grapplePoint) < 0.1f)
             {
-                if (!firstGrappleCompleted)
+                if (!firstGrappleCompleted && screenFlickerController != null)
                 {
                     screenFlickerController.TriggerFirstGrapple();
                     firstGrappleCompleted = true;
@@ -99,12 +109,7 @@ public class Grapple : MonoBehaviour {
             lineRenderer.enabled = false;
         }
 
-        if (remainingGrapples == 0 && !hasWon)
-        {
-            screenFlickerController.StopFlickering();
-            cv.PlayerLose(2);
-            Invoke("RestartGame", 2f);
-        }
+       
     }
 
     void UpdateProgressBar()
@@ -190,13 +195,7 @@ public class Grapple : MonoBehaviour {
         transform.SetParent(grappledObject);
         cv.updateGrappless();
     }
-    /*   void FixedUpdate()
-       {
-           if (isGrappling && grappledObject != null)
-           {
-               transform.position = grappledObject.position;
-           }
-       }*/
+
 
     void OnCollisionEnter(Collision collision)
     {
@@ -223,11 +222,7 @@ public class Grapple : MonoBehaviour {
 
     public void UpdateGrappleCountText()
     {
-
-        if (GrappleCount != null)
-        {
-            GrappleCount.text = "Grapples Remaining: " + remainingGrapples + "\nGrapple Distance: " + maxGrappleDistance;
-        }
+        cv.UpdateGrappleNumber(remainingGrapples , maxGrappleDistance);
     }
 
     void RedCircleWarning()

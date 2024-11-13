@@ -69,7 +69,7 @@ public class PowerUp : MonoBehaviour
 
         // Get the Grapple component from the player
         var grappleScript = player.GetComponent<Grapple>();
-        Debug.Log("BYE BYE POWER UP ");
+        //Debug.Log("BYE BYE POWER UP ");
         if (grappleScript != null)
         {
             ApplyPowerUp(grappleScript);
@@ -98,14 +98,20 @@ public class PowerUp : MonoBehaviour
         switch (powerUpType)
         {
             case PowerUpType.ExtraGrapple:
-                grappleScript.remainingGrapples += GrapplesIncrese;
+                if (grappleScript.remainingGrapples >= 20)
+                {
+                    grappleScript.remainingGrapples = 20;
+                }
+                else {
+                    grappleScript.remainingGrapples += GrapplesIncrese;
+                }
                 // Trigger the "+10 Grapples" floating text animation
                 if (numGrapplePowerUpText != null)
                 {
                     numGrapplePowerUpText.PlayFloatingText("+5");
                 }
                 grappleScript.UpdateGrappleCountText(); // Update the UI text
-                Debug.Log("Increased grapples by 10. New total: " + grappleScript.remainingGrapples);
+                //Debug.Log("Increased grapples by 10. New total: " + grappleScript.remainingGrapples);
                 break;
 
             case PowerUpType.IncreaseGrappleDistance:
@@ -116,7 +122,7 @@ public class PowerUp : MonoBehaviour
                     distancePowerUpText.PlayFloatingText("+10");
                 }
                 grappleScript.maxGrappleDistance += 10f; // Increase by 10 (adjustable)
-                Debug.Log("Increased grapple distance by 10. New distance: " + grappleScript.maxGrappleDistance);
+                //Debug.Log("Increased grapple distance by 10. New distance: " + grappleScript.maxGrappleDistance);
                 break;
         }
         // Update UI to reflect changes after power-up

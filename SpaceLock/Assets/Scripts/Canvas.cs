@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.PlayerLoop;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class Canvas : MonoBehaviour
 {
@@ -10,16 +11,25 @@ public class Canvas : MonoBehaviour
     public GameObject won;
     public GameObject lose;
     public GameObject croshair;
-    public GameObject GrapplesNumber;
     public int noofGrapples = 0;
     public SendToGoogle se;
+    public GameObject progressBar;
+
+    [SerializeField] private GameObject wallCollision;
+    [SerializeField] private GameObject outofGrapples;
+
+    [SerializeField] Image GrappleIncrease;
+    [SerializeField] Image GrappleDistance;
+    [SerializeField] GameObject barr;
+
     private float StartTime;
     private float CompletionTime;
     private int Powerupss;
     private bool islose;
-    [SerializeField] private GameObject wallCollision;
-    [SerializeField] private GameObject outofGrapples;
-    public GameObject progressBar;
+
+    const float MAX_GRAPPLES = 20f;
+    const float MAX_DISTANCE = 200f;
+
 
 
     // Start is called before the first frame update
@@ -30,10 +40,9 @@ public class Canvas : MonoBehaviour
         wallCollision.SetActive(false);
         outofGrapples.SetActive(false);
         croshair.SetActive(true);
-        GrapplesNumber.SetActive(true);
         noofGrapples = 0;
         islose = true;
-
+        barr.SetActive(true);
         Cursor.visible = false;
         Cursor.lockState = CursorLockMode.Locked;
         StartTime = Time.time;
@@ -67,7 +76,7 @@ public class Canvas : MonoBehaviour
         Cursor.lockState = CursorLockMode.None;
         Cursor.visible = true;
         won.SetActive(true);
-        se.Send(CompletionTime ,noofGrapples ,SceneManager.GetActiveScene().name, "WON" , Powerupss );
+        //se.Send(CompletionTime ,noofGrapples ,SceneManager.GetActiveScene().name, "WON" , Powerupss );
         Debug.Log(CompletionTime);
     }
 
@@ -77,7 +86,7 @@ public class Canvas : MonoBehaviour
         
         Cursor.lockState = CursorLockMode.None;
         Cursor.visible = true;
-        se.Send(CompletionTime, noofGrapples, SceneManager.GetActiveScene().name, "Lose", Powerupss);
+        //se.Send(CompletionTime, noofGrapples, SceneManager.GetActiveScene().name, "Lose", Powerupss);
         lose.SetActive(true);
 
         if (reasonCode == 1)
@@ -105,8 +114,18 @@ public class Canvas : MonoBehaviour
         outofGrapples.SetActive(false);
 
         croshair.SetActive(false);
-        GrapplesNumber.SetActive(false);
         progressBar.SetActive(false);
+
+        barr.SetActive(false);
+    }
+
+    public void UpdateGrappleNumber(float remainingGrapple , float distance) {
+
+        GrappleIncrease.fillAmount = remainingGrapple / MAX_GRAPPLES;
+        GrappleDistance.fillAmount = distance / MAX_DISTANCE;
+
+        Debug.LogWarning("Grapplw Number :" + remainingGrapple / MAX_GRAPPLES + "  GrappleDistance : " + distance / MAX_DISTANCE  );
+
     }
 
 }
