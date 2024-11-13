@@ -3706,6 +3706,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 43574392}
     - target: {fileID: 1212793996177933107, guid: ee533a8db57642d459365ac7cef99ae5, type: 3}
+      propertyPath: barr
+      value: 
+      objectReference: {fileID: 1651927884}
+    - target: {fileID: 1212793996177933107, guid: ee533a8db57642d459365ac7cef99ae5, type: 3}
       propertyPath: progressBar
       value: 
       objectReference: {fileID: 1777681942}
@@ -3717,6 +3721,10 @@ PrefabInstance:
       propertyPath: GrappleIncrease
       value: 
       objectReference: {fileID: 8927908}
+    - target: {fileID: 3129749157323432924, guid: ee533a8db57642d459365ac7cef99ae5, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4007092006021574437, guid: ee533a8db57642d459365ac7cef99ae5, type: 3}
       propertyPath: m_Pivot.x
       value: 0
@@ -3832,6 +3840,11 @@ MonoBehaviour:
 --- !u!224 &1614527308 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 4007092006021574437, guid: ee533a8db57642d459365ac7cef99ae5, type: 3}
+  m_PrefabInstance: {fileID: 1614527306}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &1651927884 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 242454685651117224, guid: ee533a8db57642d459365ac7cef99ae5, type: 3}
   m_PrefabInstance: {fileID: 1614527306}
   m_PrefabAsset: {fileID: 0}
 --- !u!1 &1665934522
