@@ -203,6 +203,8 @@ public class GrappleRangeCircle : MonoBehaviour
 
     void DrawCircle(float radius)
     {
+        radius = radius - 10.0f;
+
         if (lineRenderer == null)
         {
             Debug.LogError("LineRenderer is not initialized.");
