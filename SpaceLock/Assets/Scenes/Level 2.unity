@@ -4210,6 +4210,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1036112731}
     m_Modifications:
+    - target: {fileID: 785375741954890571, guid: f0c9b3abcee1f2646b7c42e3d0b405cc, type: 3}
+      propertyPath: isTutorial
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 5643061260662454302, guid: f0c9b3abcee1f2646b7c42e3d0b405cc, type: 3}
       propertyPath: m_Name
       value: GrappleDistanceCircle
