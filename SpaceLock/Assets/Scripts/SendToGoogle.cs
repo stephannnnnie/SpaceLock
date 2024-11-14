@@ -34,8 +34,8 @@ public class SendToGoogle : MonoBehaviour
         powerups = Powerups;
 
         StartCoroutine(Post(_sessionID.ToString(), _noOfGrapples.ToString(), _CompetionTime.ToString() , Level_Name.ToString() ,WonORLose.ToString(), powerups.ToString()  ));
-        Debug.LogWarning("wadawdwa : " + _noOfGrapples);
-        Debug.LogWarning("gdrgdrgrdg : " + _CompetionTime);
+        //Debug.LogWarning("wadawdwa : " + _noOfGrapples);
+        //Debug.LogWarning("gdrgdrgrdg : " + _CompetionTime);
     }
     private IEnumerator Post(string sessionID, string testInt, string testFloat ,string Level , string WonOrLose , string Powerups)
     {
