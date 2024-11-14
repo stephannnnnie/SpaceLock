@@ -4424,7 +4424,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   segments: 100
   radius: 5
-  isTutorial: 0
+  isTutorial: 1
 --- !u!120 &1770645807
 LineRenderer:
   serializedVersion: 2
