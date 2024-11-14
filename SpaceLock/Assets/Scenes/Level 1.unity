@@ -2084,7 +2084,7 @@ PrefabInstance:
     - target: {fileID: 1212793996177933107, guid: ee533a8db57642d459365ac7cef99ae5, type: 3}
       propertyPath: progressBar
       value: 
-      objectReference: {fileID: 48376403}
+      objectReference: {fileID: 713276510}
     - target: {fileID: 1212793996177933107, guid: ee533a8db57642d459365ac7cef99ae5, type: 3}
       propertyPath: GrappleDistance
       value: 
