@@ -4952,7 +4952,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8f38e4a8602744bda9d2754570b88175, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  minSpeed: 1
   farObstacle: {fileID: 2100000, guid: ea106ef629bedc04d8acde84de232353, type: 2}
   nearObstacle: {fileID: 2100000, guid: 3cf9e915ef7554190b7669537095105b, type: 2}
   pointA: {x: 28.5, y: 8.2, z: 150}
@@ -6011,18 +6010,18 @@ SceneRoots:
   m_ObjectHideFlags: 0
   m_Roots:
   - {fileID: 1614527306}
+  - {fileID: 2012066124}
+  - {fileID: 1665934523}
   - {fileID: 817539700}
   - {fileID: 2131128117}
   - {fileID: 1134414607}
   - {fileID: 1044091321}
-  - {fileID: 2012066124}
   - {fileID: 4827203}
   - {fileID: 984153733}
   - {fileID: 1440764080}
   - {fileID: 1704950958}
   - {fileID: 1165149863}
   - {fileID: 2012849008}
-  - {fileID: 1665934523}
   - {fileID: 1903375601}
   - {fileID: 43574393}
   - {fileID: 292281469}
