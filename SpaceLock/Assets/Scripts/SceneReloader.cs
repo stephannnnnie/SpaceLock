@@ -5,10 +5,12 @@ using UnityEngine.SceneManagement;
 
 public class SceneReloader : MonoBehaviour
 {
+    [SerializeField] Canvas cv;
     public void ReloadScene()
     {
         Debug.Log("restart clicked");
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+        cv.resetTime();
     }
 
     public void LoadLevel1()

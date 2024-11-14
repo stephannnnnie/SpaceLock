@@ -21,9 +21,10 @@ public class Canvas : MonoBehaviour
     [SerializeField] Image GrappleIncrease;
     [SerializeField] Image GrappleDistance;
     [SerializeField] GameObject barr;
+    [SerializeField] GameObject BarrInfo;
 
     private float StartTime;
-    private float CompletionTime;
+    public float CompletionTime;
     private int Powerupss;
     private bool islose;
 
@@ -45,7 +46,9 @@ public class Canvas : MonoBehaviour
         barr.SetActive(true);
         Cursor.visible = false;
         Cursor.lockState = CursorLockMode.Locked;
+        BarrInfo.SetActive(true);
         StartTime = Time.time;
+        CompletionTime = 0;
     }
 
     // Update is called once per frame
@@ -59,6 +62,7 @@ public class Canvas : MonoBehaviour
         //     Debug.Log("set cursor invisible");
         //     StartTime = Time.time;
         // }
+        if (Input.GetKeyDown(KeyCode.Mouse0) && CompletionTime >= 3f && BarrInfo != null) { BarrInfo.SetActive(false); }
         CompletionTime =  Time.time - StartTime;
     }
 
@@ -76,7 +80,7 @@ public class Canvas : MonoBehaviour
         Cursor.lockState = CursorLockMode.None;
         Cursor.visible = true;
         won.SetActive(true);
-        //se.Send(CompletionTime ,noofGrapples ,SceneManager.GetActiveScene().name, "WON" , Powerupss );
+        if (CompletionTime >= 13f) { se.Send(CompletionTime, noofGrapples, SceneManager.GetActiveScene().name, "WON", Powerupss); }
         Debug.Log(CompletionTime);
     }
 
@@ -86,7 +90,7 @@ public class Canvas : MonoBehaviour
         
         Cursor.lockState = CursorLockMode.None;
         Cursor.visible = true;
-        //se.Send(CompletionTime, noofGrapples, SceneManager.GetActiveScene().name, "Lose", Powerupss);
+        
         lose.SetActive(true);
 
         if (reasonCode == 1)
@@ -97,10 +101,10 @@ public class Canvas : MonoBehaviour
         {
             outofGrapples.SetActive(true);
         }
-
-        if (islose) {
-            
+        if (islose && CompletionTime >= 5f ) {
+            se.Send(CompletionTime, noofGrapples, SceneManager.GetActiveScene().name, "Lose", Powerupss);
             islose = false;
+            Debug.Log("Time Completedddddd");
         }
     }
 
@@ -124,8 +128,11 @@ public class Canvas : MonoBehaviour
         GrappleIncrease.fillAmount = remainingGrapple / MAX_GRAPPLES;
         GrappleDistance.fillAmount = distance / MAX_DISTANCE;
 
-        Debug.LogWarning("Grapplw Number :" + remainingGrapple / MAX_GRAPPLES + "  GrappleDistance : " + distance / MAX_DISTANCE  );
+    }
 
+    public void resetTime() {
+        StartTime = Time.time;
+        CompletionTime = 0;
     }
 
 }

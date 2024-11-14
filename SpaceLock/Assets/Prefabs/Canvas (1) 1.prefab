@@ -381,7 +381,6 @@ MonoBehaviour:
   won: {fileID: 1121705594652385066}
   lose: {fileID: 8669245508762601721}
   croshair: {fileID: 5099593438700023892}
-  GrapplesNumber: {fileID: 3129749157323432924}
   noofGrapples: 0
   se: {fileID: 0}
   progressBar: {fileID: 0}
@@ -390,6 +389,8 @@ MonoBehaviour:
   GrappleIncrease: {fileID: 0}
   GrappleDistance: {fileID: 0}
   barr: {fileID: 0}
+  BarrInfo: {fileID: 0}
+  CompletionTime: 0
 --- !u!1 &1121705594652385066
 GameObject:
   m_ObjectHideFlags: 0
@@ -652,6 +653,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3017791a0989ac64b93133c0ac01e1e2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  cv: {fileID: 1212793996177933107}
 --- !u!1 &2534451560889770416
 GameObject:
   m_ObjectHideFlags: 0
