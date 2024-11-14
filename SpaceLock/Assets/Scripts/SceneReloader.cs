@@ -13,6 +13,20 @@ public class SceneReloader : MonoBehaviour
         cv.resetTime();
     }
 
+    public void LoadMainMenu()
+    {
+        SceneManager.LoadScene("MainMenu");
+    }
+
+    public void LoadTut1()
+    {
+        SceneManager.LoadScene("Test_tut");
+    }
+
+    public void LoadTut2()
+    {
+        SceneManager.LoadScene("Test_tut2");
+    }
     public void LoadLevel1()
     {
         SceneManager.LoadScene("Level 1");
