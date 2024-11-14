@@ -12,13 +12,12 @@ public class GaemOverDetection1 : MonoBehaviour {
     public ScreenFlickerController screenFlickerController;
     void Update()
     {
-        if (this.transform.position.x - player.transform.position.x < 0.5f)
+        if (this.transform.position.x - player.transform.position.x < 0.7f)
         {
             Debug.Log("Player's position.x is greater than 60.");
+            DisableWinWallCollider();
             screenFlickerController.StopFlickering();
             cv.PlayerLose(1);
-            DisableWinWallCollider(); 
-            // Disable winWall's BoxCollider when the player loses
             //StartCoroutine(RestartGameAfterDelay(2f));  // Restart after 2 seconds
             //Time.timeScale = 0f;  // Pauses the game to prevent further input
         }
