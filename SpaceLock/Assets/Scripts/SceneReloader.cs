@@ -22,4 +22,9 @@ public class SceneReloader : MonoBehaviour
     {
         SceneManager.LoadScene("Level 2");
     }
+
+    public void LoadMainMenu()
+    {
+        SceneManager.LoadScene("MainMenu");
+    }
 }

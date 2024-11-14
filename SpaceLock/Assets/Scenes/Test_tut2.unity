@@ -863,6 +863,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Canvas (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 1121705594652385066, guid: ee533a8db57642d459365ac7cef99ae5, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1212793996177933107, guid: ee533a8db57642d459365ac7cef99ae5, type: 3}
       propertyPath: se
       value: 
@@ -887,6 +891,22 @@ PrefabInstance:
       propertyPath: GrappleIncrease
       value: 
       objectReference: {fileID: 268037755}
+    - target: {fileID: 1617423160938559032, guid: ee533a8db57642d459365ac7cef99ae5, type: 3}
+      propertyPath: m_Colors.m_PressedColor.b
+      value: 0.17087215
+      objectReference: {fileID: 0}
+    - target: {fileID: 1617423160938559032, guid: ee533a8db57642d459365ac7cef99ae5, type: 3}
+      propertyPath: m_Colors.m_PressedColor.g
+      value: 0.8792453
+      objectReference: {fileID: 0}
+    - target: {fileID: 1617423160938559032, guid: ee533a8db57642d459365ac7cef99ae5, type: 3}
+      propertyPath: m_Colors.m_PressedColor.r
+      value: 0.35567835
+      objectReference: {fileID: 0}
+    - target: {fileID: 2568746972754791261, guid: ee533a8db57642d459365ac7cef99ae5, type: 3}
+      propertyPath: m_Name
+      value: 'Next Level Button '
+      objectReference: {fileID: 0}
     - target: {fileID: 3129749157323432924, guid: ee533a8db57642d459365ac7cef99ae5, type: 3}
       propertyPath: m_IsActive
       value: 0
@@ -921,6 +941,18 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4007092006021574437, guid: ee533a8db57642d459365ac7cef99ae5, type: 3}
       propertyPath: m_SizeDelta.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4007092006021574437, guid: ee533a8db57642d459365ac7cef99ae5, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4007092006021574437, guid: ee533a8db57642d459365ac7cef99ae5, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4007092006021574437, guid: ee533a8db57642d459365ac7cef99ae5, type: 3}
+      propertyPath: m_LocalScale.z
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4007092006021574437, guid: ee533a8db57642d459365ac7cef99ae5, type: 3}
@@ -974,6 +1006,34 @@ PrefabInstance:
     - target: {fileID: 4099889440554126766, guid: ee533a8db57642d459365ac7cef99ae5, type: 3}
       propertyPath: m_AnchoredPosition.x
       value: -192
+      objectReference: {fileID: 0}
+    - target: {fileID: 4266987389044023377, guid: ee533a8db57642d459365ac7cef99ae5, type: 3}
+      propertyPath: m_Name
+      value: Restart Button
+      objectReference: {fileID: 0}
+    - target: {fileID: 5944209037287863330, guid: ee533a8db57642d459365ac7cef99ae5, type: 3}
+      propertyPath: m_Name
+      value: Restart Button
+      objectReference: {fileID: 0}
+    - target: {fileID: 7848291429373149490, guid: ee533a8db57642d459365ac7cef99ae5, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -123
+      objectReference: {fileID: 0}
+    - target: {fileID: 8669245508762601721, guid: ee533a8db57642d459365ac7cef99ae5, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8695550953924236343, guid: ee533a8db57642d459365ac7cef99ae5, type: 3}
+      propertyPath: m_Colors.m_PressedColor.b
+      value: 0.13604124
+      objectReference: {fileID: 0}
+    - target: {fileID: 8695550953924236343, guid: ee533a8db57642d459365ac7cef99ae5, type: 3}
+      propertyPath: m_Colors.m_PressedColor.g
+      value: 0.7283019
+      objectReference: {fileID: 0}
+    - target: {fileID: 8695550953924236343, guid: ee533a8db57642d459365ac7cef99ae5, type: 3}
+      propertyPath: m_Colors.m_PressedColor.r
+      value: 0.2771438
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
