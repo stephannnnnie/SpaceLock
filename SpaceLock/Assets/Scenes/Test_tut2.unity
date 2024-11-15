@@ -1205,7 +1205,7 @@ MonoBehaviour:
   farObstacle: {fileID: 2100000, guid: ea106ef629bedc04d8acde84de232353, type: 2}
   nearObstacle: {fileID: 2100000, guid: 3cf9e915ef7554190b7669537095105b, type: 2}
   pointA: {x: -64, y: 15.6, z: -9.6}
-  pointB: {x: -64, y: 15.6, z: 54}
+  pointB: {x: -64, y: 15.6, z: 70}
 --- !u!54 &409740769
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -6056,7 +6056,7 @@ MonoBehaviour:
   farObstacle: {fileID: 2100000, guid: ea106ef629bedc04d8acde84de232353, type: 2}
   nearObstacle: {fileID: 2100000, guid: 3cf9e915ef7554190b7669537095105b, type: 2}
   pointA: {x: 3.4, y: 8.2, z: -9.6}
-  pointB: {x: 3.4, y: 8.2, z: 54}
+  pointB: {x: 3.4, y: 8.2, z: 70}
 --- !u!54 &2040308163
 Rigidbody:
   m_ObjectHideFlags: 0
