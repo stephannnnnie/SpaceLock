@@ -3568,13 +3568,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   player: {fileID: 590969742}
   walls:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 1945634258}
-  - {fileID: 1316368891}
-  - {fileID: 1441288942}
-  - {fileID: 669934432}
-  - {fileID: 1553199178}
+  - {fileID: 1420947896}
   proximityThreshold: 25
   flickerSpeed: 5
   maxAlpha: 0.5
