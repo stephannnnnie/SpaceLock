@@ -5,7 +5,7 @@ using UnityEngine;
 public class ObstacleLimitedMove : MonoBehaviour
 {
 
-    private float minSpeed = 1.0f;
+    public float minSpeed = 0.5f;
     private float speed;
     private GameObject player;
     public Material farObstacle;
