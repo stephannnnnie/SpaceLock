@@ -222,12 +222,7 @@ public class Grapple : MonoBehaviour {
 
     public void UpdateGrappleCountText()
     {
-        if (remainingGrapples >= 20)
-        {
-            remainingGrapples = 20;
-        }
-        cv.UpdateGrappleNumber(remainingGrapples, maxGrappleDistance);
-
+        cv.UpdateGrappleNumber(remainingGrapples , maxGrappleDistance);
     }
 
     void RedCircleWarning()

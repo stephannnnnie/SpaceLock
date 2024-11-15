@@ -21,7 +21,7 @@ public class Level2_LoseDetection : MonoBehaviour
         float distanceToLeftWall = Mathf.Abs(playerZ - wall1Z);
         float distanceToRightWall = Mathf.Abs(playerZ - wall2Z);
 
-        // Debug.Log($"Player Z position: {playerZ}, Distance to Left Wall: {distanceToLeftWall}, Distance to Right Wall: {distanceToRightWall}");
+        Debug.Log($"Player Z position: {playerZ}, Distance to Left Wall: {distanceToLeftWall}, Distance to Right Wall: {distanceToRightWall}");
 
         if (distanceToLeftWall < loseDistanceThreshold || distanceToRightWall < loseDistanceThreshold)
         {
