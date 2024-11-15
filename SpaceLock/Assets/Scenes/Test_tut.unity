@@ -4167,13 +4167,25 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.x
       value: -192
       objectReference: {fileID: 0}
+    - target: {fileID: 5047191160473762113, guid: ee533a8db57642d459365ac7cef99ae5, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: LoadMainMenu
+      objectReference: {fileID: 0}
     - target: {fileID: 5099593438700023892, guid: ee533a8db57642d459365ac7cef99ae5, type: 3}
       propertyPath: m_Name
       value: Crosshair
       objectReference: {fileID: 0}
+    - target: {fileID: 5928989391587142646, guid: ee533a8db57642d459365ac7cef99ae5, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 7848291429373149490, guid: ee533a8db57642d459365ac7cef99ae5, type: 3}
       propertyPath: m_AnchoredPosition.x
       value: -116
+      objectReference: {fileID: 0}
+    - target: {fileID: 8669245508762601721, guid: ee533a8db57642d459365ac7cef99ae5, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
