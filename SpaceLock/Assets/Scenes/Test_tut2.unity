@@ -4128,7 +4128,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cv: {fileID: 268037751}
   Player: {fileID: 590969741}
-  distance: 0.5
+  distanceZ: 0.5
+  distacneX: 5
 --- !u!1 &1435436757
 GameObject:
   m_ObjectHideFlags: 0
