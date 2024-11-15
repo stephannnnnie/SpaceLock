@@ -1688,6 +1688,9 @@ MonoBehaviour:
   dangerDistance: 50
   maxAlpha: 0.3
   flickerSpeed: 5
+  leftWall: {fileID: 0}
+  rightWall: {fileID: 0}
+  horizontalDangerDistance: 35
 --- !u!4 &766195464
 Transform:
   m_ObjectHideFlags: 0
@@ -2545,7 +2548,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8669245508762601721, guid: ee533a8db57642d459365ac7cef99ae5, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects:
