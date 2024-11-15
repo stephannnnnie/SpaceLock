@@ -9,8 +9,12 @@ public class ScreenFlickerController : MonoBehaviour
     public Transform backWall;
     public float dangerDistance = 100f;
     public float maxAlpha = 0.3f;
-    public float flickerSpeed = 5f;
+    public float flickerSpeed = 2f;
     private bool flickeringEnabled = false;
+
+    public Transform leftWall;
+    public Transform rightWall;
+    public float horizontalDangerDistance = 35f;
 
     private Color originalColor;
 
@@ -28,18 +32,36 @@ public class ScreenFlickerController : MonoBehaviour
             return;
         }
 
-
-        float distanceToBackWall = Vector3.Distance(player.position, backWall.position);
-
-
-        if (flickeringEnabled && distanceToBackWall <= dangerDistance)
+        if (leftWall != null && rightWall != null)
         {
-            float alpha = Mathf.Abs(Mathf.Sin(Time.time * flickerSpeed)) * maxAlpha;
-            brightnessOverlay.color = new Color(originalColor.r, originalColor.g, originalColor.b, alpha);
+            float distanceToLeftWall = Mathf.Abs(player.position.z - leftWall.position.z);
+            float distanceToRightWall = Mathf.Abs(player.position.z - rightWall.position.z);
+
+            if (flickeringEnabled && (distanceToLeftWall <= horizontalDangerDistance || distanceToRightWall <= horizontalDangerDistance))
+            {
+                float alpha = Mathf.Abs(Mathf.Sin(Time.time * flickerSpeed)) * maxAlpha;
+                brightnessOverlay.color = new Color(originalColor.r, originalColor.g, originalColor.b, alpha);
+            }
+            else
+            {
+                brightnessOverlay.color = new Color(originalColor.r, originalColor.g, originalColor.b, 0);
+            }
         }
-        else
+        else if (backWall != null)
         {
-            brightnessOverlay.color = new Color(originalColor.r, originalColor.g, originalColor.b, 0);
+
+            float distanceToBackWall = Vector3.Distance(player.position, backWall.position);
+
+
+            if (flickeringEnabled && distanceToBackWall <= dangerDistance)
+            {
+                float alpha = Mathf.Abs(Mathf.Sin(Time.time * flickerSpeed)) * maxAlpha;
+                brightnessOverlay.color = new Color(originalColor.r, originalColor.g, originalColor.b, alpha);
+            }
+            else
+            {
+                brightnessOverlay.color = new Color(originalColor.r, originalColor.g, originalColor.b, 0);
+            }
         }
     }
     public void TriggerFirstGrapple()
@@ -49,7 +71,6 @@ public class ScreenFlickerController : MonoBehaviour
 
     public void StopFlickering()
     {
-        
         flickeringEnabled = false;
         brightnessOverlay.color = new Color(originalColor.r, originalColor.g, originalColor.b, 0);
     }

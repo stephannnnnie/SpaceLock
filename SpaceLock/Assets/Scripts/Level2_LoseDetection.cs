@@ -3,32 +3,32 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-
 public class Level2_LoseDetection : MonoBehaviour
 {
     public GameObject player;
     public Canvas cv;
+    public ScreenFlickerController screenFlickerController;
 
-    // Wall z positions
-    private float wall1Z = 82.4f;
-    private float wall2Z = -97.5f;
-
-    // Define the distance threshold for losing near a wall
+    private float wall1Z = -105.5f;
+    private float wall2Z = 82.4f;
     public float loseDistanceThreshold = 0.5f;
 
-    void Update()
+
+    void FixedUpdate()
     {
-        // Check if player is near wall 1
-        if (Mathf.Abs(player.transform.position.z - wall1Z) < loseDistanceThreshold)
+        float playerZ = player.transform.position.z;
+
+        float distanceToLeftWall = Mathf.Abs(playerZ - wall1Z);
+        float distanceToRightWall = Mathf.Abs(playerZ - wall2Z);
+
+        Debug.Log($"Player Z position: {playerZ}, Distance to Left Wall: {distanceToLeftWall}, Distance to Right Wall: {distanceToRightWall}");
+
+        if (distanceToLeftWall < loseDistanceThreshold || distanceToRightWall < loseDistanceThreshold)
         {
-            Debug.Log("Player is near Wall 1.");
+            Debug.Log("Player is near a wall.");
+            screenFlickerController.StopFlickering();
             cv.PlayerLose(1);
-        }
-        // Check if player is near wall 2
-        else if (Mathf.Abs(player.transform.position.z - wall2Z) < loseDistanceThreshold)
-        {
-            Debug.Log("Player is near Wall 2.");
-            cv.PlayerLose(1);
+            return;  // Early exit after detecting a loss condition
         }
     }
 }

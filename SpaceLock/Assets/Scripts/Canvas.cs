@@ -124,7 +124,7 @@ public class Canvas : MonoBehaviour
     }
 
     public void UpdateGrappleNumber(float remainingGrapple , float distance) {
-
+        Debug.Log("Remaining grapples: " + remainingGrapple);
         GrappleIncrease.fillAmount = remainingGrapple / MAX_GRAPPLES;
         GrappleDistance.fillAmount = distance / MAX_DISTANCE;
 
