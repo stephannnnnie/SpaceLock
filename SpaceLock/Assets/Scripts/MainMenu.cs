@@ -12,13 +12,20 @@ public class MainMenu : MonoBehaviour
         Cursor.visible = true;
     }
     
-    public void button_tutorial()
+    public void button_tutorial1()
     {
         SceneManager.LoadScene("Test_tut");
-        Debug.Log("Tutorial button clicked");
+        Debug.Log("Tutorial1 button clicked");
         LogMaterialInfo();
     }
-    
+
+    public void button_tutorial2()
+    {
+        SceneManager.LoadSceneAsync("Test_tut2");
+        Debug.Log("Tutorial2 button clicked");
+        LogMaterialInfo();
+    }
+
     public void button_Level1()
     {
         SceneManager.LoadScene("Level 1");

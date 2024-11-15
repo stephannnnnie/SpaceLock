@@ -4043,6 +4043,10 @@ PrefabInstance:
       propertyPath: GrappleIncrease
       value: 
       objectReference: {fileID: 8927908}
+    - target: {fileID: 1617423160938559032, guid: ee533a8db57642d459365ac7cef99ae5, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: LoadTut2
+      objectReference: {fileID: 0}
     - target: {fileID: 2238946670175390958, guid: ee533a8db57642d459365ac7cef99ae5, type: 3}
       propertyPath: m_Colors.m_PressedColor.b
       value: 0.12156863
@@ -4054,6 +4058,14 @@ PrefabInstance:
     - target: {fileID: 2238946670175390958, guid: ee533a8db57642d459365ac7cef99ae5, type: 3}
       propertyPath: m_Colors.m_PressedColor.r
       value: 0.48235294
+      objectReference: {fileID: 0}
+    - target: {fileID: 2568746972754791261, guid: ee533a8db57642d459365ac7cef99ae5, type: 3}
+      propertyPath: m_Name
+      value: Next Level
+      objectReference: {fileID: 0}
+    - target: {fileID: 2568746972754791261, guid: ee533a8db57642d459365ac7cef99ae5, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3129749157323432924, guid: ee533a8db57642d459365ac7cef99ae5, type: 3}
       propertyPath: m_IsActive
@@ -4170,16 +4182,16 @@ PrefabInstance:
       insertIndex: 0
       addedObject: {fileID: 630435780}
     - targetCorrespondingSourceObject: {fileID: 4007092006021574437, guid: ee533a8db57642d459365ac7cef99ae5, type: 3}
-      insertIndex: 6
+      insertIndex: -1
       addedObject: {fileID: 60976841}
     - targetCorrespondingSourceObject: {fileID: 4007092006021574437, guid: ee533a8db57642d459365ac7cef99ae5, type: 3}
-      insertIndex: 7
+      insertIndex: -1
       addedObject: {fileID: 21623728}
     - targetCorrespondingSourceObject: {fileID: 4007092006021574437, guid: ee533a8db57642d459365ac7cef99ae5, type: 3}
-      insertIndex: 8
+      insertIndex: -1
       addedObject: {fileID: 2115044591}
     - targetCorrespondingSourceObject: {fileID: 4007092006021574437, guid: ee533a8db57642d459365ac7cef99ae5, type: 3}
-      insertIndex: 9
+      insertIndex: -1
       addedObject: {fileID: 293140949}
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ee533a8db57642d459365ac7cef99ae5, type: 3}

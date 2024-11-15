@@ -96,7 +96,7 @@ LightmapSettings:
     m_ExportTrainingData: 0
     m_TrainingDataDestination: TrainingData
     m_LightProbeSampleCountMultiplier: 4
-  m_LightingDataAsset: {fileID: 0}
+  m_LightingDataAsset: {fileID: 112000000, guid: 67e9b26bdce197644bf71f947e718eac, type: 2}
   m_LightingSettings: {fileID: 0}
 --- !u!196 &4
 NavMeshSettings:
@@ -1021,7 +1021,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8669245508762601721, guid: ee533a8db57642d459365ac7cef99ae5, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8695550953924236343, guid: ee533a8db57642d459365ac7cef99ae5, type: 3}
       propertyPath: m_Colors.m_PressedColor.b
@@ -1042,16 +1042,16 @@ PrefabInstance:
       insertIndex: 0
       addedObject: {fileID: 1758199600}
     - targetCorrespondingSourceObject: {fileID: 4007092006021574437, guid: ee533a8db57642d459365ac7cef99ae5, type: 3}
-      insertIndex: 6
+      insertIndex: -1
       addedObject: {fileID: 1815607315}
     - targetCorrespondingSourceObject: {fileID: 4007092006021574437, guid: ee533a8db57642d459365ac7cef99ae5, type: 3}
-      insertIndex: 7
+      insertIndex: -1
       addedObject: {fileID: 118336496}
     - targetCorrespondingSourceObject: {fileID: 4007092006021574437, guid: ee533a8db57642d459365ac7cef99ae5, type: 3}
-      insertIndex: 8
+      insertIndex: -1
       addedObject: {fileID: 2062165008}
     - targetCorrespondingSourceObject: {fileID: 4007092006021574437, guid: ee533a8db57642d459365ac7cef99ae5, type: 3}
-      insertIndex: 9
+      insertIndex: -1
       addedObject: {fileID: 1922201873}
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ee533a8db57642d459365ac7cef99ae5, type: 3}
