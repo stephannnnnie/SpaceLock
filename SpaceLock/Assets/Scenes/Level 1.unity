@@ -2212,7 +2212,7 @@ MonoBehaviour:
   backWall: {fileID: 1780233529}
   dangerDistance: 50
   maxAlpha: 0.3
-  flickerSpeed: 5
+  flickerSpeed: 3
   leftWall: {fileID: 0}
   rightWall: {fileID: 0}
   horizontalDangerDistance: 35
