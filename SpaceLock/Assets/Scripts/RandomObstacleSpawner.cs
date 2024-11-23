@@ -49,7 +49,7 @@ public class RandomObstacleSpawner : MonoBehaviour
             obstacle.transform.rotation = obstaclePrefab.transform.rotation;
             obstacle.SetActive(true);
 
-            float randomScale = Random.Range(4f, 8f);
+            float randomScale = Random.Range(3f, 5f);
             obstacle.transform.localScale = new Vector3(randomScale, randomScale, randomScale);
 
             float mass = randomScale * 10f;
@@ -81,7 +81,7 @@ public class RandomObstacleSpawner : MonoBehaviour
             obstacle.transform.rotation = obstaclePrefab.transform.rotation;
             obstacle.SetActive(true);
 
-            float randomScale = Random.Range(4f, 8f);
+            float randomScale = Random.Range(3f, 5f);
             obstacle.transform.localScale = new Vector3(randomScale, randomScale, randomScale);
 
             float mass = randomScale * 10f;
@@ -140,7 +140,7 @@ public class RandomObstacleSpawner : MonoBehaviour
     void SpawnPowerUpAboveObstacle(GameObject obstacle)
     {
         Vector3 powerUpPosition = obstacle.transform.position;
-        powerUpPosition.y += obstacle.transform.localScale.y / 2 + 3f; // Adjust to place the power-up on top of the obstacle
+        powerUpPosition.y += obstacle.transform.localScale.y / 2 + 6f; // Adjust to place the power-up on top of the obstacle
 
         GameObject powerUp = Instantiate(powerUpPrefab, powerUpPosition, Quaternion.identity);
         powerUp.transform.SetParent(obstacle.transform); // Attach to obstacle so it moves with it

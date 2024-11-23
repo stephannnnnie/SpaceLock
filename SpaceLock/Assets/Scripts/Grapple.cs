@@ -25,8 +25,9 @@ public class Grapple : MonoBehaviour {
     private bool hasWon = false;
     private bool firstGrappleCompleted = false;
 
-    public float wiggleFrequency = 9f;
-    public float wiggleMagnitude = 0.5f;
+    // Removed wiggle variables
+    // public float wiggleFrequency = 9f; 
+    // public float wiggleMagnitude = 0.5f;
 
     private bool redShown;
 
@@ -59,17 +60,17 @@ public class Grapple : MonoBehaviour {
     void Update()
     {
         if (progressBarFill != null) { UpdateProgressBar(); }
-        
+
         if (Input.GetButtonDown("Fire1") && remainingGrapples >= 0 && !lineRenderer.enabled)
         {
-            
             if (remainingGrapples == 0 && !hasWon)
             {
                 if (screenFlickerController != null) { screenFlickerController.StopFlickering(); }
                 cv.PlayerLose(2);
                 Invoke("RestartGame", 2f);
             }
-            else {
+            else
+            {
                 TryGrapple();
             }
         }
@@ -82,6 +83,8 @@ public class Grapple : MonoBehaviour {
 
         if (isGrappling && grappledObject != null)
         {
+
+            UpdateLineRenderer();
             elapsedTime += Time.deltaTime;
 
             // Update grapple point if the target is moving
@@ -91,7 +94,6 @@ public class Grapple : MonoBehaviour {
             float step = grappleSpeed * Time.deltaTime;
             transform.position = Vector3.MoveTowards(transform.position, grapplePoint, step);
 
-            UpdateLineRendererWithWiggle();
 
             // Check if we've reached the grapple point
             if (Vector3.Distance(transform.position, grapplePoint) < 0.1f)
@@ -108,45 +110,76 @@ public class Grapple : MonoBehaviour {
         {
             lineRenderer.enabled = false;
         }
-
-       
     }
 
     void UpdateProgressBar()
     {
         float progress = Mathf.InverseLerp(backWall.position.x, frontWall.position.x, transform.position.x);
-
         progressBarFill.sizeDelta = new Vector2(maxProgressWidth * progress, progressBarFill.sizeDelta.y);
-
         progressBarFill.GetComponent<Image>().color = Color.Lerp(Color.red, Color.green, progress);
     }
 
-
-    void UpdateLineRendererWithWiggle()
+/*    void UpdateLineRenderer()
     {
         if (lineRenderer != null && grappledObject != null)
         {
-            lineRenderer.positionCount = 50;
+            lineRenderer.positionCount = 2; // Only need two points for a straight line
             Vector3 startPoint = Shootposi.transform.position;
             Vector3 endPoint = grapplePoint;
 
-           
+            lineRenderer.SetPosition(0, startPoint); // Set starting point
+            lineRenderer.SetPosition(1, endPoint);   // Set ending point
+
+            // Commented out the wiggle code
+            *//*
+            for (int i = 1; i < lineRenderer.positionCount; i++)
+            {
+                float t = (float)i / (lineRenderer.positionCount - 1);
+                Vector3 basePosition = Vector3.Lerp(startPoint, endPoint, t);
+                
+                float wiggleOffset = Mathf.Sin(t * wiggleFrequency + elapsedTime * wiggleFrequency) * wiggleMagnitude * Mathf.Pow((1 - t), 2);
+                Vector3 offset = Vector3.Cross((endPoint - startPoint).normalized, Vector3.up) * wiggleOffset;
+
+                lineRenderer.SetPosition(i, basePosition + offset);
+            }
+            *//*
+        }
+    }*/
+
+    void UpdateLineRenderer()
+    {
+        if (lineRenderer != null && grappledObject != null)
+        {
+            Vector3 startPoint = Shootposi.transform.position;
+            Vector3 endPoint = grapplePoint;
+
             lineRenderer.SetPosition(0, startPoint);
             lineRenderer.SetPosition(1, endPoint);
-
-            /*           for (int i = 1; i < lineRenderer.positionCount; i++)
-                       {
-                           float t = (float)i / (lineRenderer.positionCount - 1);
-                           Vector3 basePosition = Vector3.Lerp(startPoint, endPoint, t);
-
-                           float wiggleOffset = Mathf.Sin(t * wiggleFrequency + elapsedTime * wiggleFrequency) * wiggleMagnitude * Mathf.Pow((1 - t), 2);
-                           Vector3 offset = Vector3.Cross((endPoint - startPoint).normalized, Vector3.up) * wiggleOffset;
-
-                           lineRenderer.SetPosition(i, basePosition + offset);
-                       }*/
         }
     }
 
+    private IEnumerator AnimateGrapple(Vector3 endPoint)
+    {
+        float animationDuration = 0.2f;
+        float elapsedTime = 0f;
+
+        while (elapsedTime < animationDuration)
+        {
+            elapsedTime += Time.deltaTime;
+            float t = elapsedTime / animationDuration;
+
+            Vector3 startPoint = Shootposi.transform.position;
+            Vector3 currentEndPoint = Vector3.Lerp(startPoint, endPoint, t);
+
+            lineRenderer.SetPosition(0, startPoint);
+            lineRenderer.SetPosition(1, currentEndPoint);
+
+            yield return null;
+        }
+
+        // Ensure the final position is set correctly
+        UpdateLineRenderer();
+    }
     void TryGrapple()
     {
         Ray ray = new Ray(Camera.main.transform.position, Camera.main.transform.forward);
@@ -160,6 +193,7 @@ public class Grapple : MonoBehaviour {
 
                 if (distanceToHit <= maxGrappleDistance)
                 {
+                    this.transform.parent = null;
                     grappledObject = hit.collider.transform;
                     grapplePoint = hit.point;
                     isGrappling = true;
@@ -167,10 +201,9 @@ public class Grapple : MonoBehaviour {
 
                     initialPosition = transform.position;
                     elapsedTime = 0f;
-
+                    StartCoroutine(AnimateGrapple(grapplePoint));
                     remainingGrapples--;
                     UpdateGrappleCountText();
-
                     Debug.Log("Grappling to object: " + hit.collider.gameObject.name);
                 }
                 else
@@ -197,7 +230,6 @@ public class Grapple : MonoBehaviour {
         transform.SetParent(grappledObject);
         cv.updateGrappless();
     }
-
 
     void OnCollisionEnter(Collision collision)
     {
@@ -228,8 +260,8 @@ public class Grapple : MonoBehaviour {
         {
             remainingGrapples = 20;
         }
-        cv.UpdateGrappleNumber(remainingGrapples, maxGrappleDistance);
 
+        cv.UpdateGrappleNumber(remainingGrapples, maxGrappleDistance);
     }
 
     void RedCircleWarning()
