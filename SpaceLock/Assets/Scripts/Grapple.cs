@@ -130,18 +130,20 @@ public class Grapple : MonoBehaviour {
             Vector3 startPoint = Shootposi.transform.position;
             Vector3 endPoint = grapplePoint;
 
+           
             lineRenderer.SetPosition(0, startPoint);
+            lineRenderer.SetPosition(1, endPoint);
 
-            for (int i = 1; i < lineRenderer.positionCount; i++)
-            {
-                float t = (float)i / (lineRenderer.positionCount - 1);
-                Vector3 basePosition = Vector3.Lerp(startPoint, endPoint, t);
+            /*           for (int i = 1; i < lineRenderer.positionCount; i++)
+                       {
+                           float t = (float)i / (lineRenderer.positionCount - 1);
+                           Vector3 basePosition = Vector3.Lerp(startPoint, endPoint, t);
 
-                float wiggleOffset = Mathf.Sin(t * wiggleFrequency + elapsedTime * wiggleFrequency) * wiggleMagnitude * Mathf.Pow((1 - t), 2);
-                Vector3 offset = Vector3.Cross((endPoint - startPoint).normalized, Vector3.up) * wiggleOffset;
+                           float wiggleOffset = Mathf.Sin(t * wiggleFrequency + elapsedTime * wiggleFrequency) * wiggleMagnitude * Mathf.Pow((1 - t), 2);
+                           Vector3 offset = Vector3.Cross((endPoint - startPoint).normalized, Vector3.up) * wiggleOffset;
 
-                lineRenderer.SetPosition(i, basePosition + offset);
-            }
+                           lineRenderer.SetPosition(i, basePosition + offset);
+                       }*/
         }
     }
 

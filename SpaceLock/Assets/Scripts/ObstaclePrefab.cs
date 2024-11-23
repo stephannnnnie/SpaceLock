@@ -31,6 +31,15 @@ public class ObstaclePrefab : MonoBehaviour
         {
             dir = Vector3.forward; // This is equivalent to new Vector3(0, 0, 1)
         }
+        else if (direction == "up")
+        {
+            dir = Vector3.up;
+        }
+        else if (direction == "Down")
+        {
+            dir = Vector3.down;
+        }
+   
         else
         {
             Debug.LogError("Wrong Direction. Use 'right' or 'left'.");
