@@ -159,7 +159,7 @@ public class Grapple : MonoBehaviour {
         }
     }
 
-    private IEnumerator AnimateGrapple(Vector3 endPoint)
+    private IEnumerator AnimateGrapple()
     {
         float animationDuration = 0.3f;
         float elapsedTime = 0f;
@@ -170,7 +170,7 @@ public class Grapple : MonoBehaviour {
             float t = elapsedTime / animationDuration;
 
             Vector3 startPoint = Shootposi.transform.position;
-            Vector3 currentEndPoint = Vector3.Lerp(startPoint, endPoint, t);
+            Vector3 currentEndPoint = Vector3.Lerp(startPoint, grappledObject.position, t);
 
             lineRenderer.SetPosition(0, startPoint);
             lineRenderer.SetPosition(1, currentEndPoint);
@@ -202,7 +202,7 @@ public class Grapple : MonoBehaviour {
                     gun.StartGrapple(grapplePoint);
                     initialPosition = transform.position;
                     elapsedTime = 0f;
-                    StartCoroutine(AnimateGrapple(grapplePoint));
+                    StartCoroutine(AnimateGrapple());
                     remainingGrapples--;
                     UpdateGrappleCountText();
                     Debug.Log("Grappling to object: " + hit.collider.gameObject.name);

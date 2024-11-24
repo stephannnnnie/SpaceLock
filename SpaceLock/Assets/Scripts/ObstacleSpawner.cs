@@ -11,11 +11,12 @@ public class ObstacleSpawner : MonoBehaviour
     private List<GameObject> obstaclePool;
     private Vector3 spawnerSize;
     private readonly float startDelay = 0f;
-    private readonly float spawnInterval = 2.0f;
+    public float spawnInterval = 2.0f;
     [SerializeField] private float powerUpSpawnChance = 0.2f; // 20% chance to spawn with power-up
     [SerializeField] private GameObject powerUpPrefab; // Prefab for power-up
     [SerializeField] private GameObject particleEffectPrefab;
     [SerializeField] private string direction;
+    [SerializeField] float MinObstcileSpeed;
 
     // Start is called before the first frame update
     void Start()
@@ -40,17 +41,26 @@ public class ObstacleSpawner : MonoBehaviour
         GameObject obstacle = GetPooledObstacle();
         if (obstacle != null)
         {
-            float randomX = Random.Range(origin.x, origin.x + 1.0f); ;
-            float randomY = Random.Range(origin.y - spawnerSize.z * 3.0f, origin.y + spawnerSize.z * 3.0f);
-            float randomZ = Random.Range(origin.z - spawnerSize.x * 3.0f, origin.z + spawnerSize.x * 3.0f);
-            
-            Vector3 spawnPosition = new Vector3(randomX, randomY, randomZ);
+            // Get the plane's renderer to determine its bounds
+            Renderer planeRenderer = GetComponent<Renderer>();
+
+            // Calculate the plane's bounds
+            Bounds planeBounds = planeRenderer.bounds;
+
+            // Generate random position within the plane's bounds
+            float randomX = Random.Range(planeBounds.min.x, planeBounds.max.x);
+            float randomZ = Random.Range(planeBounds.min.z, planeBounds.max.z);
+
+            // Use the plane's Y position to ensure the obstacle spawns on the plane surface
+            Vector3 spawnPosition = new Vector3(randomX, planeBounds.center.y, randomZ);
+
             obstacle.transform.position = spawnPosition;
             obstacle.transform.rotation = obstaclePrefab.transform.rotation;
             obstacle.GetComponent<ObstaclePrefab>().direction = direction;
             obstacle.SetActive(true);
+            obstacle.GetComponent<ObstaclePrefab>().minSpeed = MinObstcileSpeed;
 
-            float randomScale = Random.Range(4f, 8f);
+            float randomScale = Random.Range(3f, 5f);
             obstacle.transform.localScale = new Vector3(randomScale, randomScale, randomScale);
 
             float mass = randomScale * 10f;
@@ -113,7 +123,7 @@ public class ObstacleSpawner : MonoBehaviour
     void SpawnPowerUpAboveObstacle(GameObject obstacle)
     {
         Vector3 powerUpPosition = obstacle.transform.position;
-        powerUpPosition.y += obstacle.transform.localScale.y / 2 + 3f; // Adjust to place the power-up on top of the obstacle
+        powerUpPosition.y += obstacle.transform.localScale.y / 2 + 5f; // Adjust to place the power-up on top of the obstacle
 
         GameObject powerUp = Instantiate(powerUpPrefab, powerUpPosition, Quaternion.identity);
         powerUp.transform.SetParent(obstacle.transform); // Attach to obstacle so it moves with it
