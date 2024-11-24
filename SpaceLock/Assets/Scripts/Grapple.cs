@@ -11,7 +11,8 @@ public class Grapple : MonoBehaviour {
     public float maxGrappleDistance = 30f;
     public GameObject Shootposi;
     private Transform grappledObject;
-    private bool isGrappling = false;
+    public bool isGrappling { get; set; }
+    public GrappleGun gun;
     private LineRenderer lineRenderer;
     private float grappleTime = 1.0f;
     [SerializeField] float grappleSpeed = 10f; // Adjust this value to control grappling speed
@@ -154,13 +155,13 @@ public class Grapple : MonoBehaviour {
             Vector3 endPoint = grapplePoint;
 
             lineRenderer.SetPosition(0, startPoint);
-            lineRenderer.SetPosition(1, endPoint);
+            
         }
     }
 
     private IEnumerator AnimateGrapple(Vector3 endPoint)
     {
-        float animationDuration = 0.2f;
+        float animationDuration = 0.3f;
         float elapsedTime = 0f;
 
         while (elapsedTime < animationDuration)
@@ -198,7 +199,7 @@ public class Grapple : MonoBehaviour {
                     grapplePoint = hit.point;
                     isGrappling = true;
                     lineRenderer.enabled = true;
-
+                    gun.StartGrapple(grapplePoint);
                     initialPosition = transform.position;
                     elapsedTime = 0f;
                     StartCoroutine(AnimateGrapple(grapplePoint));
@@ -229,6 +230,7 @@ public class Grapple : MonoBehaviour {
         lineRenderer.enabled = false;
         transform.SetParent(grappledObject);
         cv.updateGrappless();
+        gun.StopGrapple();
     }
 
     void OnCollisionEnter(Collision collision)
