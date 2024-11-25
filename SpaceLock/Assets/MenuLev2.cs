@@ -9,7 +9,8 @@ public class MenuLev2 : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Player"))
         {
-            SceneManager.LoadScene("Level 2");
+            AdvancedSceneTransition.Instance.LoadScene("Level 2", AdvancedSceneTransition.TransitionType.Fade);
+            //SceneManager.LoadScene("Level 2");
         }
     }
 }

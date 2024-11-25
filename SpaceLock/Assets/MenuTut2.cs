@@ -9,7 +9,8 @@ public class MenuTut2 : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Player"))
         {
-            SceneManager.LoadScene("Test_tut2");
+            AdvancedSceneTransition.Instance.LoadScene("Test_tut2", AdvancedSceneTransition.TransitionType.Fade);
+            //SceneManager.LoadScene("Test_tut2");
         }
     }
 }
