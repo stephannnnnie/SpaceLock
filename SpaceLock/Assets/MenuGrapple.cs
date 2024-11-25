@@ -5,7 +5,8 @@ using UnityEngine.SceneManagement;
 using System.Collections;
 using Unity.VisualScripting;
 
-public class Grapple : MonoBehaviour {
+public class MenuGrapple : MonoBehaviour
+{
 
 
     public float maxGrappleDistance = 30f;
@@ -20,26 +21,11 @@ public class Grapple : MonoBehaviour {
     private float elapsedTime;
     public int maxGrapples = 5;
     public int remainingGrapples;
-    public Canvas cv;
+    public MenuCanvas cv;
     private TextMeshProUGUI GrappleCount;
-
-    private bool hasWon = false;
-    private bool firstGrappleCompleted = false;
-
-    // Removed wiggle variables
-    // public float wiggleFrequency = 9f; 
-    // public float wiggleMagnitude = 0.5f;
-
-    private bool redShown;
 
     private Vector3 grapplePoint;
     private Vector3 grappleDirection;
-
-    public RectTransform progressBarFill;
-    public Transform frontWall;
-    public Transform backWall;
-    public float maxProgressWidth = 95f;
-    public ScreenFlickerController screenFlickerController;
 
     void Start()
     {
@@ -53,33 +39,14 @@ public class Grapple : MonoBehaviour {
         remainingGrapples = maxGrapples;
         UpdateGrappleCountText();
 
-        redShown = false;
-
         cv.UpdateGrappleNumber(remainingGrapples, maxGrappleDistance);
     }
 
     void Update()
     {
-        if (progressBarFill != null) { UpdateProgressBar(); }
-
         if (Input.GetButtonDown("Fire1") && remainingGrapples >= 0 && !lineRenderer.enabled)
         {
-            if (remainingGrapples == 0 && !hasWon)
-            {
-                if (screenFlickerController != null) { screenFlickerController.StopFlickering(); }
-                cv.PlayerLose(2);
-                Invoke("RestartGame", 2f);
-            }
-            else
-            {
-                TryGrapple();
-            }
-        }
-
-        if (redShown && Input.GetButtonUp("Fire1"))
-        {
-            GetComponentInChildren<GrappleRangeCircle>().HideRedCircle();
-            redShown = false;
+            TryGrapple();
         }
 
         if (isGrappling && grappledObject != null)
@@ -97,13 +64,8 @@ public class Grapple : MonoBehaviour {
 
 
             // Check if we've reached the grapple point
-            if (Vector3.Distance(transform.position, grapplePoint) < 0.1f)
+            if (Vector3.Distance(transform.position, grapplePoint) < 0.01f)
             {
-                if (!firstGrappleCompleted && screenFlickerController != null)
-                {
-                    screenFlickerController.TriggerFirstGrapple();
-                    firstGrappleCompleted = true;
-                }
                 EndGrapple();
             }
         }
@@ -113,40 +75,6 @@ public class Grapple : MonoBehaviour {
         }
     }
 
-    void UpdateProgressBar()
-    {
-        float progress = Mathf.InverseLerp(backWall.position.x, frontWall.position.x, transform.position.x);
-        progressBarFill.sizeDelta = new Vector2(maxProgressWidth * progress, progressBarFill.sizeDelta.y);
-        progressBarFill.GetComponent<Image>().color = Color.Lerp(Color.red, Color.green, progress);
-    }
-
-/*    void UpdateLineRenderer()
-    {
-        if (lineRenderer != null && grappledObject != null)
-        {
-            lineRenderer.positionCount = 2; // Only need two points for a straight line
-            Vector3 startPoint = Shootposi.transform.position;
-            Vector3 endPoint = grapplePoint;
-
-            lineRenderer.SetPosition(0, startPoint); // Set starting point
-            lineRenderer.SetPosition(1, endPoint);   // Set ending point
-
-            // Commented out the wiggle code
-            *//*
-            for (int i = 1; i < lineRenderer.positionCount; i++)
-            {
-                float t = (float)i / (lineRenderer.positionCount - 1);
-                Vector3 basePosition = Vector3.Lerp(startPoint, endPoint, t);
-                
-                float wiggleOffset = Mathf.Sin(t * wiggleFrequency + elapsedTime * wiggleFrequency) * wiggleMagnitude * Mathf.Pow((1 - t), 2);
-                Vector3 offset = Vector3.Cross((endPoint - startPoint).normalized, Vector3.up) * wiggleOffset;
-
-                lineRenderer.SetPosition(i, basePosition + offset);
-            }
-            *//*
-        }
-    }*/
-
     void UpdateLineRenderer()
     {
         if (lineRenderer != null && grappledObject != null)
@@ -155,7 +83,7 @@ public class Grapple : MonoBehaviour {
             Vector3 endPoint = grapplePoint;
 
             lineRenderer.SetPosition(0, startPoint);
-            
+
         }
     }
 
@@ -209,7 +137,6 @@ public class Grapple : MonoBehaviour {
                 }
                 else
                 {
-                    RedCircleWarning();
                     Debug.Log("Object is too far to grapple.");
                 }
             }
@@ -241,11 +168,7 @@ public class Grapple : MonoBehaviour {
             lineRenderer.enabled = false;
             transform.SetParent(collision.transform);
         }
-
-        if (collision.gameObject.tag == "FinalWall")
-        {
-            WinGame();
-        }
+        Debug.Log("enter tutorial box");
     }
 
     void OnCollisionExit(Collision collision)
@@ -254,42 +177,11 @@ public class Grapple : MonoBehaviour {
         {
             transform.SetParent(null);
         }
+        Debug.Log("exit tutorial box");
     }
 
     public void UpdateGrappleCountText()
     {
-        if (remainingGrapples >= 20)
-        {
-            remainingGrapples = 20;
-        }
-
         cv.UpdateGrappleNumber(remainingGrapples, maxGrappleDistance);
-    }
-
-    void RedCircleWarning()
-    {
-        Debug.Log("called red circle warning");
-        Transform circleTransform = transform.Find("GrappleDistanceCircle");
-
-        if (circleTransform != null)
-        {
-            circleTransform.GetComponent<LineRenderer>().enabled = true;
-            circleTransform.gameObject.GetComponent<GrappleRangeCircle>().ShowRedCircle(maxGrappleDistance);
-            redShown = true;
-        }
-        else
-        {
-            Debug.LogError("GrappleDistanceCircle child not found under the player.");
-        }
-    }
-
-    void RestartGame()
-    {
-        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
-    }
-
-    void WinGame()
-    {
-        cv.PlayerWon();
     }
 }
