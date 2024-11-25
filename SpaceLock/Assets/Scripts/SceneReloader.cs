@@ -15,7 +15,7 @@ public class SceneReloader : MonoBehaviour
 
     public void LoadMainMenu()
     {
-        SceneManager.LoadScene("MainMenu");
+        SceneManager.LoadScene("3D MainMenu");
     }
 
     public void LoadTut1()
