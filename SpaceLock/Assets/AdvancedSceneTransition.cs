@@ -18,11 +18,11 @@ public class AdvancedSceneTransition : MonoBehaviour
     public enum TransitionType
     {
         Fade,
-        CrossFade,
-        CircleWipe,
         SlideLeft,
         SlideRight
     }
+
+    private RectTransform transitionRect;
 
     void Awake()
     {
@@ -30,6 +30,8 @@ public class AdvancedSceneTransition : MonoBehaviour
         {
             Instance = this;
             DontDestroyOnLoad(gameObject);
+            transitionRect = transitionImage.GetComponent<RectTransform>();
+
             // Make sure image is disabled at start
             if (transitionImage != null)
             {
@@ -51,8 +53,17 @@ public class AdvancedSceneTransition : MonoBehaviour
 
     private IEnumerator TransitionAndLoadScene(string sceneName)
     {
-        // Enable image before transition starts
+        // Reset position and enable image before transition
         transitionImage.enabled = true;
+        fadeCanvasGroup.alpha = 1;
+
+        // Set initial position for slide transitions
+        if (transitionType == TransitionType.SlideLeft || transitionType == TransitionType.SlideRight)
+        {
+            // Position the panel outside the screen
+            float startX = (transitionType == TransitionType.SlideRight) ? -Screen.width : Screen.width;
+            transitionRect.anchoredPosition = new Vector2(startX, 0);
+        }
 
         // Transition out
         yield return StartCoroutine(TransitionOut());
@@ -63,8 +74,9 @@ public class AdvancedSceneTransition : MonoBehaviour
         // Transition in
         yield return StartCoroutine(TransitionIn());
 
-        // Disable image after transition is complete
+        // Cleanup after transition
         transitionImage.enabled = false;
+        fadeCanvasGroup.alpha = 0;
     }
 
     private IEnumerator TransitionOut()
@@ -73,12 +85,6 @@ public class AdvancedSceneTransition : MonoBehaviour
         {
             case TransitionType.Fade:
                 yield return FadeOut();
-                break;
-            case TransitionType.CrossFade:
-                yield return CrossFadeOut();
-                break;
-            case TransitionType.CircleWipe:
-                yield return CircleWipeOut();
                 break;
             case TransitionType.SlideLeft:
                 yield return SlideOut(-1);
@@ -96,12 +102,6 @@ public class AdvancedSceneTransition : MonoBehaviour
             case TransitionType.Fade:
                 yield return FadeIn();
                 break;
-            case TransitionType.CrossFade:
-                yield return CrossFadeIn();
-                break;
-            case TransitionType.CircleWipe:
-                yield return CircleWipeIn();
-                break;
             case TransitionType.SlideLeft:
                 yield return SlideIn(-1);
                 break;
@@ -114,76 +114,99 @@ public class AdvancedSceneTransition : MonoBehaviour
     private IEnumerator FadeOut()
     {
         float elapsedTime = 0f;
+        fadeCanvasGroup.alpha = 0;
+
         while (elapsedTime < transitionDuration)
         {
             elapsedTime += Time.deltaTime;
             fadeCanvasGroup.alpha = elapsedTime / transitionDuration;
             yield return null;
         }
+        fadeCanvasGroup.alpha = 1;
     }
 
     private IEnumerator FadeIn()
     {
         float elapsedTime = 0f;
+        fadeCanvasGroup.alpha = 1;
+
         while (elapsedTime < transitionDuration)
         {
             elapsedTime += Time.deltaTime;
             fadeCanvasGroup.alpha = 1 - (elapsedTime / transitionDuration);
             yield return null;
         }
+        fadeCanvasGroup.alpha = 0;
     }
 
     private IEnumerator CrossFadeOut()
     {
-        // Similar to fade but with a different shader effect
-        yield return FadeOut();
-    }
+        // Create a screenshot of the current scene
+        yield return new WaitForEndOfFrame();
+        Texture2D screenshot = new Texture2D(Screen.width, Screen.height);
+        screenshot.ReadPixels(new Rect(0, 0, Screen.width, Screen.height), 0, 0);
+        screenshot.Apply();
 
-    private IEnumerator CrossFadeIn()
-    {
-        yield return FadeIn();
-    }
+        // Create a new temporary image for the screenshot
+        GameObject tempImage = new GameObject("Screenshot");
+        tempImage.transform.SetParent(transform);
+        Image screenshotImage = tempImage.AddComponent<Image>();
+        screenshotImage.sprite = Sprite.Create(screenshot,
+            new Rect(0, 0, screenshot.width, screenshot.height),
+            new Vector2(0.5f, 0.5f));
 
-    private IEnumerator CircleWipeOut()
-    {
-        // Implement circle wipe using shader or masked image
-        yield return null;
-    }
+        // Setup the screenshot image
+        RectTransform rectTransform = tempImage.GetComponent<RectTransform>();
+        rectTransform.anchorMin = Vector2.zero;
+        rectTransform.anchorMax = Vector2.one;
+        rectTransform.sizeDelta = Vector2.zero;
+        rectTransform.anchoredPosition = Vector2.zero;
 
-    private IEnumerator CircleWipeIn()
-    {
-        yield return null;
+        // Fade between the screenshot and the black overlay
+        float elapsedTime = 0f;
+        while (elapsedTime < transitionDuration)
+        {
+            elapsedTime += Time.deltaTime;
+            float t = elapsedTime / transitionDuration;
+            screenshotImage.color = new Color(1, 1, 1, 1 - t);
+            fadeCanvasGroup.alpha = t;
+            yield return null;
+        }
+
+        Destroy(tempImage);
     }
 
     private IEnumerator SlideOut(int direction)
     {
-        RectTransform rect = transitionImage.rectTransform;
-        float startPos = -Screen.width * direction;
-        float endPos = 0;
-
         float elapsedTime = 0f;
+        float startX = (direction == 1) ? -Screen.width : Screen.width;
+        float endX = 0;
+
         while (elapsedTime < transitionDuration)
         {
             elapsedTime += Time.deltaTime;
             float t = elapsedTime / transitionDuration;
-            rect.anchoredPosition = new Vector2(Mathf.Lerp(startPos, endPos, t), 0);
+            float currentX = Mathf.Lerp(startX, endX, t);
+            transitionRect.anchoredPosition = new Vector2(currentX, 0);
             yield return null;
         }
+        transitionRect.anchoredPosition = new Vector2(endX, 0);
     }
 
     private IEnumerator SlideIn(int direction)
     {
-        RectTransform rect = transitionImage.rectTransform;
-        float startPos = 0;
-        float endPos = Screen.width * direction;
-
         float elapsedTime = 0f;
+        float startX = 0;
+        float endX = (direction == 1) ? Screen.width : -Screen.width;
+
         while (elapsedTime < transitionDuration)
         {
             elapsedTime += Time.deltaTime;
             float t = elapsedTime / transitionDuration;
-            rect.anchoredPosition = new Vector2(Mathf.Lerp(startPos, endPos, t), 0);
+            float currentX = Mathf.Lerp(startX, endX, t);
+            transitionRect.anchoredPosition = new Vector2(currentX, 0);
             yield return null;
         }
+        transitionRect.anchoredPosition = new Vector2(endX, 0);
     }
 }
