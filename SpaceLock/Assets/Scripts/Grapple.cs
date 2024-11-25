@@ -192,6 +192,13 @@ public class Grapple : MonoBehaviour {
             {
                 float distanceToHit = Vector3.Distance(transform.position, hit.point);
 
+                // Check if the hit object is already the parent of the player
+                if (hit.collider.transform == transform.parent)
+                {
+                    Debug.Log("Cannot grapple your own obstacle.");
+                    return;
+                }
+
                 if (distanceToHit <= maxGrappleDistance)
                 {
                     this.transform.parent = null;
