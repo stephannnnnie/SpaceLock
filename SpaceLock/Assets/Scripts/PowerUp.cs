@@ -64,18 +64,20 @@ public class PowerUp : MonoBehaviour
         isActivated = true;
         if (PowerUpEffect != null)
         {
+            // Detach the particle system from the power-up object
+            PowerUpEffect.transform.parent = null;
             PowerUpEffect.Play();
         }
 
         // Get the Grapple component from the player
         var grappleScript = player.GetComponent<Grapple>();
-        //Debug.Log("BYE BYE POWER UP ");
         if (grappleScript != null)
         {
             ApplyPowerUp(grappleScript);
         }
-        //Destroy(gameObject); // Destroy the PowerUp after activation
-        StartCoroutine(DestroyAfterEffect());
+        // Destroy the power-up object immediately
+        Debug.Log("Destroying power-up object.");
+        Destroy(gameObject);
     }
 
     IEnumerator DestroyAfterEffect()
@@ -89,8 +91,8 @@ public class PowerUp : MonoBehaviour
             }
         }
 
-        Debug.Log("Destroying power-up object.");
-        Destroy(gameObject);
+        // Destroy the particle system GameObject after the effect finishes
+        Destroy(PowerUpEffect.gameObject);
     }
 
     void ApplyPowerUp(Grapple grappleScript)
