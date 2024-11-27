@@ -13,7 +13,7 @@ public class GrappleRangeCircle : MonoBehaviour
     private Grapple playerGrapple;  // Reference to the Grapple script
 
     private string currentColor;
-    private Color greenColor;
+    private Color blueColor;
     private Color redColor;
 
 
@@ -24,7 +24,7 @@ public class GrappleRangeCircle : MonoBehaviour
             return;
         }
 
-        ColorUtility.TryParseHtmlString("#56B23F", out greenColor);
+        ColorUtility.TryParseHtmlString("#00EDFF", out blueColor);
         ColorUtility.TryParseHtmlString("#B23F42", out redColor);
 
         lineRenderer = GetComponent<LineRenderer>();
@@ -86,16 +86,16 @@ public class GrappleRangeCircle : MonoBehaviour
 
     private IEnumerator StartExpand(float currentRadius, float targetRadius, float duration)
     {
-        // Set the color to #56B23F (green)
+        // Set the color to #00EDFF (blue)
         if (lineRenderer != null)
         {
             DrawCircle(currentRadius);
 
-            lineRenderer.startColor = greenColor;
-            lineRenderer.endColor = greenColor;
+            lineRenderer.startColor = blueColor;
+            lineRenderer.endColor = blueColor;
             SetTransparency(0.7f);
 
-            currentColor = "green";
+            currentColor = "blue";
         }
 
         // Wait for 0.5 seconds before starting the expansion
