@@ -11,7 +11,7 @@ public class RandomObstacleSpawner : MonoBehaviour
     private List<GameObject> obstaclePool;
     public GameObject drespawn;
     public GameObject[] powerUpPrefabs; // Array to hold different power-up prefabs
-    public GameObject particleEffectPrefab;
+    //public GameObject particleEffectPrefab;
     public float xDistance;
     [Range(0f, 1f)]
     public float powerUpSpawnChance = 0.2f; // 20% chance to spawn with power-up
@@ -139,24 +139,13 @@ public class RandomObstacleSpawner : MonoBehaviour
 
     void SpawnPowerUpAboveObstacle(GameObject obstacle)
     {
+        // Position the power-up above the obstacle
         Vector3 powerUpPosition = obstacle.transform.position;
-        powerUpPosition.y += obstacle.transform.localScale.y / 2 + 6f; // Adjust height
+        powerUpPosition.y += obstacle.transform.localScale.y / 2 + 6f; // Adjust height for power-up
 
         // Randomly select a power-up prefab
         GameObject powerUpPrefab = powerUpPrefabs[Random.Range(0, powerUpPrefabs.Length)];
         GameObject powerUp = Instantiate(powerUpPrefab, powerUpPosition, Quaternion.identity);
-        powerUp.transform.SetParent(obstacle.transform); // Attach to obstacle
-
-        // Adjust particle effects if necessary
-        powerUpPosition.x += 3.0f; // Offset for visual alignment
-        GameObject particleEffect = Instantiate(particleEffectPrefab, powerUpPosition, Quaternion.identity);
-        particleEffect.transform.SetParent(powerUp.transform);
-
-        // Assign to the PowerUp script
-        PowerUp powerUpScript = powerUp.GetComponent<PowerUp>();
-        if (powerUpScript != null)
-        {
-            powerUpScript.PowerUpEffect = particleEffect.GetComponent<ParticleSystem>();
-        }
+        powerUp.transform.SetParent(obstacle.transform); // Attach power-up to obstacle
     }
 }

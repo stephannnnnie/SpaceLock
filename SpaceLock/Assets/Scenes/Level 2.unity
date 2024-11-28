@@ -3368,7 +3368,6 @@ MonoBehaviour:
   powerUpPrefabs:
   - {fileID: 4562818433435053289, guid: e678ecd8c5cdc4b519a45fe0051e007a, type: 3}
   - {fileID: 2084379066064811690, guid: d1ed9a2e8c17947faabb60f2e1c6697d, type: 3}
-  particleEffectPrefab: {fileID: 0}
   xDistance: -160
   powerUpSpawnChance: 0.109
 --- !u!4 &1256363977
@@ -5032,6 +5031,10 @@ PrefabInstance:
       propertyPath: player
       value: 
       objectReference: {fileID: 1036112726}
+    - target: {fileID: 7829307905463435585, guid: aca8035460747284ca3ae47d436b9318, type: 3}
+      propertyPath: offset.y
+      value: 10
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
