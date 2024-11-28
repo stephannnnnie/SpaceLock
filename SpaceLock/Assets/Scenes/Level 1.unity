@@ -7979,7 +7979,9 @@ MonoBehaviour:
   obstaclePrefab: {fileID: 5326239692417407021, guid: 6ebb8a454a6c09b468e08cd909f2e9e2, type: 3}
   numberOfObstacles: 100
   drespawn: {fileID: 1780233525}
-  powerUpPrefab: {fileID: 4562818433435053289, guid: e678ecd8c5cdc4b519a45fe0051e007a, type: 3}
+  powerUpPrefabs:
+  - {fileID: 4562818433435053289, guid: e678ecd8c5cdc4b519a45fe0051e007a, type: 3}
+  - {fileID: 2084379066064811690, guid: d1ed9a2e8c17947faabb60f2e1c6697d, type: 3}
   particleEffectPrefab: {fileID: 6290110847480702970, guid: 2ca13b2b5b77b44a5a31034eb07e4eb4, type: 3}
   xDistance: -160
   powerUpSpawnChance: 0.109
