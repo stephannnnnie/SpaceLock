@@ -121,7 +121,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   obstaclePrefab: {fileID: 172221307628094441, guid: f7015eb4425090d4083dc11f25daf3f3, type: 3}
   numObstacles: 10
+  spawnInterval: 2
   powerUpSpawnChance: 0.2
-  powerUpPrefab: {fileID: 4562818433435053289, guid: e678ecd8c5cdc4b519a45fe0051e007a, type: 3}
+  powerUpPrefabs:
+  - {fileID: 4562818433435053289, guid: e678ecd8c5cdc4b519a45fe0051e007a, type: 3}
+  - {fileID: 2084379066064811690, guid: d1ed9a2e8c17947faabb60f2e1c6697d, type: 3}
   particleEffectPrefab: {fileID: 0}
   direction: right
+  MinObstcileSpeed: 0

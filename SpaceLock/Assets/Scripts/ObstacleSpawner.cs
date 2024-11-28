@@ -13,7 +13,7 @@ public class ObstacleSpawner : MonoBehaviour
     private readonly float startDelay = 0f;
     public float spawnInterval = 2.0f;
     [SerializeField] private float powerUpSpawnChance = 0.2f; // 20% chance to spawn with power-up
-    [SerializeField] private GameObject powerUpPrefab; // Prefab for power-up
+    public GameObject[] powerUpPrefabs; // Array to hold different power-up prefabs
     [SerializeField] private GameObject particleEffectPrefab;
     [SerializeField] private string direction;
     [SerializeField] float MinObstcileSpeed;
@@ -123,21 +123,22 @@ public class ObstacleSpawner : MonoBehaviour
     void SpawnPowerUpAboveObstacle(GameObject obstacle)
     {
         Vector3 powerUpPosition = obstacle.transform.position;
-        powerUpPosition.y += obstacle.transform.localScale.y / 2 + 5f; // Adjust to place the power-up on top of the obstacle
+        powerUpPosition.y += obstacle.transform.localScale.y / 2 + 6f; // Adjust height
 
+        // Randomly select a power-up prefab
+        GameObject powerUpPrefab = powerUpPrefabs[Random.Range(0, powerUpPrefabs.Length)];
         GameObject powerUp = Instantiate(powerUpPrefab, powerUpPosition, Quaternion.identity);
-        powerUp.transform.SetParent(obstacle.transform); // Attach to obstacle so it moves with it
+        powerUp.transform.SetParent(obstacle.transform); // Attach to obstacle
 
-        // bc effect is kinda in front will have to move it back a bit
-        powerUpPosition.z -= 2.5f;
+        // Adjust particle effects if necessary
+        powerUpPosition.x += 3.0f; // Offset for visual alignment
         GameObject particleEffect = Instantiate(particleEffectPrefab, powerUpPosition, Quaternion.identity);
         particleEffect.transform.SetParent(powerUp.transform);
 
-        // Dynamically set the PowerUpType
+        // Assign to the PowerUp script
         PowerUp powerUpScript = powerUp.GetComponent<PowerUp>();
         if (powerUpScript != null)
         {
-            powerUpScript.powerUpType = (PowerUp.PowerUpType)Random.Range(0, 2); // Randomly select between ExtraGrapple and IncreaseGrappleDistance
             powerUpScript.PowerUpEffect = particleEffect.GetComponent<ParticleSystem>();
         }
     }
