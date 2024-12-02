@@ -155,6 +155,7 @@ public class Grapple : MonoBehaviour {
             Vector3 endPoint = grapplePoint;
 
             lineRenderer.SetPosition(0, startPoint);
+            lineRenderer.SetPosition(1, endPoint);
             
         }
     }
@@ -209,7 +210,7 @@ public class Grapple : MonoBehaviour {
                     gun.StartGrapple(grapplePoint);
                     initialPosition = transform.position;
                     elapsedTime = 0f;
-                    StartCoroutine(AnimateGrapple());
+                    //StartCoroutine(AnimateGrapple());
                     remainingGrapples--;
                     UpdateGrappleCountText();
                     Debug.Log("Grappling to object: " + hit.collider.gameObject.name);
