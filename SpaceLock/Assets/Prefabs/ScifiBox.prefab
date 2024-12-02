@@ -12,9 +12,10 @@ GameObject:
   - component: {fileID: 1068711606443522911}
   - component: {fileID: 2061316894442097635}
   - component: {fileID: 7411589305147732851}
+  - component: {fileID: -2426118323338740110}
   m_Layer: 0
   m_Name: ScifiBox
-  m_TagString: Untagged
+  m_TagString: Obstacle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 4294967295
@@ -105,3 +106,20 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0.5, z: 0}
+--- !u!114 &-2426118323338740110
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4946531244508121599}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d1013d73c71f87c4babdc0e9ddcacaad, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  minSpeed: 1.5
+  collideWall: 0
+  direction: 
+  farObstacle: {fileID: 2100000, guid: 2a13c3c440291244ebe95a1d1afdd2a1, type: 2}
+  nearObstacle: {fileID: 2100000, guid: 80d7455ddd261bd49937bcf9107ba9cc, type: 2}
