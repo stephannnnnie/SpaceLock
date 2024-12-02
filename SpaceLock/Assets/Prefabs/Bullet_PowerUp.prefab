@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 7501709779031637111}
   - component: {fileID: 1459920413517877419}
   - component: {fileID: 2544954803392433265}
+  - component: {fileID: 4718957515404234890}
   m_Layer: 0
   m_Name: Bullet_PowerUp
   m_TagString: Untagged
@@ -73,9 +74,23 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   powerUpType: 0
-  GrapplesIncrese: 10
+  GrapplesIncrese: 5
   GrapplesDistance: 0
   PowerUpEffect: {fileID: 5513656056066435606}
+--- !u!114 &4718957515404234890
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 538486541887224376}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ef7291d97742b934999fd3c37bc63855, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  amplitude: 0.3
+  frequency: 2
 --- !u!1001 &2156674022286232334
 PrefabInstance:
   m_ObjectHideFlags: 0
