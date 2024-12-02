@@ -5,29 +5,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="de313081-0269-4bbc-8e98-30d09f38483e" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/Assets/AdvancedSceneTransition.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/AdvancedSceneTransition.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/EnhancedText3D.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/EnhancedText3D.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/MenuCanvas.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/MenuCanvas.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/MenuGrapple.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/MenuGrapple.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/MenuHoverEffect.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/MenuHoverEffect.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/MenuLev1.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/MenuLev1.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/MenuLev2.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/MenuLev2.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/MenuTut1.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/MenuTut1.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/MenuTut2.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/MenuTut2.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/3D MainMenu.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/3D MainMenu.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/text'/Cloud-Bold SDF.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/text'/Cloud-Bold SDF.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ProjectSettings/EditorBuildSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/EditorBuildSettings.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.SpaceLock/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.SpaceLock/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/SkySeries Freebie/UnearthlyRed.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/SkySeries Freebie/UnearthlyRed.mat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/TextMesh Pro/Resources/Fonts &amp; Materials/LiberationSans SDF - Fallback.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/TextMesh Pro/Resources/Fonts &amp; Materials/LiberationSans SDF - Fallback.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/TextMesh Pro/Resources/Fonts &amp; Materials/LiberationSans SDF.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/TextMesh Pro/Resources/Fonts &amp; Materials/LiberationSans SDF.asset" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/UserSettings/EditorUserSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/UserSettings/EditorUserSettings.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/obj/Debug/Assembly-CSharp.csproj.AssemblyReference.cache" beforeDir="false" afterPath="$PROJECT_DIR$/obj/Debug/Assembly-CSharp.csproj.AssemblyReference.cache" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -106,7 +88,7 @@
       <updated>1729803652580</updated>
       <workItem from="1729803654184" duration="309000" />
       <workItem from="1731564158658" duration="5633000" />
-      <workItem from="1733128114384" duration="388000" />
+      <workItem from="1733128114384" duration="1744000" />
     </task>
     <servers />
   </component>
