@@ -7011,8 +7011,12 @@ MonoBehaviour:
   maxGrapples: 8
   remainingGrapples: 0
   cv: {fileID: 1614527307}
+  segmentCount: 30
+  segmentLength: 0.2
+  stiffness: 20
+  damping: 0.5
   progressBarFill: {fileID: 1777681945}
-  frontWall: {fileID: 0}
+  frontWall: {fileID: 942739407}
   backWall: {fileID: 1920828613}
   maxProgressWidth: 95
   screenFlickerController: {fileID: 0}

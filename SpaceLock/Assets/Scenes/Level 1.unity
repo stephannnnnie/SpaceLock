@@ -3065,11 +3065,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 5144637421786767919, guid: 4f4661b6fd4fd6b40ad224010b1585f6, type: 3}
   m_PrefabInstance: {fileID: 790995064}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &790995066 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 5038889424697371936, guid: 4f4661b6fd4fd6b40ad224010b1585f6, type: 3}
-  m_PrefabInstance: {fileID: 790995064}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &793326848
 GameObject:
   m_ObjectHideFlags: 0
@@ -4252,13 +4247,37 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: dfad0d9b273b846fe8bc72bbcfe700cc, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1090244323}
   m_SourcePrefab: {fileID: 100100000, guid: dfad0d9b273b846fe8bc72bbcfe700cc, type: 3}
 --- !u!4 &1090244321 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: dfad0d9b273b846fe8bc72bbcfe700cc, type: 3}
   m_PrefabInstance: {fileID: 1090244320}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1090244322 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: dfad0d9b273b846fe8bc72bbcfe700cc, type: 3}
+  m_PrefabInstance: {fileID: 1090244320}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1090244323
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1090244322}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 04cc41f46dcf42b4fa07615b959b209f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerCamera: {fileID: 2033436943}
+  shootPosition: {fileID: 1090244321}
+  maxRotationAngle: 30
+  rotationSpeed: 5
 --- !u!1 &1126032668
 GameObject:
   m_ObjectHideFlags: 0
@@ -5184,12 +5203,16 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxGrappleDistance: 50
-  Shootposi: {fileID: 790995066}
-  gun: {fileID: 0}
+  Shootposi: {fileID: 1090244322}
+  gun: {fileID: 1090244323}
   grappleSpeed: 50
   maxGrapples: 15
   remainingGrapples: 0
   cv: {fileID: 692651130}
+  segmentCount: 30
+  segmentLength: 0.2
+  stiffness: 20
+  damping: 0.5
   progressBarFill: {fileID: 1996732659}
   frontWall: {fileID: 337328253}
   backWall: {fileID: 1126032669}
