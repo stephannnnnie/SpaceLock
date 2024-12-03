@@ -454,7 +454,7 @@ PrefabInstance:
     - target: {fileID: 5680245899337756313, guid: d74953ee6827b4d63a652ae854a53971, type: 3}
       propertyPath: obstaclePrefab
       value: 
-      objectReference: {fileID: 5326239692417407021, guid: 9ea381288a378c345b2fdf8d114f5c16, type: 3}
+      objectReference: {fileID: 172221307628094441, guid: f7015eb4425090d4083dc11f25daf3f3, type: 3}
     - target: {fileID: 5680245899337756313, guid: d74953ee6827b4d63a652ae854a53971, type: 3}
       propertyPath: MinObstcileSpeed
       value: 2
@@ -606,7 +606,7 @@ PrefabInstance:
     - target: {fileID: 5680245899337756313, guid: d74953ee6827b4d63a652ae854a53971, type: 3}
       propertyPath: obstaclePrefab
       value: 
-      objectReference: {fileID: 5326239692417407021, guid: 9ea381288a378c345b2fdf8d114f5c16, type: 3}
+      objectReference: {fileID: 172221307628094441, guid: f7015eb4425090d4083dc11f25daf3f3, type: 3}
     - target: {fileID: 5680245899337756313, guid: d74953ee6827b4d63a652ae854a53971, type: 3}
       propertyPath: MinObstcileSpeed
       value: 2
@@ -816,7 +816,7 @@ PrefabInstance:
     - target: {fileID: 5680245899337756313, guid: d74953ee6827b4d63a652ae854a53971, type: 3}
       propertyPath: obstaclePrefab
       value: 
-      objectReference: {fileID: 5326239692417407021, guid: 9ea381288a378c345b2fdf8d114f5c16, type: 3}
+      objectReference: {fileID: 172221307628094441, guid: f7015eb4425090d4083dc11f25daf3f3, type: 3}
     - target: {fileID: 5680245899337756313, guid: d74953ee6827b4d63a652ae854a53971, type: 3}
       propertyPath: MinObstcileSpeed
       value: 2
@@ -1319,7 +1319,7 @@ PrefabInstance:
     - target: {fileID: 5680245899337756313, guid: d74953ee6827b4d63a652ae854a53971, type: 3}
       propertyPath: obstaclePrefab
       value: 
-      objectReference: {fileID: 5326239692417407021, guid: 9ea381288a378c345b2fdf8d114f5c16, type: 3}
+      objectReference: {fileID: 172221307628094441, guid: f7015eb4425090d4083dc11f25daf3f3, type: 3}
     - target: {fileID: 5680245899337756313, guid: d74953ee6827b4d63a652ae854a53971, type: 3}
       propertyPath: MinObstcileSpeed
       value: 2
@@ -1705,7 +1705,7 @@ PrefabInstance:
     - target: {fileID: 5680245899337756313, guid: d74953ee6827b4d63a652ae854a53971, type: 3}
       propertyPath: obstaclePrefab
       value: 
-      objectReference: {fileID: 5326239692417407021, guid: 9ea381288a378c345b2fdf8d114f5c16, type: 3}
+      objectReference: {fileID: 172221307628094441, guid: f7015eb4425090d4083dc11f25daf3f3, type: 3}
     - target: {fileID: 5680245899337756313, guid: d74953ee6827b4d63a652ae854a53971, type: 3}
       propertyPath: MinObstcileSpeed
       value: 2
@@ -1807,7 +1807,7 @@ PrefabInstance:
     - target: {fileID: 5680245899337756313, guid: d74953ee6827b4d63a652ae854a53971, type: 3}
       propertyPath: obstaclePrefab
       value: 
-      objectReference: {fileID: 5326239692417407021, guid: 9ea381288a378c345b2fdf8d114f5c16, type: 3}
+      objectReference: {fileID: 172221307628094441, guid: f7015eb4425090d4083dc11f25daf3f3, type: 3}
     - target: {fileID: 5680245899337756313, guid: d74953ee6827b4d63a652ae854a53971, type: 3}
       propertyPath: MinObstcileSpeed
       value: 2
@@ -1909,7 +1909,7 @@ PrefabInstance:
     - target: {fileID: 5680245899337756313, guid: d74953ee6827b4d63a652ae854a53971, type: 3}
       propertyPath: obstaclePrefab
       value: 
-      objectReference: {fileID: 5326239692417407021, guid: 9ea381288a378c345b2fdf8d114f5c16, type: 3}
+      objectReference: {fileID: 172221307628094441, guid: f7015eb4425090d4083dc11f25daf3f3, type: 3}
     - target: {fileID: 5680245899337756313, guid: d74953ee6827b4d63a652ae854a53971, type: 3}
       propertyPath: MinObstcileSpeed
       value: 2
@@ -2006,7 +2006,7 @@ PrefabInstance:
     - target: {fileID: 5680245899337756313, guid: d74953ee6827b4d63a652ae854a53971, type: 3}
       propertyPath: obstaclePrefab
       value: 
-      objectReference: {fileID: 5326239692417407021, guid: 9ea381288a378c345b2fdf8d114f5c16, type: 3}
+      objectReference: {fileID: 172221307628094441, guid: f7015eb4425090d4083dc11f25daf3f3, type: 3}
     - target: {fileID: 5680245899337756313, guid: d74953ee6827b4d63a652ae854a53971, type: 3}
       propertyPath: MinObstcileSpeed
       value: 2
@@ -2230,7 +2230,7 @@ PrefabInstance:
     - target: {fileID: 5680245899337756313, guid: d74953ee6827b4d63a652ae854a53971, type: 3}
       propertyPath: obstaclePrefab
       value: 
-      objectReference: {fileID: 5326239692417407021, guid: 9ea381288a378c345b2fdf8d114f5c16, type: 3}
+      objectReference: {fileID: 172221307628094441, guid: f7015eb4425090d4083dc11f25daf3f3, type: 3}
     - target: {fileID: 5680245899337756313, guid: d74953ee6827b4d63a652ae854a53971, type: 3}
       propertyPath: MinObstcileSpeed
       value: 2
@@ -2597,7 +2597,7 @@ PrefabInstance:
     - target: {fileID: 5680245899337756313, guid: d74953ee6827b4d63a652ae854a53971, type: 3}
       propertyPath: obstaclePrefab
       value: 
-      objectReference: {fileID: 5326239692417407021, guid: 9ea381288a378c345b2fdf8d114f5c16, type: 3}
+      objectReference: {fileID: 172221307628094441, guid: f7015eb4425090d4083dc11f25daf3f3, type: 3}
     - target: {fileID: 5680245899337756313, guid: d74953ee6827b4d63a652ae854a53971, type: 3}
       propertyPath: MinObstcileSpeed
       value: 2
@@ -2991,7 +2991,7 @@ PrefabInstance:
     - target: {fileID: 5680245899337756313, guid: d74953ee6827b4d63a652ae854a53971, type: 3}
       propertyPath: obstaclePrefab
       value: 
-      objectReference: {fileID: 5326239692417407021, guid: 9ea381288a378c345b2fdf8d114f5c16, type: 3}
+      objectReference: {fileID: 172221307628094441, guid: f7015eb4425090d4083dc11f25daf3f3, type: 3}
     - target: {fileID: 5680245899337756313, guid: d74953ee6827b4d63a652ae854a53971, type: 3}
       propertyPath: MinObstcileSpeed
       value: 2
@@ -3262,7 +3262,7 @@ PrefabInstance:
     - target: {fileID: 5680245899337756313, guid: d74953ee6827b4d63a652ae854a53971, type: 3}
       propertyPath: obstaclePrefab
       value: 
-      objectReference: {fileID: 5326239692417407021, guid: 9ea381288a378c345b2fdf8d114f5c16, type: 3}
+      objectReference: {fileID: 172221307628094441, guid: f7015eb4425090d4083dc11f25daf3f3, type: 3}
     - target: {fileID: 5680245899337756313, guid: d74953ee6827b4d63a652ae854a53971, type: 3}
       propertyPath: MinObstcileSpeed
       value: 2
@@ -3595,7 +3595,7 @@ PrefabInstance:
     - target: {fileID: 5680245899337756313, guid: d74953ee6827b4d63a652ae854a53971, type: 3}
       propertyPath: obstaclePrefab
       value: 
-      objectReference: {fileID: 5326239692417407021, guid: 9ea381288a378c345b2fdf8d114f5c16, type: 3}
+      objectReference: {fileID: 172221307628094441, guid: f7015eb4425090d4083dc11f25daf3f3, type: 3}
     - target: {fileID: 5680245899337756313, guid: d74953ee6827b4d63a652ae854a53971, type: 3}
       propertyPath: MinObstcileSpeed
       value: 2
@@ -3874,7 +3874,7 @@ PrefabInstance:
     - target: {fileID: 5680245899337756313, guid: d74953ee6827b4d63a652ae854a53971, type: 3}
       propertyPath: obstaclePrefab
       value: 
-      objectReference: {fileID: 5326239692417407021, guid: 9ea381288a378c345b2fdf8d114f5c16, type: 3}
+      objectReference: {fileID: 172221307628094441, guid: f7015eb4425090d4083dc11f25daf3f3, type: 3}
     - target: {fileID: 5680245899337756313, guid: d74953ee6827b4d63a652ae854a53971, type: 3}
       propertyPath: MinObstcileSpeed
       value: 2
@@ -3972,7 +3972,7 @@ PrefabInstance:
     - target: {fileID: 5680245899337756313, guid: d74953ee6827b4d63a652ae854a53971, type: 3}
       propertyPath: obstaclePrefab
       value: 
-      objectReference: {fileID: 5326239692417407021, guid: 9ea381288a378c345b2fdf8d114f5c16, type: 3}
+      objectReference: {fileID: 172221307628094441, guid: f7015eb4425090d4083dc11f25daf3f3, type: 3}
     - target: {fileID: 5680245899337756313, guid: d74953ee6827b4d63a652ae854a53971, type: 3}
       propertyPath: MinObstcileSpeed
       value: 2
@@ -4226,7 +4226,7 @@ PrefabInstance:
     - target: {fileID: 5680245899337756313, guid: d74953ee6827b4d63a652ae854a53971, type: 3}
       propertyPath: obstaclePrefab
       value: 
-      objectReference: {fileID: 5326239692417407021, guid: 9ea381288a378c345b2fdf8d114f5c16, type: 3}
+      objectReference: {fileID: 172221307628094441, guid: f7015eb4425090d4083dc11f25daf3f3, type: 3}
     - target: {fileID: 5680245899337756313, guid: d74953ee6827b4d63a652ae854a53971, type: 3}
       propertyPath: MinObstcileSpeed
       value: 2
@@ -4344,7 +4344,7 @@ PrefabInstance:
     - target: {fileID: 5680245899337756313, guid: d74953ee6827b4d63a652ae854a53971, type: 3}
       propertyPath: obstaclePrefab
       value: 
-      objectReference: {fileID: 5326239692417407021, guid: 9ea381288a378c345b2fdf8d114f5c16, type: 3}
+      objectReference: {fileID: 172221307628094441, guid: f7015eb4425090d4083dc11f25daf3f3, type: 3}
     - target: {fileID: 5680245899337756313, guid: d74953ee6827b4d63a652ae854a53971, type: 3}
       propertyPath: MinObstcileSpeed
       value: 2
@@ -4562,7 +4562,7 @@ PrefabInstance:
     - target: {fileID: 5680245899337756313, guid: d74953ee6827b4d63a652ae854a53971, type: 3}
       propertyPath: obstaclePrefab
       value: 
-      objectReference: {fileID: 5326239692417407021, guid: 9ea381288a378c345b2fdf8d114f5c16, type: 3}
+      objectReference: {fileID: 172221307628094441, guid: f7015eb4425090d4083dc11f25daf3f3, type: 3}
     - target: {fileID: 5680245899337756313, guid: d74953ee6827b4d63a652ae854a53971, type: 3}
       propertyPath: MinObstcileSpeed
       value: 2
@@ -4754,7 +4754,7 @@ PrefabInstance:
     - target: {fileID: 5680245899337756313, guid: d74953ee6827b4d63a652ae854a53971, type: 3}
       propertyPath: obstaclePrefab
       value: 
-      objectReference: {fileID: 5326239692417407021, guid: 9ea381288a378c345b2fdf8d114f5c16, type: 3}
+      objectReference: {fileID: 172221307628094441, guid: f7015eb4425090d4083dc11f25daf3f3, type: 3}
     - target: {fileID: 5680245899337756313, guid: d74953ee6827b4d63a652ae854a53971, type: 3}
       propertyPath: MinObstcileSpeed
       value: 2
@@ -4874,7 +4874,7 @@ PrefabInstance:
     - target: {fileID: 5680245899337756313, guid: d74953ee6827b4d63a652ae854a53971, type: 3}
       propertyPath: obstaclePrefab
       value: 
-      objectReference: {fileID: 5326239692417407021, guid: 9ea381288a378c345b2fdf8d114f5c16, type: 3}
+      objectReference: {fileID: 172221307628094441, guid: f7015eb4425090d4083dc11f25daf3f3, type: 3}
     - target: {fileID: 5680245899337756313, guid: d74953ee6827b4d63a652ae854a53971, type: 3}
       propertyPath: MinObstcileSpeed
       value: 2
@@ -5351,7 +5351,7 @@ PrefabInstance:
       objectReference: {fileID: 1036112726}
     - target: {fileID: 7829307905463435585, guid: aca8035460747284ca3ae47d436b9318, type: 3}
       propertyPath: offset.y
-      value: 14
+      value: 7
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -5446,7 +5446,7 @@ PrefabInstance:
     - target: {fileID: 5680245899337756313, guid: d74953ee6827b4d63a652ae854a53971, type: 3}
       propertyPath: obstaclePrefab
       value: 
-      objectReference: {fileID: 5326239692417407021, guid: 9ea381288a378c345b2fdf8d114f5c16, type: 3}
+      objectReference: {fileID: 172221307628094441, guid: f7015eb4425090d4083dc11f25daf3f3, type: 3}
     - target: {fileID: 5680245899337756313, guid: d74953ee6827b4d63a652ae854a53971, type: 3}
       propertyPath: MinObstcileSpeed
       value: 2
@@ -5544,7 +5544,7 @@ PrefabInstance:
     - target: {fileID: 5680245899337756313, guid: d74953ee6827b4d63a652ae854a53971, type: 3}
       propertyPath: obstaclePrefab
       value: 
-      objectReference: {fileID: 5326239692417407021, guid: 9ea381288a378c345b2fdf8d114f5c16, type: 3}
+      objectReference: {fileID: 172221307628094441, guid: f7015eb4425090d4083dc11f25daf3f3, type: 3}
     - target: {fileID: 5680245899337756313, guid: d74953ee6827b4d63a652ae854a53971, type: 3}
       propertyPath: MinObstcileSpeed
       value: 2
@@ -5642,7 +5642,7 @@ PrefabInstance:
     - target: {fileID: 5680245899337756313, guid: d74953ee6827b4d63a652ae854a53971, type: 3}
       propertyPath: obstaclePrefab
       value: 
-      objectReference: {fileID: 5326239692417407021, guid: 9ea381288a378c345b2fdf8d114f5c16, type: 3}
+      objectReference: {fileID: 172221307628094441, guid: f7015eb4425090d4083dc11f25daf3f3, type: 3}
     - target: {fileID: 5680245899337756313, guid: d74953ee6827b4d63a652ae854a53971, type: 3}
       propertyPath: MinObstcileSpeed
       value: 2
@@ -5814,7 +5814,7 @@ PrefabInstance:
     - target: {fileID: 5680245899337756313, guid: d74953ee6827b4d63a652ae854a53971, type: 3}
       propertyPath: obstaclePrefab
       value: 
-      objectReference: {fileID: 5326239692417407021, guid: 9ea381288a378c345b2fdf8d114f5c16, type: 3}
+      objectReference: {fileID: 172221307628094441, guid: f7015eb4425090d4083dc11f25daf3f3, type: 3}
     - target: {fileID: 5680245899337756313, guid: d74953ee6827b4d63a652ae854a53971, type: 3}
       propertyPath: MinObstcileSpeed
       value: 2
