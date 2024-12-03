@@ -129,13 +129,28 @@ public class ObstacleSpawner : MonoBehaviour
 
     void SpawnPowerUpAboveObstacle(GameObject obstacle)
     {
-        // Position the power-up above the obstacle
         Vector3 powerUpPosition = obstacle.transform.position;
-        powerUpPosition.y += obstacle.transform.localScale.y / 2 + 6f; // Adjust height for power-up
 
-        // Randomly select a power-up prefab
-        GameObject powerUpPrefab = powerUpPrefabs[Random.Range(0, powerUpPrefabs.Length)];
-        GameObject powerUp = Instantiate(powerUpPrefab, powerUpPosition, Quaternion.identity);
-        powerUp.transform.SetParent(obstacle.transform); // Attach power-up to obstacle
+        int randomIndex = Random.Range(0, powerUpPrefabs.Length);
+        GameObject powerUpPrefab = powerUpPrefabs[randomIndex];
+        GameObject powerUp = null;
+
+        switch (randomIndex)
+        {
+            case 0:  // bullet
+                powerUpPosition.y += obstacle.transform.localScale.y / 2 + 0.5f;
+                powerUp = Instantiate(powerUpPrefab, powerUpPosition, Quaternion.identity); // may need to consider for different direction value
+                break;
+
+            case 1:  // ring
+                powerUpPosition.y += obstacle.transform.localScale.y / 2 + 6f; // Adjust height for power-up
+                powerUp = Instantiate(powerUpPrefab, powerUpPosition, Quaternion.identity);
+                break;
+        }
+
+        if (powerUp != null)
+        {
+            powerUp.transform.SetParent(obstacle.transform); // Attach power-up to obstacle
+        }
     }
 }
