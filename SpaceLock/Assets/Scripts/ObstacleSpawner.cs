@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class ObstacleSpawner : MonoBehaviour
 {
@@ -138,12 +139,26 @@ public class ObstacleSpawner : MonoBehaviour
         switch (randomIndex)
         {
             case 0:  // bullet
-                powerUpPosition.y += obstacle.transform.localScale.y / 2 + 0.5f;
-                powerUp = Instantiate(powerUpPrefab, powerUpPosition, Quaternion.identity); // may need to consider for different direction value
-                break;
+                if (SceneManager.GetActiveScene().name == "Level 3")
+                {
+                    powerUpPosition.y += obstacle.transform.localScale.y / 2 + 1.0f;
+                    powerUp = Instantiate(powerUpPrefab, powerUpPosition, Quaternion.identity);
+                } 
+                else if (SceneManager.GetActiveScene().name == "Level 2")
+                {
+                    powerUpPosition.y += obstacle.transform.localScale.y / 2 + 0.5f;
+                    powerUp = Instantiate(powerUpPrefab, powerUpPosition, Quaternion.Euler(0, -90, 0));
+                }
+                else
+                {
+                    powerUpPosition.y += obstacle.transform.localScale.y / 2 + 0.5f;
+                    powerUp = Instantiate(powerUpPrefab, powerUpPosition, Quaternion.identity);
+                }
+
+                    break;
 
             case 1:  // ring
-                powerUpPosition.y += obstacle.transform.localScale.y / 2 + 2f; // Adjust height for power-up
+                powerUpPosition.y += obstacle.transform.localScale.y / 2 + 6.0f; // Adjust height for power-up
                 powerUp = Instantiate(powerUpPrefab, powerUpPosition, Quaternion.identity);
                 break;
         }
