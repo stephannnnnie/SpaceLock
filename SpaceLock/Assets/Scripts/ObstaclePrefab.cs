@@ -46,7 +46,7 @@ public class ObstaclePrefab : MonoBehaviour
         }
     }
 
-    void Update()
+    void LateUpdate()
     {
         transform.Translate(speed * Time.deltaTime * dir);
 
