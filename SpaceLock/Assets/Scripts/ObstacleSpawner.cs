@@ -50,9 +50,12 @@ public class ObstacleSpawner : MonoBehaviour
             // Generate random position within the plane's bounds
             float randomX = Random.Range(planeBounds.min.x, planeBounds.max.x);
             float randomZ = Random.Range(planeBounds.min.z, planeBounds.max.z);
+            float randomY = Random.Range(planeBounds.min.y, planeBounds.max.y );
 
             // Use the plane's Y position to ensure the obstacle spawns on the plane surface
-            Vector3 spawnPosition = new Vector3(randomX, planeBounds.center.y, randomZ);
+            Vector3 spawnPosition = new Vector3(randomX, randomY, randomZ);
+
+            Debug.Log(spawnPosition);
 
             obstacle.transform.position = spawnPosition;
             obstacle.transform.rotation = obstaclePrefab.transform.rotation;
@@ -60,7 +63,7 @@ public class ObstacleSpawner : MonoBehaviour
             obstacle.SetActive(true);
             obstacle.GetComponent<ObstaclePrefab>().minSpeed = MinObstcileSpeed;
 
-            float randomScale = Random.Range(3f, 5f);
+            float randomScale = Random.Range(5f, 8f);
             obstacle.transform.localScale = new Vector3(randomScale, randomScale, randomScale);
 
             float mass = randomScale * 10f;
@@ -117,18 +120,37 @@ public class ObstacleSpawner : MonoBehaviour
             {
                 Destroy(child.gameObject);
             }
+            if (child.GetComponent<Grapple>() != null) {
+                transform.parent = null;
+            }
+            
         }
     }
 
     void SpawnPowerUpAboveObstacle(GameObject obstacle)
     {
-        // Position the power-up above the obstacle
         Vector3 powerUpPosition = obstacle.transform.position;
-        powerUpPosition.y += obstacle.transform.localScale.y / 2 + 6f; // Adjust height for power-up
 
-        // Randomly select a power-up prefab
-        GameObject powerUpPrefab = powerUpPrefabs[Random.Range(0, powerUpPrefabs.Length)];
-        GameObject powerUp = Instantiate(powerUpPrefab, powerUpPosition, Quaternion.identity);
-        powerUp.transform.SetParent(obstacle.transform); // Attach power-up to obstacle
+        int randomIndex = Random.Range(0, powerUpPrefabs.Length);
+        GameObject powerUpPrefab = powerUpPrefabs[randomIndex];
+        GameObject powerUp = null;
+
+        switch (randomIndex)
+        {
+            case 0:  // bullet
+                powerUpPosition.y += obstacle.transform.localScale.y / 2 + 0.5f;
+                powerUp = Instantiate(powerUpPrefab, powerUpPosition, Quaternion.identity); // may need to consider for different direction value
+                break;
+
+            case 1:  // ring
+                powerUpPosition.y += obstacle.transform.localScale.y / 2 + 6f; // Adjust height for power-up
+                powerUp = Instantiate(powerUpPrefab, powerUpPosition, Quaternion.identity);
+                break;
+        }
+
+        if (powerUp != null)
+        {
+            powerUp.transform.SetParent(obstacle.transform); // Attach power-up to obstacle
+        }
     }
 }
