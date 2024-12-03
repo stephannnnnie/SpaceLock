@@ -2353,6 +2353,10 @@ PrefabInstance:
       propertyPath: MinObstcileSpeed
       value: 2
       objectReference: {fileID: 0}
+    - target: {fileID: 5680245899337756313, guid: d74953ee6827b4d63a652ae854a53971, type: 3}
+      propertyPath: powerUpPrefabs.Array.data[0]
+      value: 
+      objectReference: {fileID: 538486541887224376, guid: 675ea096c06e62c41bdf84f3ddbf9b13, type: 3}
     - target: {fileID: 8102535400671628405, guid: d74953ee6827b4d63a652ae854a53971, type: 3}
       propertyPath: m_Name
       value: Spawner
@@ -2492,6 +2496,10 @@ PrefabInstance:
       propertyPath: MinObstcileSpeed
       value: 5
       objectReference: {fileID: 0}
+    - target: {fileID: 5680245899337756313, guid: d74953ee6827b4d63a652ae854a53971, type: 3}
+      propertyPath: powerUpPrefabs.Array.data[0]
+      value: 
+      objectReference: {fileID: 538486541887224376, guid: 675ea096c06e62c41bdf84f3ddbf9b13, type: 3}
     - target: {fileID: 8102535400671628405, guid: d74953ee6827b4d63a652ae854a53971, type: 3}
       propertyPath: m_Name
       value: Spawner
@@ -6776,7 +6784,7 @@ MonoBehaviour:
   numberOfObstacles: 100
   drespawn: {fileID: 1780233525}
   powerUpPrefabs:
-  - {fileID: 4562818433435053289, guid: e678ecd8c5cdc4b519a45fe0051e007a, type: 3}
+  - {fileID: 538486541887224376, guid: 675ea096c06e62c41bdf84f3ddbf9b13, type: 3}
   - {fileID: 2084379066064811690, guid: d1ed9a2e8c17947faabb60f2e1c6697d, type: 3}
   xDistance: -160
   powerUpSpawnChance: 0.109
