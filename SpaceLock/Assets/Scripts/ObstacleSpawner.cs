@@ -18,7 +18,6 @@ public class ObstacleSpawner : MonoBehaviour
     [SerializeField] private string direction;
     [SerializeField] float MinObstcileSpeed;
 
-    // Start is called before the first frame update
     void Start()
     {
 
@@ -113,6 +112,12 @@ public class ObstacleSpawner : MonoBehaviour
 
     void RecycleObstacle(GameObject obstacle)
     {
+        StartCoroutine(DelayedRecycle(obstacle, 0.5f)); // Delay by 0.5 seconds
+    }
+
+    IEnumerator DelayedRecycle(GameObject obstacle, float delay)
+    {
+        yield return new WaitForSeconds(delay);
         obstacle.SetActive(false);
 
         // Destroy any PowerUp component child attached to this obstacle
@@ -122,13 +127,14 @@ public class ObstacleSpawner : MonoBehaviour
             {
                 Destroy(child.gameObject);
             }
-            if (child.GetComponent<Grapple>() != null) {
+            if (child.GetComponent<Grapple>() != null)
+            {
                 transform.parent = null;
             }
-            
+
         }
     }
-
+     
     void SpawnPowerUpAboveObstacle(GameObject obstacle)
     {
         // Position the power-up above the obstacle

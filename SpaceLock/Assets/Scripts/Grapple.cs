@@ -53,8 +53,8 @@ public class Grapple : MonoBehaviour
         Material ropeMaterial = Resources.Load<Material>("Materials/Line");
         lineRenderer.material = ropeMaterial != null ? ropeMaterial : new Material(Shader.Find("Sprites/Default"));
 
-        lineRenderer.startWidth = 0.07f;
-        lineRenderer.endWidth = 0.07f;
+        lineRenderer.startWidth = 0.1f;
+        lineRenderer.endWidth = 0.1f;
         lineRenderer.positionCount = 0;
 
         ropeSegments = new Vector3[segmentCount];
@@ -106,13 +106,9 @@ public class Grapple : MonoBehaviour
 
             float step = grappleSpeed * Time.deltaTime;
             transform.position = Vector3.MoveTowards(transform.position, grapplePoint, step);
-            float distanceToGrapplePoint = Vector3.Distance(transform.position, grapplePoint);
-            Debug.Log($"Distance to Grapple Point: {distanceToGrapplePoint}");
-            
+
             if (Vector3.Distance(transform.position, grapplePoint) < 0.1f)
             {
-                Debug.Log("Grapple point - parent: " + grapplePoint);
-
                 if (!firstGrappleCompleted && screenFlickerController != null)
                 {
                     screenFlickerController.TriggerFirstGrapple();
@@ -208,8 +204,6 @@ public class Grapple : MonoBehaviour
         {
             if (hit.collider != null && hit.collider.gameObject != gameObject && hit.collider.CompareTag("Obstacle"))
             {
-                Debug.Log($"Hit Object: {hit.collider.gameObject.name}, Tag: {hit.collider.tag}");
-
                 float distanceToHit = Vector3.Distance(transform.position, hit.point);
 
                 if (hit.collider.transform == transform.parent)
@@ -223,9 +217,9 @@ public class Grapple : MonoBehaviour
                     grappledObject = hit.collider.transform;
                     grapplePoint = hit.point;
                     isGrappling = true;
-                    gun.StartGrapple(grapplePoint);
-                    Debug.Log($"Grappled Object: {grappledObject}, Grapple Point: {grapplePoint}");
+                    transform.SetParent(null);
 
+                    gun.StartGrapple(grapplePoint);
                     initialPosition = transform.position;
                     elapsedTime = 0f;
                     remainingGrapples--;
@@ -253,8 +247,6 @@ public class Grapple : MonoBehaviour
 
     void EndGrapple()
     {
-            Debug.Log("EndGrapple called");
-
         isGrappling = false;
 
         if (lineRenderer != null)
@@ -265,7 +257,6 @@ public class Grapple : MonoBehaviour
         if (grappledObject != null)
         {
             transform.SetParent(grappledObject);
-            Debug.Log("Player's parent: " + transform.parent.name);
             transform.position = grappledObject.position;
         }
 
@@ -347,7 +338,6 @@ public class Grapple : MonoBehaviour
 
     void OnCollisionEnter(Collision collision)
     {
-        Debug.Log($"Collision detected with: {collision.gameObject.name}");
         if (isGrappling && collision.gameObject.CompareTag("Obstacle"))
         {
             isGrappling = false;
@@ -367,6 +357,7 @@ public class Grapple : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Obstacle"))
         {
+            Debug.Log("Parent set to null now");
             transform.SetParent(null);
         }
     }

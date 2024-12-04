@@ -25,12 +25,10 @@ public class WallProximityFlicker : MonoBehaviour
 
         bool isWithinWallBounds = IsPlayerWithinWallBounds();
 
-        Debug.Log("Perpendicular distance: " + perpendicularDistance);
         if (isWithinWallBounds && perpendicularDistance <= dangerDistance)
         {
             if (!isPlayerInDanger)
             {
-                flickerController.NotifyDangerProximity(perpendicularDistance);
                 isPlayerInDanger = true;
             }
         }
@@ -38,7 +36,6 @@ public class WallProximityFlicker : MonoBehaviour
         {
             if (isPlayerInDanger)
             {
-                flickerController.NotifyNoDanger();
                 isPlayerInDanger = false;
             }
         }
