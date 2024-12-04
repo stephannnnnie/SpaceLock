@@ -242,6 +242,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   dangerDistance: 35
   loseDistanceThreshold: 0.5
+  flickerController: {fileID: 0}
+  player: {fileID: 0}
   cv: {fileID: 279346365}
   loseTriggered: 0
 --- !u!114 &12365803 stripped
@@ -2424,6 +2426,13 @@ MonoBehaviour:
   brightnessOverlay: {fileID: 471092757}
   maxAlpha: 0.3
   flickerSpeed: 5
+  player: {fileID: 1036112731}
+  walls:
+  - {fileID: 436550}
+  - {fileID: 942853429}
+  dangerDistance: 35
+  loseDistanceThreshold: 0.5
+  cv: {fileID: 0}
 --- !u!4 &933597863
 Transform:
   m_ObjectHideFlags: 0
@@ -2664,6 +2673,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   dangerDistance: 35
   loseDistanceThreshold: 0.5
+  flickerController: {fileID: 0}
+  player: {fileID: 0}
   cv: {fileID: 279346365}
   loseTriggered: 0
 --- !u!1001 &986685369

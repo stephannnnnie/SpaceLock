@@ -717,7 +717,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &212082055
 RectTransform:
   m_ObjectHideFlags: 0
@@ -2770,7 +2770,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &920634357
 RectTransform:
   m_ObjectHideFlags: 0
@@ -3473,14 +3473,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   brightnessOverlay: {fileID: 0}
-  player: {fileID: 2012066124}
-  backWall: {fileID: 1920828613}
-  dangerDistance: 50
   maxAlpha: 0.3
   flickerSpeed: 5
-  leftWall: {fileID: 0}
-  rightWall: {fileID: 0}
-  horizontalDangerDistance: 35
+  player: {fileID: 2012066124}
+  walls: []
+  dangerDistance: 50
+  loseDistanceThreshold: 0.5
+  cv: {fileID: 0}
 --- !u!4 &1044091321
 Transform:
   m_ObjectHideFlags: 0
@@ -6780,10 +6779,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   minSpeed: 0.5
+  speed: 0
   farObstacle: {fileID: 2100000, guid: ea106ef629bedc04d8acde84de232353, type: 2}
   nearObstacle: {fileID: 2100000, guid: 3cf9e915ef7554190b7669537095105b, type: 2}
   pointA: {x: 28.5, y: 8.2, z: 150}
   pointB: {x: -34.7, y: 8.2, z: 150}
+  loopBoundaryLeft: {x: 0, y: 0, z: 0}
+  loopBoundaryRight: {x: 0, y: 0, z: 0}
+  isLooping: 0
+  movingRight: 1
 --- !u!54 &1903375597
 Rigidbody:
   m_ObjectHideFlags: 0

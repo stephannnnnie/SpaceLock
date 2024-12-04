@@ -8436,14 +8436,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   brightnessOverlay: {fileID: 2126668585}
-  player: {fileID: 1036112731}
-  backWall: {fileID: 1780233529}
-  dangerDistance: 50
   maxAlpha: 0.3
   flickerSpeed: 3
-  leftWall: {fileID: 0}
-  rightWall: {fileID: 0}
-  horizontalDangerDistance: 35
+  player: {fileID: 1036112731}
+  walls:
+  - {fileID: 1780233525}
+  dangerDistance: 50
+  loseDistanceThreshold: 0.5
+  cv: {fileID: 174287867}
 --- !u!4 &766195464
 Transform:
   m_ObjectHideFlags: 0
