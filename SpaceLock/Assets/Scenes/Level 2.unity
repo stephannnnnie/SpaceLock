@@ -3482,7 +3482,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6da970dc3324149da9fe130d1bee6290, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  GrappleDistance: 120
+  player: {fileID: 1036112726}
   inRangematerial: {fileID: 2100000, guid: 086282852a41148ab86007906cd93ada, type: 2}
   outRangematerial: {fileID: 2100000, guid: 47600d5f033df43908d86ca74131f226, type: 2}
 --- !u!1001 &1167146507
