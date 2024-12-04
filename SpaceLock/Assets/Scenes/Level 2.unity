@@ -134,6 +134,7 @@ GameObject:
   - component: {fileID: 436553}
   - component: {fileID: 436552}
   - component: {fileID: 436551}
+  - component: {fileID: 436555}
   m_Layer: 0
   m_Name: Cube
   m_TagString: Untagged
@@ -227,6 +228,22 @@ Transform:
   m_Children: []
   m_Father: {fileID: 120603103}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &436555
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 436550}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8f53f6f9f7f11e54fba4c5fcb0f64a6e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dangerDistance: 35
+  loseDistanceThreshold: 0.5
+  cv: {fileID: 279346365}
+  loseTriggered: 0
 --- !u!114 &12365803 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 402345899648069719, guid: aca8035460747284ca3ae47d436b9318, type: 3}
@@ -1237,7 +1254,7 @@ PrefabInstance:
   serializedVersion: 2
   m_Modification:
     serializedVersion: 3
-    m_TransformParent: {fileID: 2099298159}
+    m_TransformParent: {fileID: 1633589261}
     m_Modifications:
     - target: {fileID: 2055839162869741449, guid: d74953ee6827b4d63a652ae854a53971, type: 3}
       propertyPath: m_LocalScale.x
@@ -1245,19 +1262,19 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2055839162869741449, guid: d74953ee6827b4d63a652ae854a53971, type: 3}
       propertyPath: m_LocalScale.z
-      value: 5.552304
+      value: 5.5523033
       objectReference: {fileID: 0}
     - target: {fileID: 2055839162869741449, guid: d74953ee6827b4d63a652ae854a53971, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 162.7
+      value: 138
       objectReference: {fileID: 0}
     - target: {fileID: 2055839162869741449, guid: d74953ee6827b4d63a652ae854a53971, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 10.251539
+      value: 27.76154
       objectReference: {fileID: 0}
     - target: {fileID: 2055839162869741449, guid: d74953ee6827b4d63a652ae854a53971, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 92.436
+      value: 84.9
       objectReference: {fileID: 0}
     - target: {fileID: 2055839162869741449, guid: d74953ee6827b4d63a652ae854a53971, type: 3}
       propertyPath: m_LocalRotation.w
@@ -2268,14 +2285,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   brightnessOverlay: {fileID: 471092757}
-  player: {fileID: 1036112731}
-  backWall: {fileID: 0}
-  dangerDistance: 50
   maxAlpha: 0.3
   flickerSpeed: 5
-  leftWall: {fileID: 436554}
-  rightWall: {fileID: 942853433}
-  horizontalDangerDistance: 35
 --- !u!4 &933597863
 Transform:
   m_ObjectHideFlags: 0
@@ -2408,6 +2419,7 @@ GameObject:
   - component: {fileID: 942853432}
   - component: {fileID: 942853431}
   - component: {fileID: 942853430}
+  - component: {fileID: 942853434}
   m_Layer: 0
   m_Name: Cube (1)
   m_TagString: Untagged
@@ -2501,6 +2513,22 @@ Transform:
   m_Children: []
   m_Father: {fileID: 120603103}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &942853434
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 942853429}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8f53f6f9f7f11e54fba4c5fcb0f64a6e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dangerDistance: 35
+  loseDistanceThreshold: 0.5
+  cv: {fileID: 279346365}
+  loseTriggered: 0
 --- !u!1001 &986685369
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2732,6 +2760,10 @@ MonoBehaviour:
   maxGrapples: 15
   remainingGrapples: 0
   cv: {fileID: 279346365}
+  segmentCount: 30
+  segmentLength: 0.2
+  stiffness: 20
+  damping: 0.5
   progressBarFill: {fileID: 483546844}
   frontWall: {fileID: 1114813131}
   backWall: {fileID: 1780233529}
@@ -4431,7 +4463,8 @@ Transform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children: []
+  m_Children:
+  - {fileID: 453711086}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1662314178
@@ -5397,7 +5430,6 @@ Transform:
   - {fileID: 559294894}
   - {fileID: 97716869}
   - {fileID: 1167146508}
-  - {fileID: 453711086}
   - {fileID: 627296451}
   m_Father: {fileID: 120603103}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}

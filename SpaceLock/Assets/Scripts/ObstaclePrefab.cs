@@ -15,6 +15,7 @@ public class ObstaclePrefab : MonoBehaviour
     private GameObject player;
     private Grapple gp;
 
+
     void Start()
     {
         player = GameObject.FindWithTag("Player");
@@ -23,6 +24,11 @@ public class ObstaclePrefab : MonoBehaviour
         speed = minSpeed * scaleFactor;
         collideWall = false;
         gp = player.GetComponent<Grapple>();
+
+        if (string.IsNullOrEmpty(direction))
+        {
+            Debug.LogError("Direction is null or empty. Ensure it is set correctly in ObstacleSpawner.");
+        }
         if (direction == "right")
         {
             dir = Vector3.back; // This is equivalent to new Vector3(0, 0, -1)
@@ -71,25 +77,25 @@ public class ObstaclePrefab : MonoBehaviour
         
     }
 
-/*    private void OnCollisionEnter(Collision collision)
-    {
-        if (collision.gameObject.CompareTag("Obstacle"))
+    /*    private void OnCollisionEnter(Collision collision)
         {
-            Debug.Log("Obstacles collision detected");
-            float distance_2 = Vector3.Distance(player.transform.position, transform.position);
-            float distance_1 = Vector3.Distance(player.transform.position, collision.gameObject.transform.position);
-
-            if (transform.localScale.x > collision.gameObject.transform.localScale.x)
+            if (collision.gameObject.CompareTag("Obstacle"))
             {
-                if (distance_1 > 2.0f)
+                Debug.Log("Obstacles collision detected");
+                float distance_2 = Vector3.Distance(player.transform.position, transform.position);
+                float distance_1 = Vector3.Distance(player.transform.position, collision.gameObject.transform.position);
+
+                if (transform.localScale.x > collision.gameObject.transform.localScale.x)
                 {
-                    collision.gameObject.GetComponent<ObstaclePrefab>().collideWall = true;
+                    if (distance_1 > 2.0f)
+                    {
+                        collision.gameObject.GetComponent<ObstaclePrefab>().collideWall = true;
+                    }
+                }
+                else if (distance_2 > 2.0f)
+                {
+                    collideWall = true;
                 }
             }
-            else if (distance_2 > 2.0f)
-            {
-                collideWall = true;
-            }
-        }
-    }*/
+        }*/
 }

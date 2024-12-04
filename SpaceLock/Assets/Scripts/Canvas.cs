@@ -125,14 +125,13 @@ public class Canvas : MonoBehaviour
     }
 
     public void UpdateGrappleNumber(float remainingGrapple , float distance) {
-        Debug.Log("Remaining grapples: " + remainingGrapple);
+        // Debug.Log("Remaining grapples: " + remainingGrapple);
         for (int i = 0; i < grappleSegments.Count; i++)
         {
-            // Enable the segment if the index is less than remainingGrapple, otherwise disable it
             bool shouldEnable = i + 1 <= remainingGrapple;
             grappleSegments[i].enabled = shouldEnable;
 
-            Debug.Log(grappleSegments[i].name + " " + i + " " + "shouldEnable: " + shouldEnable);
+            //Debug.Log(grappleSegments[i].name + " " + i + " " + "shouldEnable: " + shouldEnable);
         }
         //GrappleIncrease.fillAmount = remainingGrapple / MAX_GRAPPLES;
         GrappleDistance.fillAmount = distance / MAX_DISTANCE;

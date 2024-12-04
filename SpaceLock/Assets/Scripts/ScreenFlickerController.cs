@@ -1,20 +1,14 @@
-using System;
 using UnityEngine;
 using UnityEngine.UI;
 
 public class ScreenFlickerController : MonoBehaviour
 {
     public Image brightnessOverlay;
-    public Transform player;
-    public Transform backWall;
-    public float dangerDistance = 100f;
-    public float maxAlpha = 0.3f;
-    public float flickerSpeed = 2f;
+    public float maxAlpha = 0.3f; // Maximum alpha for flickering effect
+    public float flickerSpeed = 2f; // Speed of flicker effect
     private bool flickeringEnabled = false;
 
-    public Transform leftWall;
-    public Transform rightWall;
-    public float horizontalDangerDistance = 35f;
+    private float closestDangerDistance = float.MaxValue; // Tracks the closest danger distance
 
     private Color originalColor;
 
@@ -26,44 +20,29 @@ public class ScreenFlickerController : MonoBehaviour
 
     void Update()
     {
-        if (!flickeringEnabled)
+        if (!flickeringEnabled || closestDangerDistance == float.MaxValue)
         {
             brightnessOverlay.color = new Color(originalColor.r, originalColor.g, originalColor.b, 0);
             return;
         }
 
-        if (leftWall != null && rightWall != null)
-        {
-            float distanceToLeftWall = Mathf.Abs(player.position.z - leftWall.position.z);
-            float distanceToRightWall = Mathf.Abs(player.position.z - rightWall.position.z);
-
-            if (flickeringEnabled && (distanceToLeftWall <= horizontalDangerDistance || distanceToRightWall <= horizontalDangerDistance))
-            {
-                float alpha = Mathf.Abs(Mathf.Sin(Time.time * flickerSpeed)) * maxAlpha;
-                brightnessOverlay.color = new Color(originalColor.r, originalColor.g, originalColor.b, alpha);
-            }
-            else
-            {
-                brightnessOverlay.color = new Color(originalColor.r, originalColor.g, originalColor.b, 0);
-            }
-        }
-        else if (backWall != null)
-        {
-
-            float distanceToBackWall = Vector3.Distance(player.position, backWall.position);
-
-
-            if (flickeringEnabled && distanceToBackWall <= dangerDistance)
-            {
-                float alpha = Mathf.Abs(Mathf.Sin(Time.time * flickerSpeed)) * maxAlpha;
-                brightnessOverlay.color = new Color(originalColor.r, originalColor.g, originalColor.b, alpha);
-            }
-            else
-            {
-                brightnessOverlay.color = new Color(originalColor.r, originalColor.g, originalColor.b, 0);
-            }
-        }
+        float alpha = Mathf.Abs(Mathf.Sin(Time.time * flickerSpeed)) * maxAlpha;
+        brightnessOverlay.color = new Color(originalColor.r, originalColor.g, originalColor.b, alpha);
     }
+
+    public void NotifyDangerProximity(float distance)
+    {
+        closestDangerDistance = Mathf.Min(closestDangerDistance, distance);
+        flickeringEnabled = true; // Start flickering
+    }
+
+    public void NotifyNoDanger()
+    {
+        closestDangerDistance = float.MaxValue;
+        flickeringEnabled = false;
+        brightnessOverlay.color = new Color(originalColor.r, originalColor.g, originalColor.b, 0);
+    }
+
     public void TriggerFirstGrapple()
     {
         flickeringEnabled = true;
@@ -72,6 +51,7 @@ public class ScreenFlickerController : MonoBehaviour
     public void StopFlickering()
     {
         flickeringEnabled = false;
+        closestDangerDistance = float.MaxValue;
         brightnessOverlay.color = new Color(originalColor.r, originalColor.g, originalColor.b, 0);
     }
 }

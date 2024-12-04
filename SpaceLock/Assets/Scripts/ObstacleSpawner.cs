@@ -21,6 +21,7 @@ public class ObstacleSpawner : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+
         origin = transform.position;
         spawnerSize = transform.localScale;
 
@@ -41,6 +42,7 @@ public class ObstacleSpawner : MonoBehaviour
         GameObject obstacle = GetPooledObstacle();
         if (obstacle != null)
         {
+            Debug.Log($"Assigning direction: {direction}");
             // Get the plane's renderer to determine its bounds
             Renderer planeRenderer = GetComponent<Renderer>();
 

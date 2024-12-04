@@ -1,49 +1,70 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UI;
 
 public class WallProximityFlicker : MonoBehaviour
 {
+    public float dangerDistance = 35f;
+    public float loseDistanceThreshold = 0.5f;
+    public ScreenFlickerController flickerController;
     public Transform player;
-    public Transform[] walls;
-    public float proximityThreshold = 5f;
-    public float flickerSpeed = 5f;
-    public float maxAlpha = 0.5f;
-    public Image brightnessOverlay;
-
-    private Color originalColor;
+    private bool isPlayerInDanger = false;
+    public Canvas cv;
+    public bool loseTriggered = false;
+    private Renderer wallRenderer;
 
     void Start()
     {
-        originalColor = new Color(1f, 0f, 0f, maxAlpha);
-        brightnessOverlay.color = new Color(originalColor.r, originalColor.g, originalColor.b, 0);
+        wallRenderer = GetComponent<Renderer>();
     }
 
     void Update()
     {
-        foreach (Transform wall in walls)
+        if (player == null || flickerController == null || cv == null || wallRenderer == null) return;
+
+        Vector3 wallNormal = transform.forward;
+        float perpendicularDistance = Mathf.Abs(player.position.z - transform.position.z);
+
+        bool isWithinWallBounds = IsPlayerWithinWallBounds();
+
+        Debug.Log("Perpendicular distance: " + perpendicularDistance);
+        if (isWithinWallBounds && perpendicularDistance <= dangerDistance)
         {
-            float distance = Vector3.Distance(player.position, wall.position);
-            if (distance <= proximityThreshold)
+            if (!isPlayerInDanger)
             {
-                StartFlickering();
-                return;
+                flickerController.NotifyDangerProximity(perpendicularDistance);
+                isPlayerInDanger = true;
+            }
+        }
+        else
+        {
+            if (isPlayerInDanger)
+            {
+                flickerController.NotifyNoDanger();
+                isPlayerInDanger = false;
             }
         }
 
-        StopFlickering();
+        if (isWithinWallBounds && !loseTriggered && perpendicularDistance <= loseDistanceThreshold)
+        {
+            TriggerLose();
+        }
     }
 
-    void StartFlickering()
+    private bool IsPlayerWithinWallBounds()
     {
-            float alpha = Mathf.Abs(Mathf.Sin(Time.time * flickerSpeed)) * maxAlpha;
-            brightnessOverlay.color = new Color(originalColor.r, originalColor.g, originalColor.b, alpha);
-            
+        Bounds wallBounds = wallRenderer.bounds;
+
+        bool withinX = player.position.x >= wallBounds.min.x && player.position.x <= wallBounds.max.x;
+        bool withinY = player.position.y >= wallBounds.min.y && player.position.y <= wallBounds.max.y;
+
+        return withinX && withinY;
     }
 
-    void StopFlickering()
+    private void TriggerLose()
     {
-            brightnessOverlay.color = new Color(originalColor.r, originalColor.g, originalColor.b, 0);
+        loseTriggered = true;
+
+        Debug.Log("Touched the wall.");
+        flickerController.StopFlickering();
+        cv.PlayerLose(1);
     }
 }
