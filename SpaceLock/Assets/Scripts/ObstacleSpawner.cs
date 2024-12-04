@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class ObstacleSpawner : MonoBehaviour
 {
@@ -120,30 +121,67 @@ public class ObstacleSpawner : MonoBehaviour
         yield return new WaitForSeconds(delay);
         obstacle.SetActive(false);
 
-        // Destroy any PowerUp component child attached to this obstacle
+        // Collect all child objects of the obstacle
+        List<Transform> childrenToDestroy = new List<Transform>();
         foreach (Transform child in obstacle.transform)
         {
-            if (child.GetComponent<PowerUp>() != null)
-            {
-                Destroy(child.gameObject);
-            }
-            if (child.GetComponent<Grapple>() != null)
-            {
-                transform.parent = null;
-            }
+            childrenToDestroy.Add(child); // Add child to the list
+        }
 
+        // Destroy all collected children
+        foreach (Transform child in childrenToDestroy)
+        {
+            Destroy(child.gameObject); // Destroy each child
         }
     }
      
     void SpawnPowerUpAboveObstacle(GameObject obstacle)
     {
-        // Position the power-up above the obstacle
         Vector3 powerUpPosition = obstacle.transform.position;
-        powerUpPosition.y += obstacle.transform.localScale.y / 2 + 6f; // Adjust height for power-up
 
-        // Randomly select a power-up prefab
-        GameObject powerUpPrefab = powerUpPrefabs[Random.Range(0, powerUpPrefabs.Length)];
-        GameObject powerUp = Instantiate(powerUpPrefab, powerUpPosition, Quaternion.identity);
-        powerUp.transform.SetParent(obstacle.transform); // Attach power-up to obstacle
+        int randomIndex = Random.Range(0, powerUpPrefabs.Length);
+        GameObject powerUpPrefab = powerUpPrefabs[randomIndex];
+        GameObject powerUp = null;
+
+        switch (randomIndex)
+        {
+            case 0:  // bullet
+                if (SceneManager.GetActiveScene().name == "Level 3")
+                {
+                    powerUpPosition.y += obstacle.transform.localScale.y / 2 + 1.0f;
+                    powerUp = Instantiate(powerUpPrefab, powerUpPosition, Quaternion.identity);
+                } 
+                else if (SceneManager.GetActiveScene().name == "Level 2")
+                {
+                    powerUpPosition.y += obstacle.transform.localScale.y / 2 + 0.5f;
+                    powerUp = Instantiate(powerUpPrefab, powerUpPosition, Quaternion.Euler(0, -90, 0));
+                }
+                else
+                {
+                    powerUpPosition.y += obstacle.transform.localScale.y / 2 + 0.5f;
+                    powerUp = Instantiate(powerUpPrefab, powerUpPosition, Quaternion.identity);
+                }
+
+                    break;
+
+            case 1:  // ring
+                if (SceneManager.GetActiveScene().name == "Level 3")
+                {
+                    powerUpPosition.y += obstacle.transform.localScale.y / 2 + 6.0f;
+                    powerUp = Instantiate(powerUpPrefab, powerUpPosition, Quaternion.identity);
+                }
+                else
+                {
+                    powerUpPosition.y += obstacle.transform.localScale.y / 2 + 3.0f; // Adjust height for power-up
+                    powerUp = Instantiate(powerUpPrefab, powerUpPosition, Quaternion.identity);
+                }
+                
+                break;
+        }
+
+        if (powerUp != null)
+        {
+            powerUp.transform.SetParent(obstacle.transform); // Attach power-up to obstacle
+        }
     }
 }
