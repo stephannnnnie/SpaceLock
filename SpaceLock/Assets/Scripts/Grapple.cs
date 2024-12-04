@@ -69,7 +69,7 @@ public class Grapple : MonoBehaviour
         }
     }
 
-    void Update()
+    void LateUpdate()
     {
         if (progressBarFill != null)
         {
