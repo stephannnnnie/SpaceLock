@@ -127,13 +127,17 @@ public class RandomObstacleSpawner : MonoBehaviour
     {
         obstacle.SetActive(false);
 
-        // Destroy any PowerUp component child attached to this obstacle
+        // Collect all child objects of the obstacle
+        List<Transform> childrenToDestroy = new List<Transform>();
         foreach (Transform child in obstacle.transform)
         {
-            if (child.GetComponent<PowerUp>() != null)
-            {
-                Destroy(child.gameObject);
-            }
+            childrenToDestroy.Add(child); // Add child to the list
+        }
+
+        // Destroy all collected children
+        foreach (Transform child in childrenToDestroy)
+        {
+            Destroy(child.gameObject); // Destroy each child
         }
     }
 
