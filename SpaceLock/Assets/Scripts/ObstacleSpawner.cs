@@ -158,7 +158,7 @@ public class ObstacleSpawner : MonoBehaviour
                     break;
 
             case 1:  // ring
-                powerUpPosition.y += obstacle.transform.localScale.y / 2 + 6.0f; // Adjust height for power-up
+                powerUpPosition.y += obstacle.transform.localScale.y / 2 + 3.0f; // Adjust height for power-up
                 powerUp = Instantiate(powerUpPrefab, powerUpPosition, Quaternion.identity);
                 break;
         }
