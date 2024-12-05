@@ -3082,7 +3082,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8669245508762601721, guid: ee533a8db57642d459365ac7cef99ae5, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8748641536776681380, guid: ee533a8db57642d459365ac7cef99ae5, type: 3}
       propertyPath: m_fontColor.b
@@ -4036,14 +4036,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   brightnessOverlay: {fileID: 369302028}
-  player: {fileID: 1529283048}
-  backWall: {fileID: 1126032669}
-  dangerDistance: 50
   maxAlpha: 0.3
   flickerSpeed: 3
-  leftWall: {fileID: 0}
-  rightWall: {fileID: 0}
-  horizontalDangerDistance: 35
+  player: {fileID: 1529283048}
+  walls: []
+  dangerDistance: 50
+  loseDistanceThreshold: 0.5
+  cv: {fileID: 0}
 --- !u!4 &946060253
 Transform:
   m_ObjectHideFlags: 0
@@ -5183,10 +5182,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   minSpeed: 0.5
+  speed: 0
   farObstacle: {fileID: 2100000, guid: 2a13c3c440291244ebe95a1d1afdd2a1, type: 2}
   nearObstacle: {fileID: 2100000, guid: 80d7455ddd261bd49937bcf9107ba9cc, type: 2}
   pointA: {x: -260.2, y: 16.97, z: 14.57}
   pointB: {x: -311.8, y: 16.97, z: 14.57}
+  loopBoundaryLeft: {x: 0, y: 0, z: 0}
+  loopBoundaryRight: {x: 0, y: 0, z: 0}
+  isLooping: 0
+  movingRight: 1
 --- !u!54 &1333534174
 Rigidbody:
   m_ObjectHideFlags: 0
