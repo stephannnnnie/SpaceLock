@@ -7,9 +7,9 @@ using TMPro;
 public class GameOverDetection : MonoBehaviour {
     public GameObject player;
     public Canvas cv;
-/*    public Material farObstacle;
-    public Material nearObstacle;*/
 
+    public GameObject NotInRange;
+    public GameObject InRange;
 
     // public Button restartButton;
     void Start() {
@@ -25,23 +25,24 @@ public class GameOverDetection : MonoBehaviour {
 
         player.GetComponent<Collider>().isTrigger = true;
         this.GetComponent<Collider>().isTrigger = true;
-        // restartButton.gameObject.SetActive(false);
-        //gameOverImage.enabled = false;
-        // restartButton.onClick.AddListener(RestartGame);
+
+
     }
 
     void Update() {
 
         float distance = Vector3.Distance(player.transform.position, transform.position);
 
-/*        if (distance < player.GetComponent<Grapple>().maxGrappleDistance)
+        if (distance < player.GetComponent<Grapple>().maxGrappleDistance)
         {
-            GetComponent<Renderer>().material = nearObstacle;
+            NotInRange.SetActive(false);
+            InRange.SetActive(true);
         }
         else
         {
-            GetComponent<Renderer>().material = farObstacle;
-        }*/
+           NotInRange.SetActive(true);
+           InRange.SetActive(false);
+        }
 
     }
     
