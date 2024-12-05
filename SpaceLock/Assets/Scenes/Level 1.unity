@@ -1246,8 +1246,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   player: {fileID: 1529283047}
   cv: {fileID: 692651130}
-  farObstacle: {fileID: 0}
-  nearObstacle: {fileID: 0}
 --- !u!54 &337328256
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -2981,7 +2979,7 @@ PrefabInstance:
     - target: {fileID: 4906388216376539103, guid: ee533a8db57642d459365ac7cef99ae5, type: 3}
       propertyPath: m_Material
       value: 
-      objectReference: {fileID: 2100000, guid: f531e09e2ad2fb440b4eed7605863143, type: 2}
+      objectReference: {fileID: 2100000, guid: e50aa8dbad3f24e09a7e83d66e8b00f1, type: 2}
     - target: {fileID: 4906388216376539103, guid: ee533a8db57642d459365ac7cef99ae5, type: 3}
       propertyPath: m_RaycastTarget
       value: 1
@@ -3017,7 +3015,7 @@ PrefabInstance:
     - target: {fileID: 6810976363912121136, guid: ee533a8db57642d459365ac7cef99ae5, type: 3}
       propertyPath: m_Material
       value: 
-      objectReference: {fileID: 2100000, guid: f531e09e2ad2fb440b4eed7605863143, type: 2}
+      objectReference: {fileID: 2100000, guid: e50aa8dbad3f24e09a7e83d66e8b00f1, type: 2}
     - target: {fileID: 6835514576170157748, guid: ee533a8db57642d459365ac7cef99ae5, type: 3}
       propertyPath: m_fontStyle
       value: 1
@@ -3096,7 +3094,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8669245508762601721, guid: ee533a8db57642d459365ac7cef99ae5, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8748641536776681380, guid: ee533a8db57642d459365ac7cef99ae5, type: 3}
       propertyPath: m_fontColor.b

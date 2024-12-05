@@ -17,6 +17,7 @@ public class Canvas : MonoBehaviour
 
     [SerializeField] private GameObject wallCollision;
     [SerializeField] private GameObject outofGrapples;
+    [SerializeField] GameObject InfoTab;
 
 //    [SerializeField] Image GrappleIncrease;
     [SerializeField] Image GrappleDistance;
@@ -42,6 +43,7 @@ public class Canvas : MonoBehaviour
         wallCollision.SetActive(false);
         outofGrapples.SetActive(false);
         croshair.SetActive(true);
+        InfoTab.SetActive(false);
         noofGrapples = 0;
         islose = true;
         barr.SetActive(true);
@@ -65,6 +67,7 @@ public class Canvas : MonoBehaviour
         // }
         if (Input.GetKeyDown(KeyCode.Mouse0) && CompletionTime >= 3f && BarrInfo != null) { BarrInfo.SetActive(false); }
         CompletionTime =  Time.time - StartTime;
+        InforTab();
     }
 
     public void updateGrappless() { 
@@ -73,6 +76,17 @@ public class Canvas : MonoBehaviour
 
     public void updatePowerup() {
         Powerupss++;
+    }
+
+    public void InforTab() {
+
+        if (Input.GetKeyDown(KeyCode.Tab)) { 
+            InfoTab.SetActive(true);
+        }
+        if (Input.GetKeyUp(KeyCode.Tab)) {
+            InfoTab.SetActive(false);
+        }
+
     }
 
     public void PlayerWon() {

@@ -65,7 +65,7 @@ public class ObstacleSpawner : MonoBehaviour
             obstacle.SetActive(true);
             obstacle.GetComponent<ObstaclePrefab>().minSpeed = MinObstcileSpeed;
 
-            float randomScale = Random.Range(5f, 8f);
+            float randomScale = Random.Range(6f, 9f);
             obstacle.transform.localScale = new Vector3(randomScale, randomScale, randomScale);
 
             float mass = randomScale * 10f;

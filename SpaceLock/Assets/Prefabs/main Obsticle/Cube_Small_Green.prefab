@@ -149,5 +149,5 @@ MonoBehaviour:
   minSpeed: 1.5
   collideWall: 0
   direction: 
-  farObstacle: {fileID: 2100000, guid: 8a457ff4881e00b479a85054dd3b7e02, type: 2}
-  nearObstacle: {fileID: 2100000, guid: 507e7d9cea7b7a94cb64ec52905974a7, type: 2}
+  farObstacle: {fileID: 2100000, guid: 507e7d9cea7b7a94cb64ec52905974a7, type: 2}
+  nearObstacle: {fileID: 2100000, guid: 8a457ff4881e00b479a85054dd3b7e02, type: 2}
