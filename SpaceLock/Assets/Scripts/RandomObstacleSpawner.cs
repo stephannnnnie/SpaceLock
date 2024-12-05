@@ -81,7 +81,7 @@ public class RandomObstacleSpawner : MonoBehaviour
             obstacle.transform.rotation = obstaclePrefab.transform.rotation;
             obstacle.SetActive(true);
 
-            float randomScale = Random.Range(3f, 5f);
+            float randomScale = Random.Range(5f, 8f);
             obstacle.transform.localScale = new Vector3(randomScale, randomScale, randomScale);
 
             float mass = randomScale * 10f;

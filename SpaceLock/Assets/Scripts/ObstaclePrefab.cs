@@ -73,6 +73,7 @@ public class ObstaclePrefab : MonoBehaviour
         if (other.CompareTag("wall"))
         {
             collideWall = true;
+            Debug.LogWarning("Collided with end wall");
         }
         
     }

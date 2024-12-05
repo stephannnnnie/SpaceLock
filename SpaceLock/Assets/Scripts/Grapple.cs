@@ -347,10 +347,13 @@ public class Grapple : MonoBehaviour
             transform.position = collision.transform.position;
         }
 
-        if (collision.gameObject.tag == "FinalWall")
+        if (collision.gameObject.name == "FinalWall")
         {
             WinGame();
         }
+
+        Debug.LogWarning("Collidede with :" + collision.gameObject.name);
+
     }
 
     void OnCollisionExit(Collision collision)

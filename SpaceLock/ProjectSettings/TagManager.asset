@@ -10,6 +10,7 @@ TagManager:
   - NumGrappleText
   - DistanceText
   - DontDestroyOnLoad
+  - FinalWall
   layers:
   - Default
   - TransparentFX
