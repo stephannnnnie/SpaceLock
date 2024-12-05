@@ -147,5 +147,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   minSpeed: 1.5
-  farObstacle: {fileID: 2100000, guid: b0406f5164cafd246a94c2196ba6a19a, type: 2}
-  nearObstacle: {fileID: 2100000, guid: 7e8493563459f054aaf7928b799e99a9, type: 2}
+  farObstacle: {fileID: 2100000, guid: 507e7d9cea7b7a94cb64ec52905974a7, type: 2}
+  nearObstacle: {fileID: 2100000, guid: 8a457ff4881e00b479a85054dd3b7e02, type: 2}

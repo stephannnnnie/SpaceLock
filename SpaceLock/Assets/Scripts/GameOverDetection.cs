@@ -7,6 +7,10 @@ using TMPro;
 public class GameOverDetection : MonoBehaviour {
     public GameObject player;
     public Canvas cv;
+/*    public Material farObstacle;
+    public Material nearObstacle;*/
+
+
     // public Button restartButton;
     void Start() {
         if (player.GetComponent<Collider>() == null || this.GetComponent<Collider>() == null)
@@ -25,6 +29,21 @@ public class GameOverDetection : MonoBehaviour {
         //gameOverImage.enabled = false;
         // restartButton.onClick.AddListener(RestartGame);
     }
+
+    void Update() {
+
+        float distance = Vector3.Distance(player.transform.position, transform.position);
+
+/*        if (distance < player.GetComponent<Grapple>().maxGrappleDistance)
+        {
+            GetComponent<Renderer>().material = nearObstacle;
+        }
+        else
+        {
+            GetComponent<Renderer>().material = farObstacle;
+        }*/
+
+    }
     
 
     void OnTriggerEnter(Collider other)
@@ -33,8 +52,7 @@ public class GameOverDetection : MonoBehaviour {
         {
             Debug.Log("Trigger detected between player and wall.");
             cv.PlayerWon();
-            // restartButton.gameObject.SetActive(true);
-            // Invoke("RestartGame", 2f);
+
         }
     }
 

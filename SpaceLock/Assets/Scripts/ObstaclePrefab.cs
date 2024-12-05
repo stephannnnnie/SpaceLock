@@ -78,6 +78,16 @@ public class ObstaclePrefab : MonoBehaviour
         
     }
 
+
+    private void OnCollisionEnter(Collision collision)
+    {
+        if (collision.gameObject.CompareTag("wall"))
+        {
+            collideWall = true;
+            Debug.LogWarning("Collided with end walld adawdwad");
+        }
+    }
+
     /*    private void OnCollisionEnter(Collision collision)
         {
             if (collision.gameObject.CompareTag("Obstacle"))

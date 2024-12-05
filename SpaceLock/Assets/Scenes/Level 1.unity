@@ -1246,6 +1246,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   player: {fileID: 1529283047}
   cv: {fileID: 692651130}
+  farObstacle: {fileID: 0}
+  nearObstacle: {fileID: 0}
 --- !u!54 &337328256
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -5201,7 +5203,7 @@ MonoBehaviour:
   speed: 0
   farObstacle: {fileID: 2100000, guid: 2a13c3c440291244ebe95a1d1afdd2a1, type: 2}
   nearObstacle: {fileID: 2100000, guid: 80d7455ddd261bd49937bcf9107ba9cc, type: 2}
-  pointA: {x: -260.2, y: 16.97, z: 14.57}
+  pointA: {x: -257.57, y: 16.97, z: 14.57}
   pointB: {x: -311.8, y: 16.97, z: 14.57}
   loopBoundaryLeft: {x: 0, y: 0, z: 0}
   loopBoundaryRight: {x: 0, y: 0, z: 0}
@@ -5314,7 +5316,7 @@ Transform:
   m_GameObject: {fileID: 1333534172}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -311.8, y: 16.97, z: 14.57}
+  m_LocalPosition: {x: -243.4, y: 16.97, z: 14.57}
   m_LocalScale: {x: 6.3107862, y: 6.3107862, z: 6.3107862}
   m_ConstrainProportionsScale: 0
   m_Children: []
