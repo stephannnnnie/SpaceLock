@@ -445,6 +445,10 @@ PrefabInstance:
       propertyPath: particleEffectPrefab
       value: 
       objectReference: {fileID: 6290110847480702970, guid: 2ca13b2b5b77b44a5a31034eb07e4eb4, type: 3}
+    - target: {fileID: 5680245899337756313, guid: d74953ee6827b4d63a652ae854a53971, type: 3}
+      propertyPath: powerUpPrefabs.Array.data[0]
+      value: 
+      objectReference: {fileID: 538486541887224376, guid: 675ea096c06e62c41bdf84f3ddbf9b13, type: 3}
     - target: {fileID: 8102535400671628405, guid: d74953ee6827b4d63a652ae854a53971, type: 3}
       propertyPath: m_Name
       value: SpawnerL (1)
@@ -1163,6 +1167,10 @@ PrefabInstance:
       propertyPath: particleEffectPrefab
       value: 
       objectReference: {fileID: 6290110847480702970, guid: 2ca13b2b5b77b44a5a31034eb07e4eb4, type: 3}
+    - target: {fileID: 5680245899337756313, guid: d74953ee6827b4d63a652ae854a53971, type: 3}
+      propertyPath: powerUpPrefabs.Array.data[0]
+      value: 
+      objectReference: {fileID: 538486541887224376, guid: 675ea096c06e62c41bdf84f3ddbf9b13, type: 3}
     - target: {fileID: 8102535400671628405, guid: d74953ee6827b4d63a652ae854a53971, type: 3}
       propertyPath: m_Name
       value: SpawnerU
@@ -1971,6 +1979,10 @@ PrefabInstance:
       propertyPath: particleEffectPrefab
       value: 
       objectReference: {fileID: 6290110847480702970, guid: 2ca13b2b5b77b44a5a31034eb07e4eb4, type: 3}
+    - target: {fileID: 5680245899337756313, guid: d74953ee6827b4d63a652ae854a53971, type: 3}
+      propertyPath: powerUpPrefabs.Array.data[0]
+      value: 
+      objectReference: {fileID: 538486541887224376, guid: 675ea096c06e62c41bdf84f3ddbf9b13, type: 3}
     - target: {fileID: 8102535400671628405, guid: d74953ee6827b4d63a652ae854a53971, type: 3}
       propertyPath: m_Name
       value: SpawnerR
@@ -3495,6 +3507,10 @@ PrefabInstance:
       propertyPath: particleEffectPrefab
       value: 
       objectReference: {fileID: 6290110847480702970, guid: 2ca13b2b5b77b44a5a31034eb07e4eb4, type: 3}
+    - target: {fileID: 5680245899337756313, guid: d74953ee6827b4d63a652ae854a53971, type: 3}
+      propertyPath: powerUpPrefabs.Array.data[0]
+      value: 
+      objectReference: {fileID: 538486541887224376, guid: 675ea096c06e62c41bdf84f3ddbf9b13, type: 3}
     - target: {fileID: 8102535400671628405, guid: d74953ee6827b4d63a652ae854a53971, type: 3}
       propertyPath: m_Name
       value: SpawnerD
@@ -6219,6 +6235,10 @@ PrefabInstance:
       propertyPath: particleEffectPrefab
       value: 
       objectReference: {fileID: 6290110847480702970, guid: 2ca13b2b5b77b44a5a31034eb07e4eb4, type: 3}
+    - target: {fileID: 5680245899337756313, guid: d74953ee6827b4d63a652ae854a53971, type: 3}
+      propertyPath: powerUpPrefabs.Array.data[0]
+      value: 
+      objectReference: {fileID: 538486541887224376, guid: 675ea096c06e62c41bdf84f3ddbf9b13, type: 3}
     - target: {fileID: 8102535400671628405, guid: d74953ee6827b4d63a652ae854a53971, type: 3}
       propertyPath: m_Name
       value: SpawnerL
