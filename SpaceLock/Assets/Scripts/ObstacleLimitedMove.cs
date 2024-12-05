@@ -4,7 +4,8 @@ using UnityEngine;
 
 public class ObstacleLimitedMove : MonoBehaviour
 {
-    public float minSpeed = 0.5f;
+    public float minSpeed = 0.3f;
+    // public float speedPing;
     public float speed;
     private GameObject player;
     public Material farObstacle;
@@ -31,9 +32,9 @@ public class ObstacleLimitedMove : MonoBehaviour
 
         gp = player.GetComponent<Grapple>();
 
-        /*Vector3 scale = transform.localScale;
-        float scaleFactor = (scale.x + scale.y + scale.z) / 3f;
-        speed = minSpeed * scaleFactor;*/
+        // Vector3 scale = transform.localScale;
+        // float scaleFactor = (scale.x + scale.y + scale.z) / 3f;
+        // speedPing = minSpeed * scaleFactor;
     }
 
     void Update()
@@ -52,7 +53,7 @@ public class ObstacleLimitedMove : MonoBehaviour
 
     void HandlePingPongMovement()
     {
-        transform.position = Vector3.Lerp(pointA, pointB, Mathf.PingPong(Time.time / 2.5f, 1));
+        transform.position = Vector3.Lerp(pointA, pointB, Mathf.PingPong(Time.time / 3.5f, 1));
     }
 
     void HandleLoopingMovement()

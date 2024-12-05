@@ -1906,6 +1906,10 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.x
       value: -123
       objectReference: {fileID: 0}
+    - target: {fileID: 8419125897863744988, guid: ee533a8db57642d459365ac7cef99ae5, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8669245508762601721, guid: ee533a8db57642d459365ac7cef99ae5, type: 3}
       propertyPath: m_IsActive
       value: 0
@@ -2208,8 +2212,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8f38e4a8602744bda9d2754570b88175, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  minSpeed: 0.5
-  speed: 0
+  minSpeed: 0.1
+  speed: 0.1
   farObstacle: {fileID: 2100000, guid: ea106ef629bedc04d8acde84de232353, type: 2}
   nearObstacle: {fileID: 2100000, guid: 3cf9e915ef7554190b7669537095105b, type: 2}
   pointA: {x: -421, y: 25, z: -60}
@@ -8830,7 +8834,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8f38e4a8602744bda9d2754570b88175, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  minSpeed: 0.5
+  minSpeed: 0.1
   speed: 0
   farObstacle: {fileID: 2100000, guid: ea106ef629bedc04d8acde84de232353, type: 2}
   nearObstacle: {fileID: 2100000, guid: 3cf9e915ef7554190b7669537095105b, type: 2}
