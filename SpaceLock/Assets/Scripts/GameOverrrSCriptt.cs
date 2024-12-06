@@ -21,7 +21,7 @@ public class GameOverrrSCriptt : MonoBehaviour
         float xx = Mathf.Abs(this.transform.position.x - Player.transform.position.x);
         float zz = Mathf.Abs(this.transform.position.z - Player.transform.position.z);
 
-        if ( zz < DistanceZ)
+        if (xx < DistanceX && zz < DistanceZ)
         {
             cv.PlayerLose(1);
         }
