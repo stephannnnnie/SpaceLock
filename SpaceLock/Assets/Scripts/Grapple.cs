@@ -203,10 +203,11 @@ public class Grapple : MonoBehaviour
         Ray ray = new Ray(Camera.main.transform.position, Camera.main.transform.forward);
         if (Physics.Raycast(ray, out RaycastHit hit))
         {
-            /*if (isGrappling && hit.collider.gameObject == grappledObject.gameObject) {
-                return; 
+            if (isGrappling && hit.collider.gameObject == grappledObject.gameObject)
+            {
+                return;
             }
-*/
+
             if (hit.collider != null && hit.collider.gameObject != gameObject && hit.collider.CompareTag("Obstacle") )
             {
                 float distanceToHit = Vector3.Distance(transform.position, hit.point);
