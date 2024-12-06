@@ -107,13 +107,11 @@ public class ScreenFlickerController : MonoBehaviour
 
     public void TriggerFirstGrapple()
     {
-        Debug.Log("First grapple enabled.");
         flickeringEnabled = true;
     }
 
     public void StopFlickering()
     {
-        Debug.Log("Stop called.");
         flickeringEnabled = false;
         brightnessOverlay.color = new Color(originalColor.r, originalColor.g, originalColor.b, 0);
     }
