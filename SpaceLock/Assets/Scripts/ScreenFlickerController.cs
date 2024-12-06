@@ -62,23 +62,14 @@ public class ScreenFlickerController : MonoBehaviour
             Renderer wallRenderer = wall.GetComponent<Renderer>();
             if (wallRenderer == null) continue;
 
-            bool isSpecialWall = IsSpecialWall(wall.transform);
+            (bool isWithinBounds, float perpendicularDistance) = CheckWallProximity(player.position, wallRenderer, wall.transform);
 
-            bool isWithinWallBounds = isSpecialWall
-                ? IsPlayerWithinXZBounds(player.position, wallRenderer)
-                : IsPlayerWithinWallBounds(player.position, wallRenderer);
-
-            float perpendicularDistance = isSpecialWall
-                ? Mathf.Abs(player.position.y - wall.transform.position.y)
-                : Mathf.Abs(player.position.z - wall.transform.position.z);
-            //Debug.Log("Perpendicular distance: " + perpendicularDistance);
-
-            if (isWithinWallBounds && perpendicularDistance <= dangerDistance)
+            if (isWithinBounds && perpendicularDistance <= dangerDistance)
             {
                 playerInDanger = true;
             }
 
-            if (isWithinWallBounds && perpendicularDistance <= loseDistanceThreshold)
+            if (isWithinBounds && perpendicularDistance <= loseDistanceThreshold)
             {
                 TriggerLose(i);
             }
@@ -90,39 +81,61 @@ public class ScreenFlickerController : MonoBehaviour
         }
     }
 
-    private bool IsSpecialWall(Transform wallTransform)
+    private (bool, float) CheckWallProximity(Vector3 playerPosition, Renderer wallRenderer, Transform wallTransform)
     {
-        return Mathf.Approximately(wallTransform.eulerAngles.x, 90f) &&
-               Mathf.Approximately(wallTransform.eulerAngles.y, 90f) &&
-               Mathf.Approximately(wallTransform.eulerAngles.z, 0f);
-    }
+        Vector3 wallRotation = wallTransform.eulerAngles;
 
-    private bool IsPlayerWithinXZBounds(Vector3 playerPosition, Renderer wallRenderer)
-    {
         Bounds wallBounds = wallRenderer.bounds;
 
-        float extendedMinZ = wallBounds.min.z - 10f;
-        float extendedMaxZ = wallBounds.max.z + 10f;
+        if (Mathf.Approximately(wallRotation.x, 90f) && Mathf.Approximately(wallRotation.y, 90f) && Mathf.Approximately(wallRotation.z, 0f))
+        {
+            bool isWithinBounds = IsPlayerWithinXZBounds(playerPosition, wallBounds);
+            float perpendicularDistance = Mathf.Abs(playerPosition.y - wallTransform.position.y);
+            return (isWithinBounds, perpendicularDistance);
+        }
+        else if (Mathf.Approximately(wallRotation.x, 0f) && Mathf.Approximately(wallRotation.y, 90f) && Mathf.Approximately(wallRotation.z, 90f))
+        {
+            bool isWithinBounds = IsPlayerWithinYZBounds(playerPosition, wallBounds);
+            float perpendicularDistance = Mathf.Abs(playerPosition.x - wallTransform.position.x);
+            return (isWithinBounds, perpendicularDistance);
+        }
+        else if (Mathf.Approximately(wallRotation.x, 0f) && Mathf.Approximately(wallRotation.y, 0f) && Mathf.Approximately(wallRotation.z, 0f))
+        {
+            bool isWithinBounds = IsPlayerWithinXYBounds(playerPosition, wallBounds);
+            float perpendicularDistance = Mathf.Abs(playerPosition.z - wallTransform.position.z);
+            return (isWithinBounds, perpendicularDistance);
+        }
 
-        bool withinX = playerPosition.x >= wallBounds.min.x && playerPosition.x <= wallBounds.max.x;
-        bool withinZ = playerPosition.z >= extendedMinZ && playerPosition.z <= extendedMaxZ;
-
-        return withinX && withinZ;
+        return (false, float.MaxValue);
     }
 
-
-    private bool IsPlayerWithinWallBounds(Vector3 playerPosition, Renderer wallRenderer)
+    private bool IsPlayerWithinXYBounds(Vector3 playerPosition, Bounds wallBounds)
     {
-        Bounds wallBounds = wallRenderer.bounds;
-
-        float extendedMinY = wallBounds.min.y - 10f;
-        float extendedMaxY = wallBounds.max.y + 10f;
+        float extendedMinY = wallBounds.min.y - 5f;
+        float extendedMaxY = wallBounds.max.y + 5f;
 
         bool withinX = playerPosition.x >= wallBounds.min.x && playerPosition.x <= wallBounds.max.x;
         bool withinY = playerPosition.y >= extendedMinY && playerPosition.y <= extendedMaxY;
 
         return withinX && withinY;
     }
+
+    private bool IsPlayerWithinXZBounds(Vector3 playerPosition, Bounds wallBounds)
+    {
+        bool withinX = playerPosition.x >= wallBounds.min.x && playerPosition.x <= wallBounds.max.x;
+        bool withinZ = playerPosition.z >= wallBounds.min.z && playerPosition.z <= wallBounds.max.z;
+
+        return withinX && withinZ;
+    }
+
+    private bool IsPlayerWithinYZBounds(Vector3 playerPosition, Bounds wallBounds)
+    {
+        bool withinY = playerPosition.y >= wallBounds.min.y && playerPosition.y <= wallBounds.max.y;
+        bool withinZ = playerPosition.z >= wallBounds.min.z && playerPosition.z <= wallBounds.max.z;
+
+        return withinY && withinZ;
+    }
+
 
     private void TriggerLose(int wallIndex)
     {
