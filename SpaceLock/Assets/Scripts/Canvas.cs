@@ -13,7 +13,7 @@ public class Canvas : MonoBehaviour
     public GameObject croshair;
     public int noofGrapples = 0;
     public SendToGoogle se;
-    public GameObject progressBar;
+    //public GameObject progressBar;
 
     [SerializeField] private GameObject wallCollision;
     [SerializeField] private GameObject outofGrapples;
@@ -121,6 +121,7 @@ public class Canvas : MonoBehaviour
             islose = false;
             Debug.Log("Time Completedddddd");
         }
+
     }
 
 
@@ -133,7 +134,7 @@ public class Canvas : MonoBehaviour
         outofGrapples.SetActive(false);
 
         croshair.SetActive(false);
-        progressBar.SetActive(false);
+        //progressBar.SetActive(false);
 
         barr.SetActive(false);
     }

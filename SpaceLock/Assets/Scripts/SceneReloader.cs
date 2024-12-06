@@ -36,4 +36,9 @@ public class SceneReloader : MonoBehaviour
     {
         SceneManager.LoadScene("Level 2");
     }
+
+    public void LoadLevel3()
+    {
+        SceneManager.LoadScene("Level 3");
+    }
 }

@@ -16,6 +16,7 @@ public class Level2_LoseDetection : MonoBehaviour
 
     void FixedUpdate()
     {
+        if(player == null) {  return; }
         float playerZ = player.transform.position.z;
 
         float distanceToLeftWall = Mathf.Abs(playerZ - wall1Z);

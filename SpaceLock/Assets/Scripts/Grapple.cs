@@ -34,8 +34,8 @@ public class Grapple : MonoBehaviour
     private Vector3 grapplePoint;
 
     public RectTransform progressBarFill;
-    public Transform frontWall;
-    public Transform backWall;
+/*    public Transform frontWall;
+    public Transform backWall;*/
     public float maxProgressWidth = 95f;
     public ScreenFlickerController screenFlickerController;
 
@@ -69,12 +69,12 @@ public class Grapple : MonoBehaviour
         }
     }
 
-    void LateUpdate()
+    void Update()
     {
-        if (progressBarFill != null)
+/*        if (progressBarFill != null)
         {
             UpdateProgressBar();
-        }
+        }*/
 
         if (Input.GetButtonDown("Fire1") && remainingGrapples >= 0)
         {
@@ -83,6 +83,7 @@ public class Grapple : MonoBehaviour
                 screenFlickerController?.StopFlickering();
                 cv?.PlayerLose(2);
                 Invoke("RestartGame", 2f);
+                this.transform.parent = null;
             }
             else
             {
@@ -122,13 +123,13 @@ public class Grapple : MonoBehaviour
             lineRenderer.positionCount = 0;
         }
     }
-
+/*
     void UpdateProgressBar()
     {
         float progress = Mathf.InverseLerp(backWall.position.x, frontWall.position.x, transform.position.x);
         progressBarFill.sizeDelta = new Vector2(maxProgressWidth * progress, progressBarFill.sizeDelta.y);
         progressBarFill.GetComponent<Image>().color = Color.Lerp(Color.red, Color.green, progress);
-    }
+    }*/
 
     void UpdateLineRenderer()
     {
@@ -202,7 +203,11 @@ public class Grapple : MonoBehaviour
         Ray ray = new Ray(Camera.main.transform.position, Camera.main.transform.forward);
         if (Physics.Raycast(ray, out RaycastHit hit))
         {
-            if (hit.collider != null && hit.collider.gameObject != gameObject && hit.collider.CompareTag("Obstacle"))
+            /*if (isGrappling && hit.collider.gameObject == grappledObject.gameObject) {
+                return; 
+            }
+*/
+            if (hit.collider != null && hit.collider.gameObject != gameObject && hit.collider.CompareTag("Obstacle") )
             {
                 float distanceToHit = Vector3.Distance(transform.position, hit.point);
 

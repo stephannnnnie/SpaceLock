@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.Rendering.Universal.Internal;
 
 public class ObstaclePrefab : MonoBehaviour
 {
@@ -45,7 +46,10 @@ public class ObstaclePrefab : MonoBehaviour
         {
             dir = Vector3.down;
         }
-   
+        else if (direction == "Forward") {
+            dir = Vector3.right;
+        }
+
         else
         {
             Debug.LogError("Wrong Direction. Use 'right' or 'left'.");
@@ -56,16 +60,19 @@ public class ObstaclePrefab : MonoBehaviour
     {
         transform.Translate(speed * Time.deltaTime * dir);
 
-        float distance = Vector3.Distance(player.transform.position, transform.position);
+        if (player != null) {
+            float distance = Vector3.Distance(player.transform.position, transform.position);
 
-        if (distance < gp.maxGrappleDistance)
-        {
-            GetComponent<Renderer>().material = nearObstacle;
+            if (distance < gp.maxGrappleDistance)
+            {
+                GetComponent<Renderer>().material = nearObstacle;
+            }
+            else
+            {
+                GetComponent<Renderer>().material = farObstacle;
+            }
         }
-        else
-        {
-            GetComponent<Renderer>().material = farObstacle;
-        }
+       
     }
 
     private void OnTriggerEnter(Collider other)
@@ -73,7 +80,7 @@ public class ObstaclePrefab : MonoBehaviour
         if (other.CompareTag("wall"))
         {
             collideWall = true;
-            Debug.LogWarning("Collided with end wall");
+         
         }
         
     }
@@ -84,7 +91,7 @@ public class ObstaclePrefab : MonoBehaviour
         if (collision.gameObject.CompareTag("wall"))
         {
             collideWall = true;
-            Debug.LogWarning("Collided with end walld adawdwad");
+            
         }
     }
 

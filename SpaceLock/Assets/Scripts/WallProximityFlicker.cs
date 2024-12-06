@@ -63,5 +63,6 @@ public class WallProximityFlicker : MonoBehaviour
         Debug.Log("Touched the wall.");
         flickerController.StopFlickering();
         cv.PlayerLose(1);
+        //player.transform.parent = null;
     }
 }

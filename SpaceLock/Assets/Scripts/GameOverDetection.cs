@@ -2,14 +2,17 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 using TMPro;
+using Unity.VisualScripting;
 
 
 public class GameOverDetection : MonoBehaviour {
     public GameObject player;
     public Canvas cv;
-/*    public Material farObstacle;
-    public Material nearObstacle;*/
+    /*    public Material farObstacle;
+        public Material nearObstacle;*/
 
+    public GameObject NoInRange;
+    public GameObject Inrange;
 
     // public Button restartButton;
     void Start() {
@@ -32,16 +35,19 @@ public class GameOverDetection : MonoBehaviour {
 
     void Update() {
 
+        if (player == null) { return; }
         float distance = Vector3.Distance(player.transform.position, transform.position);
 
-/*        if (distance < player.GetComponent<Grapple>().maxGrappleDistance)
+        if (distance < player.GetComponent<Grapple>().maxGrappleDistance)
         {
-            GetComponent<Renderer>().material = nearObstacle;
+            NoInRange.SetActive(false);
+            Inrange.SetActive(true);
         }
         else
         {
-            GetComponent<Renderer>().material = farObstacle;
-        }*/
+            NoInRange.SetActive(true);
+            Inrange.SetActive(false);
+        }
 
     }
     

@@ -22,7 +22,7 @@ public class PowerUp : MonoBehaviour
         player = GameObject.FindWithTag("Player");
         if (player == null)
         {
-            Debug.LogError("Player with tag 'Player' not found. Make sure the player object is tagged correctly.");
+            Debug.LogWarning("Player with tag 'Player' not found. Make sure the player object is tagged correctly.");
         }
 
         if (powerUpType == PowerUpType.IncreaseGrappleDistance)
