@@ -1396,10 +1396,10 @@ GameObject:
   - component: {fileID: 1142841328}
   - component: {fileID: 1142841327}
   - component: {fileID: 1142841326}
+  - component: {fileID: 1142841329}
   - component: {fileID: 1142841325}
   - component: {fileID: 1142841324}
   - component: {fileID: 1142841323}
-  - component: {fileID: 1142841329}
   m_Layer: 0
   m_Name: Tutorial_2
   m_TagString: Obstacle
@@ -1544,7 +1544,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1142841321}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7823752085072db46a0383f79bf60d43, type: 3}
+  m_Script: {fileID: 11500000, guid: 6d63a9a36bbbea0418e44c4b84e02740, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!114 &1166073199 stripped
