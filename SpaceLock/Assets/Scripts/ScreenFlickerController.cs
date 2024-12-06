@@ -62,8 +62,15 @@ public class ScreenFlickerController : MonoBehaviour
             Renderer wallRenderer = wall.GetComponent<Renderer>();
             if (wallRenderer == null) continue;
 
-            bool isWithinWallBounds = IsPlayerWithinWallBounds(player.position, wallRenderer);
-            float perpendicularDistance = Mathf.Abs(player.position.z - wall.transform.position.z);
+            bool isSpecialWall = IsSpecialWall(wall.transform);
+
+            bool isWithinWallBounds = isSpecialWall
+                ? IsPlayerWithinXZBounds(player.position, wallRenderer)
+                : IsPlayerWithinWallBounds(player.position, wallRenderer);
+
+            float perpendicularDistance = isSpecialWall
+                ? Mathf.Abs(player.position.y - wall.transform.position.y)
+                : Mathf.Abs(player.position.z - wall.transform.position.z);
             //Debug.Log("Perpendicular distance: " + perpendicularDistance);
 
             if (isWithinWallBounds && perpendicularDistance <= dangerDistance)
@@ -82,6 +89,27 @@ public class ScreenFlickerController : MonoBehaviour
             brightnessOverlay.color = new Color(originalColor.r, originalColor.g, originalColor.b, 0);
         }
     }
+
+    private bool IsSpecialWall(Transform wallTransform)
+    {
+        return Mathf.Approximately(wallTransform.eulerAngles.x, 90f) &&
+               Mathf.Approximately(wallTransform.eulerAngles.y, 90f) &&
+               Mathf.Approximately(wallTransform.eulerAngles.z, 0f);
+    }
+
+    private bool IsPlayerWithinXZBounds(Vector3 playerPosition, Renderer wallRenderer)
+    {
+        Bounds wallBounds = wallRenderer.bounds;
+
+        float extendedMinZ = wallBounds.min.z - 10f;
+        float extendedMaxZ = wallBounds.max.z + 10f;
+
+        bool withinX = playerPosition.x >= wallBounds.min.x && playerPosition.x <= wallBounds.max.x;
+        bool withinZ = playerPosition.z >= extendedMinZ && playerPosition.z <= extendedMaxZ;
+
+        return withinX && withinZ;
+    }
+
 
     private bool IsPlayerWithinWallBounds(Vector3 playerPosition, Renderer wallRenderer)
     {
