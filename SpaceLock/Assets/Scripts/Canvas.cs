@@ -22,7 +22,7 @@ public class Canvas : MonoBehaviour
 //    [SerializeField] Image GrappleIncrease;
     [SerializeField] Image GrappleDistance;
     [SerializeField] GameObject barr;
-    [SerializeField] GameObject BarrInfo;
+    //[SerializeField] GameObject BarrInfo;
 
     private float StartTime;
     public float CompletionTime;
@@ -49,9 +49,10 @@ public class Canvas : MonoBehaviour
         barr.SetActive(true);
         Cursor.visible = false;
         Cursor.lockState = CursorLockMode.Locked;
-        BarrInfo.SetActive(true);
+        //BarrInfo.SetActive(true);
         StartTime = Time.time;
         CompletionTime = 0;
+        if (SceneManager.GetActiveScene().name == "Test_tut") { InfoTab.SetActive(true); }
     }
 
     // Update is called once per frame
@@ -65,7 +66,8 @@ public class Canvas : MonoBehaviour
         //     Debug.Log("set cursor invisible");
         //     StartTime = Time.time;
         // }
-        if (Input.GetKeyDown(KeyCode.Mouse0) && CompletionTime >= 3f && BarrInfo != null) { BarrInfo.SetActive(false); }
+        
+        if (Input.GetKeyDown(KeyCode.Mouse0) && CompletionTime >= 3f) { InfoTab.SetActive(false); }
         CompletionTime =  Time.time - StartTime;
         InforTab();
     }
