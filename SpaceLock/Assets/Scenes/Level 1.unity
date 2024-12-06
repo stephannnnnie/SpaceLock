@@ -4926,7 +4926,7 @@ MonoBehaviour:
   - {fileID: 296676243}
   - {fileID: 589422443}
   dangerDistance: 20
-  loseDistanceThreshold: 0.5
+  loseDistanceThreshold: 2
   cv: {fileID: 630690691}
 --- !u!4 &1211740863
 Transform:
