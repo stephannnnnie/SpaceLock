@@ -1399,7 +1399,7 @@ GameObject:
   - component: {fileID: 1142841325}
   - component: {fileID: 1142841324}
   - component: {fileID: 1142841323}
-  - component: {fileID: 1142841322}
+  - component: {fileID: 1142841329}
   m_Layer: 0
   m_Name: Tutorial_2
   m_TagString: Obstacle
@@ -1407,18 +1407,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &1142841322
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1142841321}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: dd6f2fc87b945ad438dd3e09a870853c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &1142841323
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1547,6 +1535,18 @@ Transform:
   - {fileID: 86974102}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1142841329
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1142841321}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7823752085072db46a0383f79bf60d43, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &1166073199 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 2938403815502186847, guid: aca8035460747284ca3ae47d436b9318, type: 3}
@@ -1884,7 +1884,7 @@ GameObject:
   - component: {fileID: 1334659354}
   - component: {fileID: 1334659353}
   - component: {fileID: 1334659352}
-  - component: {fileID: 1334659351}
+  - component: {fileID: 1334659358}
   m_Layer: 0
   m_Name: Level1
   m_TagString: Obstacle
@@ -1892,18 +1892,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &1334659351
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1334659350}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b9157845f28a1774c8a1cb8ecbaf405e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &1334659352
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2032,6 +2020,18 @@ Transform:
   - {fileID: 1502247950}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1334659358
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1334659350}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b9157845f28a1774c8a1cb8ecbaf405e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1336590682
 GameObject:
   m_ObjectHideFlags: 0
@@ -2513,7 +2513,7 @@ GameObject:
   - component: {fileID: 1971033466}
   - component: {fileID: 1971033465}
   - component: {fileID: 1971033464}
-  - component: {fileID: 1971033463}
+  - component: {fileID: 1971033470}
   m_Layer: 0
   m_Name: Tutorial_1
   m_TagString: Obstacle
@@ -2521,18 +2521,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &1971033463
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1971033462}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: dd6f2fc87b945ad438dd3e09a870853c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &1971033464
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2661,6 +2649,18 @@ Transform:
   - {fileID: 1235282647}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1971033470
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1971033462}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ee4fc7363b8eec645a1ff6052e5f0dcb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &1973465668 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 8389954174261728505, guid: aca8035460747284ca3ae47d436b9318, type: 3}
