@@ -167,7 +167,7 @@ public class ObstacleSpawner : MonoBehaviour
             case 1:  // ring
                 if (SceneManager.GetActiveScene().name == "Level 3")
                 {
-                    powerUpPosition.y += obstacle.transform.localScale.y / 2 + 6.0f;
+                    powerUpPosition.y += obstacle.transform.localScale.y / 2 + 3.0f;
                     powerUp = Instantiate(powerUpPrefab, powerUpPosition, Quaternion.identity);
                 }
                 else
