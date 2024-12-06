@@ -127,11 +127,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 4168342870535216, guid: 873ac25ac1e31f64e935305e5b6b41d1, type: 3}
   m_PrefabInstance: {fileID: 1370930853}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &8245687 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 3660518709645650239, guid: cdb021bb4fc922a44b7aa29e1b8d566a, type: 3}
-  m_PrefabInstance: {fileID: 779221831}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &28350435
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -195,6 +190,10 @@ PrefabInstance:
     - target: {fileID: 4168342870535216, guid: 873ac25ac1e31f64e935305e5b6b41d1, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4735205556178602, guid: 873ac25ac1e31f64e935305e5b6b41d1, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 0.20227002
       objectReference: {fileID: 0}
     - target: {fileID: 23191790011127408, guid: 873ac25ac1e31f64e935305e5b6b41d1, type: 3}
       propertyPath: m_Materials.Array.data[0]
@@ -567,11 +566,6 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 873ac25ac1e31f64e935305e5b6b41d1, type: 3}
---- !u!1 &90057137 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 7349944725718912789, guid: 416581040cb97954fa47873201e3d269, type: 3}
-  m_PrefabInstance: {fileID: 511445350}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &104361405
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -4594,8 +4588,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   player: {fileID: 0}
   cv: {fileID: 268037751}
-  NotInRange: {fileID: 0}
-  InRange: {fileID: 0}
 --- !u!54 &940054149
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -5159,6 +5151,10 @@ PrefabInstance:
     - target: {fileID: 4168342870535216, guid: 873ac25ac1e31f64e935305e5b6b41d1, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4735205556178602, guid: 873ac25ac1e31f64e935305e5b6b41d1, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 0.18209
       objectReference: {fileID: 0}
     - target: {fileID: 23191790011127408, guid: 873ac25ac1e31f64e935305e5b6b41d1, type: 3}
       propertyPath: m_Materials.Array.data[0]
@@ -8541,8 +8537,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   player: {fileID: 1009956512}
   cv: {fileID: 268037751}
-  NotInRange: {fileID: 8245687}
-  InRange: {fileID: 90057137}
 --- !u!54 &1774780213
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -9953,7 +9947,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: ea106ef629bedc04d8acde84de232353, type: 2}
+  - {fileID: 2100000, guid: 507e7d9cea7b7a94cb64ec52905974a7, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -9982,7 +9976,7 @@ MeshFilter:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2104432499}
-  m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+  m_Mesh: {fileID: 2816134514703022894, guid: 3a317b573d2a8244fa3259cbaca7c5c8, type: 3}
 --- !u!4 &2104432505
 Transform:
   m_ObjectHideFlags: 0
