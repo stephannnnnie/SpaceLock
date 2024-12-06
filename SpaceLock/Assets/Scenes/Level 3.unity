@@ -20162,27 +20162,6 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: aca8035460747284ca3ae47d436b9318, type: 3}
---- !u!65 &2230041635481362777
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4362978466931383253}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0.5, z: 0}
 --- !u!1001 &3972759526805333162
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -20263,9 +20242,8 @@ GameObject:
   - component: {fileID: 9015219289344316607}
   - component: {fileID: 8574046314008914293}
   - component: {fileID: 7256063102190557641}
-  - component: {fileID: 2230041635481362777}
   - component: {fileID: 9015219289344316609}
-  - component: {fileID: 9015219289344316608}
+  - component: {fileID: 9015219289344316610}
   m_Layer: 0
   m_Name: ScifiBox
   m_TagString: Obstacle
@@ -20407,28 +20385,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 360458950}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &9015219289344316608
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4362978466931383253}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8f38e4a8602744bda9d2754570b88175, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  minSpeed: 0.5
-  speed: 3
-  farObstacle: {fileID: 2100000, guid: 2a13c3c440291244ebe95a1d1afdd2a1, type: 2}
-  nearObstacle: {fileID: 2100000, guid: 80d7455ddd261bd49937bcf9107ba9cc, type: 2}
-  pointA: {x: -200.88, y: 27.4, z: -426.37128}
-  pointB: {x: -200.88, y: 27.4, z: -426.37128}
-  loopBoundaryLeft: {x: 0, y: 0, z: 0}
-  loopBoundaryRight: {x: 0, y: 0, z: 0}
-  isLooping: 0
-  movingRight: 0
 --- !u!114 &9015219289344316609
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -20443,6 +20399,27 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   farObstacle: {fileID: 2100000, guid: 507e7d9cea7b7a94cb64ec52905974a7, type: 2}
   nearObstacle: {fileID: 2100000, guid: 8a457ff4881e00b479a85054dd3b7e02, type: 2}
+--- !u!65 &9015219289344316610
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4362978466931383253}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 1, y: 1.0000001, z: 1.0000001}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
