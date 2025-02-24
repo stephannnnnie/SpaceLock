@@ -1,6 +1,6 @@
 # SpaceLock
 
-Team GameJammers: *Dhruv Rajvansh Dengheng Shi* *Yen Chih Chen* *Beijia Chen* *Sydney Leister* *Bhavna Tahelayni*
+Team GameJammers@USC: *Dhruv Rajvansh* | *Dengheng Shi* | *Yen Chih Chen* | *Beijia Chen* | *Sydney Leister* | *Bhavna Tahelayni* 
 
 ### GameIntro
 
